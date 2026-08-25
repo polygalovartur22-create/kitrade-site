@@ -23,6 +23,8 @@
 
     root.style.setProperty("--site-artboard-width", `${masterWidth}px`);
     root.style.setProperty("--site-artboard-scale", scale.toFixed(6));
+    root.style.setProperty("--site-artboard-inverse-scale", (1 / scale).toFixed(6));
+    root.style.setProperty("--site-viewport-width", `${availableWidth}px`);
     page.dataset.artboard = String(masterWidth);
   };
 

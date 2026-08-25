@@ -14,6 +14,13 @@
     box-shadow 240ms ease;
 }
 
+body.reference-only > .reference-header {
+  width: var(--site-viewport-width, 100vw);
+  max-width: none;
+  transform: scale(var(--site-artboard-inverse-scale, 1));
+  transform-origin: top left;
+}
+
 .reference-header-shell,
 body.reference-only .reference-header .reference-header-shell {
   display: grid;
@@ -163,7 +170,8 @@ body.menu-open .reference-header {
   box-shadow: 0 12px 34px rgba(0, 0, 0, 0.24);
 }
 
-.reference-header.is-scrolled .reference-header-shell {
+.reference-header.is-scrolled .reference-header-shell,
+body.reference-only .reference-header.is-scrolled .reference-header-shell {
   min-height: 72px;
 }
 
@@ -258,7 +266,8 @@ body.menu-open {
     min-height: 76px;
   }
 
-  .reference-header.is-scrolled .reference-header-shell {
+  .reference-header.is-scrolled .reference-header-shell,
+  body.reference-only .reference-header.is-scrolled .reference-header-shell {
     min-height: 68px;
   }
 
@@ -299,7 +308,8 @@ body.menu-open {
     min-height: 68px;
   }
 
-  .reference-header.is-scrolled .reference-header-shell {
+  .reference-header.is-scrolled .reference-header-shell,
+  body.reference-only .reference-header.is-scrolled .reference-header-shell {
     min-height: 64px;
   }
 
