@@ -98,6 +98,40 @@ body.reference-only .reference-header .reference-logo {
   transform-origin: left;
 }
 
+/* Keep the homepage navigation animation identical to the catalog header. */
+body.reference-only .reference-header .reference-nav a {
+  transform: none;
+  transition: color 240ms ease;
+}
+
+body.reference-only .reference-header .reference-nav a::after {
+  right: 0;
+  bottom: 6px;
+  left: 0;
+  width: auto;
+  height: 1px;
+  border-radius: 0;
+  background: #fff;
+  opacity: 1;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 280ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body.reference-only .reference-header .reference-nav a:hover,
+body.reference-only .reference-header .reference-nav a:focus-visible,
+body.reference-only .reference-header .reference-nav a.active {
+  transform: none;
+}
+
+body.reference-only .reference-header .reference-nav a:hover::after,
+body.reference-only .reference-header .reference-nav a:focus-visible::after,
+body.reference-only .reference-header .reference-nav a.active::after {
+  opacity: 1;
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
 .reference-header-actions,
 body.reference-only .reference-header .reference-header-actions {
   display: flex;
