@@ -1,0 +1,279 @@
+/* One header implementation shared by the homepage and catalog. */
+.reference-header {
+  position: fixed;
+  z-index: 120;
+  top: 0;
+  right: 0;
+  left: 0;
+  border-bottom: 1px solid transparent;
+  background: transparent;
+  font-family: "Segoe UI Variable", "Segoe UI", Arial, sans-serif;
+  transition:
+    background-color 240ms ease,
+    border-color 240ms ease,
+    box-shadow 240ms ease;
+}
+
+.reference-header-shell,
+body.reference-only .reference-header .reference-header-shell {
+  display: grid;
+  grid-template-columns: 168px minmax(0, 1fr) 174px;
+  align-items: center;
+  gap: 38px;
+  width: min(calc(100% - 48px), 1600px);
+  max-width: 1600px;
+  min-height: 96px;
+  margin-inline: auto;
+  padding-inline: 0;
+  transition: min-height 240ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reference-logo,
+body.reference-only .reference-header .reference-logo {
+  display: inline-flex;
+  width: 136px;
+  min-height: 44px;
+  align-items: center;
+  color: #fff;
+}
+
+.reference-logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.reference-nav {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(30px, 3vw, 58px);
+  white-space: nowrap;
+}
+
+.reference-nav a {
+  position: relative;
+  padding: 12px 0;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0;
+  text-decoration: none;
+  transition: color 240ms ease;
+}
+
+.reference-nav a::after {
+  position: absolute;
+  right: 0;
+  bottom: 6px;
+  left: 0;
+  height: 1px;
+  background: #fff;
+  content: "";
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 280ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reference-nav a:hover,
+.reference-nav a:focus-visible,
+.reference-nav a.active {
+  color: #fff;
+}
+
+.reference-nav a:hover::after,
+.reference-nav a:focus-visible::after,
+.reference-nav a.active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.reference-header-actions,
+body.reference-only .reference-header .reference-header-actions {
+  display: flex;
+  grid-column: 3;
+  width: auto;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 24px;
+}
+
+.reference-contact,
+.reference-contact:hover,
+.reference-contact:focus-visible {
+  position: relative;
+  display: inline-flex;
+  min-width: 164px;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.74);
+  border-radius: 8px;
+  background: rgba(7, 9, 10, 0.16);
+  color: #fff;
+  font-size: 14px;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: none;
+  transform: none;
+  backdrop-filter: blur(14px);
+  transition: border-color 220ms ease, background-color 220ms ease;
+}
+
+.reference-contact::before {
+  content: none;
+  animation: none;
+}
+
+.reference-contact:hover,
+.reference-contact:focus-visible {
+  border-color: #fff;
+  background: rgba(7, 9, 10, 0.28);
+  outline: none;
+}
+
+.reference-header.is-scrolled,
+body.menu-open .reference-header {
+  border-bottom-color: rgba(255, 255, 255, 0.085);
+  background: rgba(5, 7, 8, 0.96);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.24);
+}
+
+.reference-header.is-scrolled .reference-header-shell {
+  min-height: 72px;
+}
+
+.reference-header .menu-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 6px;
+  background: transparent;
+}
+
+.reference-header .menu-toggle span {
+  display: block;
+  width: 19px;
+  height: 1px;
+  margin: 5px auto;
+  background: #fff;
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.reference-header .menu-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.reference-header .menu-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.reference-header .menu-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.reference-header .mobile-nav {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  display: none;
+  width: 100%;
+  max-height: calc(100dvh - 68px);
+  margin: 0;
+  padding: 8px 24px calc(24px + env(safe-area-inset-bottom, 0px));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: #07090a;
+  box-shadow: 0 26px 48px rgba(0, 0, 0, 0.42);
+}
+
+.reference-header .mobile-nav[hidden] {
+  display: none;
+}
+
+.reference-header .mobile-nav a {
+  display: block;
+  min-height: 52px;
+  padding: 16px 2px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.reference-header .mobile-nav a.active {
+  color: #fff705;
+}
+
+.reference-header .mobile-nav .mobile-nav-cta {
+  display: grid;
+  min-height: 50px;
+  margin-top: 14px;
+  padding: 0 18px;
+  place-items: center;
+  border: 0;
+  border-radius: 7px;
+  background: #fff705;
+  color: #07090a;
+  font-weight: 650;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+@media (max-width: 980px) {
+  .reference-header-shell,
+  body.reference-only .reference-header .reference-header-shell {
+    grid-template-columns: 132px minmax(0, 1fr) 44px;
+    width: calc(100% - 48px);
+    min-height: 76px;
+  }
+
+  .reference-header.is-scrolled .reference-header-shell {
+    min-height: 68px;
+  }
+
+  .reference-nav,
+  .reference-contact,
+  body.reference-only .reference-header .reference-nav,
+  body.reference-only .reference-header .reference-contact {
+    display: none !important;
+  }
+
+  .reference-header .menu-toggle,
+  .reference-header .mobile-nav:not([hidden]) {
+    display: block;
+  }
+}
+
+@media (max-width: 700px) {
+  .reference-header-shell,
+  body.reference-only .reference-header .reference-header-shell {
+    grid-template-columns: 118px minmax(0, 1fr) 44px;
+    width: calc(100% - 32px);
+    min-height: 68px;
+  }
+
+  .reference-header.is-scrolled .reference-header-shell {
+    min-height: 64px;
+  }
+
+  .reference-logo,
+  body.reference-only .reference-header .reference-logo {
+    width: 116px;
+  }
+
+  .reference-header .mobile-nav {
+    max-height: calc(100dvh - 64px);
+    padding-inline: 16px;
+  }
+}

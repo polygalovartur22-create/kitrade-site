@@ -11,47 +11,48 @@
     <link rel="stylesheet" href="/catalog-adaptive-final.css?v=1" />
     <link rel="stylesheet" href="/product-page.css?v=1" />
     <link rel="stylesheet" href="/product-quick-view.css?v=2" />
+    <link rel="stylesheet" href="/shared-header.css?v=1" />
   </head>
   <body>
-    <header class="site-header" data-catalog-header>
-      <div class="site-header-shell">
-        <a class="brand" href="/" aria-label="Китрейд, на главную">
-          <img src="/assets/external-media/cloudinary-6a8387a47ccd342e.webp" alt="Китрейд" />
+    <header class="reference-header" data-header>
+      <div class="reference-header-shell">
+        <a class="reference-logo" href="/" aria-label="Китрейд, на главную">
+          <img src="/assets/kitrade-wordmark.webp" alt="Китрейд" />
         </a>
-        <nav class="top-nav" aria-label="Навигация">
+        <nav class="reference-nav" aria-label="Категории каталога">
           <a href="/#company">О компании</a>
           <a href="/#about">Преимущества</a>
           <a href="/#workflow">Доставка</a>
           <a href="/#orders">Кейсы</a>
           <a class="active" href="#catalog">Каталог</a>
         </nav>
-        <div class="site-header-actions">
-          <a class="header-cta" href="tel:+79964574301">Связаться с нами</a>
+        <div class="reference-header-actions">
+          <a class="reference-contact" href="tel:+79964574301">Связаться с нами</a>
           <button
-            class="catalog-menu-toggle"
+            class="menu-toggle"
             type="button"
             aria-expanded="false"
-            aria-controls="catalog-mobile-navigation"
+            aria-controls="mobile-navigation"
             aria-label="Открыть меню"
-            data-catalog-menu-toggle
+            data-menu-toggle
           >
             <span></span><span></span><span></span>
           </button>
         </div>
       </div>
       <nav
-        class="catalog-mobile-nav"
-        id="catalog-mobile-navigation"
+        class="mobile-nav"
+        id="mobile-navigation"
         aria-label="Мобильная навигация"
         hidden
-        data-catalog-mobile-nav
+        data-mobile-nav
       >
         <a href="/#company">О компании</a>
         <a href="/#about">Преимущества</a>
         <a href="/#workflow">Доставка</a>
         <a href="/#orders">Кейсы</a>
         <a class="active" href="#catalog">Каталог</a>
-        <a class="catalog-mobile-contact" href="tel:+79964574301">Связаться с нами</a>
+        <a class="mobile-nav-cta" href="tel:+79964574301">Связаться с нами</a>
       </nav>
     </header>
 

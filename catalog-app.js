@@ -4,9 +4,9 @@
     const base = String(window.KITRADE_SITE_CONFIG?.basePath || "").replace(/\/$/, "");
     return base && path.startsWith("/") && !path.startsWith(`${base}/`) ? `${base}${path}` : path;
   };
-  const catalogHeader = document.querySelector("[data-catalog-header]");
-  const catalogMenuToggle = document.querySelector("[data-catalog-menu-toggle]");
-  const catalogMobileNav = document.querySelector("[data-catalog-mobile-nav]");
+  const catalogHeader = document.querySelector("[data-header]");
+  const catalogMenuToggle = document.querySelector("[data-menu-toggle]");
+  const catalogMobileNav = document.querySelector("[data-mobile-nav]");
 
   function setCatalogMenu(open) {
     if (!catalogMenuToggle || !catalogMobileNav) return;
@@ -14,7 +14,7 @@
     catalogMenuToggle.setAttribute("aria-expanded", String(open));
     catalogMenuToggle.setAttribute("aria-label", open ? "Закрыть меню" : "Открыть меню");
     catalogMobileNav.hidden = !open;
-    document.body.classList.toggle("catalog-menu-open", open);
+    document.body.classList.toggle("menu-open", open);
   }
 
   catalogMenuToggle?.addEventListener("click", () => {
