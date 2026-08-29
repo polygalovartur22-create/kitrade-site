@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 const projectDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const sourceDir = path.join(projectDir, "dist");
 const outputDir = path.join(projectDir, "dist-github-pages");
-const basePath = String(process.env.GITHUB_PAGES_BASE_PATH || "/kitrade-preview").replace(/\/$/, "");
+const basePath = String(process.env.GITHUB_PAGES_BASE_PATH || "/kitrade-site").replace(/\/$/, "");
 
 if (!/^\/[a-z0-9._-]+$/i.test(basePath)) throw new Error(`Unsafe GitHub Pages base path: ${basePath}`);
 if (!fs.existsSync(path.join(sourceDir, "index.html"))) throw new Error("Run the site build before the GitHub Pages post-processing step.");

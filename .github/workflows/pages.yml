@@ -1,4 +1,4 @@
-name: Deploy KITRADE preview to GitHub Pages
+name: Deploy KITRADE site to GitHub Pages
 
 on:
   push:
@@ -30,11 +30,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build GitHub Pages preview
+      - name: Build GitHub Pages site
         run: npm run build:github-pages
         env:
           KITRADE_BUILD_MODE: github-pages
-          GITHUB_PAGES_BASE_PATH: /kitrade-preview
+          GITHUB_PAGES_BASE_PATH: /kitrade-site
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
