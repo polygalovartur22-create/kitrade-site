@@ -11,7 +11,7 @@
     "canonical_targets_with_query_parameters": 0,
     "empty_anchor_issues": 0,
     "hidden_terminal_pagination_links": 0,
-    "self_links_without_fragment": 364,
+    "self_links_without_fragment": 366,
     "pages_missing_expected_hierarchy_links": 0,
     "max_depth_from_home": 6,
     "pages_with_errors": 0,
@@ -35,7 +35,7 @@
     },
     {
       "anchor": "Каталог",
-      "count": 5207
+      "count": 5209
     },
     {
       "anchor": "Доставка",
@@ -3671,6 +3671,16 @@
         "anchor": "Двигатель"
       },
       {
+        "source": "/catalog/",
+        "href": "/catalog/",
+        "anchor": "Каталог"
+      },
+      {
+        "source": "/catalog/",
+        "href": "/catalog/",
+        "anchor": "Каталог"
+      },
+      {
         "source": "/catalog/jetour/",
         "href": "/catalog/jetour/",
         "anchor": "Jetour"
@@ -5659,9 +5669,9 @@
     {
       "canonical_path": "/catalog/",
       "page_type": "catalog",
-      "incoming_internal_links": 5211,
-      "unique_incoming_pages": 2605,
-      "outgoing_internal_links": 64,
+      "incoming_internal_links": 5213,
+      "unique_incoming_pages": 2606,
+      "outgoing_internal_links": 65,
       "depth_from_home": 1,
       "expected_hierarchy_targets": [
         "/"
@@ -5670,7 +5680,7 @@
       "incoming_anchor_texts": [
         {
           "anchor": "Каталог",
-          "count": 5207
+          "count": 5209
         },
         {
           "anchor": "Перейти в каталог →",
@@ -5711,7 +5721,7 @@
       "missing_hierarchy_targets": [],
       "incoming_anchor_texts": [
         {
-          "anchor": "по VIN",
+          "anchor": "VIN-номер",
           "count": 1
         }
       ],

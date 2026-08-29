@@ -32,7 +32,6 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-const requestSection = document.querySelector("#request");
 const detailsField = document.querySelector("#details");
 const catalogSearch = document.querySelector("[data-catalog-search]");
 const catalogQuery = document.querySelector("#catalog-query");
@@ -74,8 +73,7 @@ catalogSearch?.addEventListener("submit", (event) => {
 
   const prefix = selectedCategory ? `Категория: ${selectedCategory}\n` : "";
   detailsField.value = `${prefix}${query}`.trim();
-  requestSection.scrollIntoView({ behavior: "smooth", block: "start" });
-  window.setTimeout(() => detailsField.focus({ preventScroll: true }), 450);
+  window.setTimeout(() => detailsField.focus(), 50);
 });
 
 document.querySelectorAll("[data-case]").forEach((link) => {
@@ -261,9 +259,16 @@ if (requestForm) {
   const fileList = requestForm.querySelector("[data-file-list]");
   const status = requestForm.querySelector("[data-form-status]");
   const submitButton = requestForm.querySelector("[data-submit-button]");
+  const submitLabel = requestForm.querySelector("[data-submit-label]");
   const successView = requestForm.querySelector("[data-form-success]");
+  const progressTitle = requestForm.querySelector("[data-progress-title]");
+  const progressItems = [...requestForm.querySelectorAll("[data-progress-step]")];
+  const progressCard = requestForm.querySelector(".reference-request-progress");
+  const nextCard = requestForm.querySelector("[data-step-one-action]");
   let selectedFiles = [];
   let pendingOrderId = "";
+  let currentContactMode = "phone";
+  const contactDrafts = { phone: "", telegram: "" };
 
   const createOrderId = () => {
     const randomPart = globalThis.crypto?.randomUUID?.().replaceAll("-", "").slice(0, 12)
@@ -298,20 +303,18 @@ if (requestForm) {
     requestForm.dataset.currentStep = String(step);
     stepOne.hidden = !isFirst;
     stepTwo.hidden = isFirst;
+    nextCard.hidden = !isFirst;
     stepLabel.textContent = `Шаг ${step} из 2`;
     stepPercent.textContent = isFirst ? "50%" : "100%";
+    progressTitle.textContent = `Шаг ${step} из 2`;
+    progressItems.forEach((item) => {
+      if (item.dataset.progressStep === String(step)) item.setAttribute("aria-current", "step");
+      else item.removeAttribute("aria-current");
+    });
 
     const firstField = isFirst ? detailsField : nameInput;
-    firstField.focus({ preventScroll: true });
-
-    if (scroll) {
-      window.requestAnimationFrame(() => {
-        requestForm.scrollIntoView({
-          behavior: "auto",
-          block: "start",
-        });
-      });
-    }
+    if (scroll) window.requestAnimationFrame(() => firstField.focus());
+    else firstField.focus({ preventScroll: true });
   }
 
   function validateStepOne() {
@@ -341,8 +344,8 @@ if (requestForm) {
     const nameValid = nameInput.value.trim().length > 1;
     const contactValid =
       messenger === "Telegram"
-        ? contact.replace(/^@/, "").trim().length >= 3
-        : contact.replace(/\D/g, "").length >= 7;
+        ? /^@?[A-Za-z0-9_]{5,32}$/.test(contact)
+        : /^\d{10,15}$/.test(contact.replace(/\D/g, ""));
     const consentValid = consentInput.checked;
 
     setError("name", nameValid ? "" : "Укажите ваше имя.");
@@ -448,10 +451,15 @@ if (requestForm) {
   requestForm.elements.messenger.forEach((radio) => {
     radio.addEventListener("change", () => {
       const telegram = radio.value === "Telegram";
+      const nextContactMode = telegram ? "telegram" : "phone";
+      contactDrafts[currentContactMode] = phoneInput.value;
+      currentContactMode = nextContactMode;
       contactLabel.textContent = telegram ? "Telegram тег" : "Телефон";
       phoneInput.type = telegram ? "text" : "tel";
       phoneInput.placeholder = telegram ? "@username" : "+7 (___) ___-__-__";
       phoneInput.autocomplete = telegram ? "off" : "tel";
+      phoneInput.inputMode = telegram ? "text" : "tel";
+      phoneInput.value = contactDrafts[currentContactMode];
       setError("phone");
     });
   });
@@ -491,7 +499,7 @@ if (requestForm) {
     ].join("\n");
 
     submitButton.disabled = true;
-      submitButton.textContent = "Отправка...";
+    submitLabel.textContent = "Отправка...";
     requestForm.setAttribute("aria-busy", "true");
 
     try {
@@ -516,22 +524,31 @@ if (requestForm) {
         product_count: products.length,
         preliminary_sum: preliminarySum,
       });
-      const response = await fetch(FORM_ENDPOINT, {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "text/plain" },
-        body: JSON.stringify({ text: message, photos, order }),
-      });
+      const requestController = new AbortController();
+      const requestTimeout = window.setTimeout(() => requestController.abort(), 20000);
+      let response;
 
-      if (response.type === "opaque") {
-        status.textContent = "Сервер не подтвердил получение заявки. Если менеджер не свяжется в ближайшее рабочее время, отправьте запрос повторно.";
-        return;
+      try {
+        response = await fetch(FORM_ENDPOINT, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "text/plain" },
+          body: JSON.stringify({ text: message, photos, order }),
+          signal: requestController.signal,
+        });
+      } finally {
+        window.clearTimeout(requestTimeout);
       }
-      if (!response.ok) throw new Error(`Request failed with status ${response.status}`);
+
+      if (response.type !== "opaque" && !response.ok) {
+        throw new Error(`Request failed with status ${response.status}`);
+      }
 
       stepOne.hidden = true;
       stepTwo.hidden = true;
       formHead.hidden = true;
+      progressCard.hidden = true;
+      nextCard.hidden = true;
       successView.hidden = false;
       successView.focus();
       window.KITRADE_TRACK?.("request_submit_success", {
@@ -546,7 +563,7 @@ if (requestForm) {
       status.textContent = "Не удалось отправить заявку. Проверьте интернет и попробуйте ещё раз.";
     } finally {
       submitButton.disabled = false;
-      submitButton.textContent = "Получить расчёт";
+      submitLabel.textContent = "Получить расчёт";
       requestForm.removeAttribute("aria-busy");
     }
   });
@@ -561,8 +578,14 @@ if (requestForm) {
     status.textContent = "";
     successView.hidden = true;
     formHead.hidden = false;
+    progressCard.hidden = false;
+    nextCard.hidden = false;
+    currentContactMode = "phone";
+    contactDrafts.phone = "";
+    contactDrafts.telegram = "";
     contactLabel.textContent = "Телефон";
     phoneInput.type = "tel";
+    phoneInput.inputMode = "tel";
     phoneInput.placeholder = "+7 (___) ___-__-__";
     showStep(1);
   });
@@ -763,15 +786,17 @@ function selectOrder(index) {
   if (orderDetailLocation) orderDetailLocation.textContent = order.location;
   let activeOrderButton = null;
   ordersDialogList?.querySelectorAll("button").forEach((button) => {
-    button.classList.toggle("is-active", Number(button.dataset.orderIndex) === index);
-    if (Number(button.dataset.orderIndex) === index) activeOrderButton = button;
+    const isActive = Number(button.dataset.orderIndex) === index;
+    button.classList.toggle("is-active", isActive);
+    button.setAttribute("aria-pressed", String(isActive));
+    if (isActive) activeOrderButton = button;
   });
   showOrderImage(0);
-  if (ordersDialog?.open && window.matchMedia("(max-width: 599px)").matches) {
-    activeOrderButton?.scrollIntoView({
+  if (ordersDialog?.open && activeOrderButton && window.matchMedia("(max-width: 760px)").matches) {
+    const left = activeOrderButton.offsetLeft - (ordersDialogList.clientWidth - activeOrderButton.offsetWidth) / 2;
+    ordersDialogList.scrollTo({
+      left: Math.max(0, left),
       behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
-      block: "nearest",
-      inline: "center",
     });
   }
 }
@@ -803,6 +828,7 @@ function renderOrders(orders) {
     button.type = "button";
     button.dataset.orderIndex = String(index);
     button.classList.toggle("is-active", index === activeOrder);
+    button.setAttribute("aria-pressed", String(index === activeOrder));
     image.src = order.cover;
     image.alt = order.title;
     image.loading = "lazy";
@@ -820,8 +846,8 @@ async function openOrdersDialog(index = 0) {
   if (!ordersDialog || ordersDialog.open) return;
   const data = await sourceDataPromise;
   if (!sourceOrders.length) renderOrders(data.orders);
-  selectOrder(index);
   ordersDialog.showModal();
+  selectOrder(index);
   syncDialogLock();
 }
 
@@ -841,6 +867,13 @@ document.querySelectorAll("[data-order-item]").forEach((card) => {
 document.querySelector("[data-order-image-prev]")?.addEventListener("click", () => showOrderImage(activeOrderImage - 1));
 document.querySelector("[data-order-image-next]")?.addEventListener("click", () => showOrderImage(activeOrderImage + 1));
 document.querySelector("[data-orders-close]")?.addEventListener("click", () => ordersDialog?.close());
+document.querySelector("[data-orders-request]")?.addEventListener("click", () => {
+  ordersDialog?.close();
+  syncDialogLock();
+});
+ordersDialog?.addEventListener("click", (event) => {
+  if (event.target === ordersDialog) ordersDialog.close();
+});
 ordersDialog?.addEventListener("close", syncDialogLock);
 
 const orderDetail = document.querySelector("[data-order-detail]");

@@ -1,0 +1,130 @@
+@media (max-width: 700px) {
+  .catalog-hero {
+    height: 500px !important;
+    min-height: 500px !important;
+  }
+
+  .catalog-hero .hero-shell {
+    height: 500px !important;
+    min-height: 500px !important;
+    padding-top: 88px !important;
+    padding-bottom: 48px !important;
+  }
+
+  .catalog-workspace {
+    width: 100% !important;
+    padding: 28px 14px 96px !important;
+  }
+
+  .catalog-search {
+    width: 100%;
+    box-sizing: border-box;
+    grid-template-columns: minmax(0, 1fr) 72px !important;
+    min-height: 64px;
+    align-items: stretch;
+    gap: 6px;
+    padding: 6px;
+  }
+
+  .catalog-search * {
+    box-sizing: border-box;
+  }
+
+  .catalog-search label {
+    min-width: 0;
+    padding-inline: 12px 4px;
+  }
+
+  .catalog-search label > span {
+    display: none;
+  }
+
+  .catalog-search input {
+    min-width: 0;
+    min-height: 50px;
+    font-size: 16px;
+  }
+
+  .catalog-search button {
+    min-width: 72px;
+    max-width: 72px;
+    min-height: 50px;
+    padding-inline: 12px;
+  }
+
+  .results-toolbar {
+    min-height: 76px;
+    padding: 17px 2px 14px;
+  }
+
+  .results-toolbar > div {
+    width: 100%;
+  }
+
+  .results-toolbar h2 {
+    overflow: hidden;
+    font-size: 19px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .parts-grid {
+    gap: 10px !important;
+    padding-top: 12px;
+  }
+
+  .part-card {
+    grid-template-rows: 156px minmax(148px, auto) !important;
+  }
+
+  .part-content {
+    padding: 12px !important;
+  }
+
+  .part-title {
+    font-size: 14px !important;
+    line-height: 1.28 !important;
+  }
+
+  .catalog-mobile-filter-button {
+    left: 12px !important;
+    bottom: max(12px, env(safe-area-inset-bottom)) !important;
+    width: 100px !important;
+    min-height: 56px !important;
+  }
+
+  .catalog-mobile-cart {
+    right: 12px !important;
+    bottom: max(12px, env(safe-area-inset-bottom)) !important;
+    left: 120px !important;
+    width: auto !important;
+    min-height: 56px !important;
+  }
+
+  .filter-panel,
+  .request-panel {
+    padding: 17px !important;
+  }
+}
+
+@media (max-width: 370px) {
+  .catalog-workspace {
+    padding-inline: 12px !important;
+  }
+
+  .parts-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .part-card {
+    grid-template-rows: 190px auto !important;
+  }
+
+  .catalog-mobile-filter-button {
+    width: 92px !important;
+  }
+
+  .catalog-mobile-cart {
+    left: 112px !important;
+  }
+}

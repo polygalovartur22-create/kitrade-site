@@ -55,6 +55,13 @@
   const routePage = Math.max(1, Number(document.body.dataset.catalogPage) || 1);
   const PAGE_SIZE = 24;
   const DISPLAY_PAGE_SIZE = 16;
+  const compactCardDescription = (value) => {
+    const description = String(value || "Цена — за деталь. Проверка по VIN.")
+      .replace(/(?:^|\s)Доставка отдельно\.?/giu, " ")
+      .replace(/\s{2,}/g, " ")
+      .trim();
+    return description || "Цена — за деталь. Проверка по VIN.";
+  };
   const items = rawItems
     .filter((item) => item && item.title)
     .map((item) => {
@@ -62,9 +69,10 @@
       const article = item.article || "";
       return ({
       ...item,
+      id: String(item.id),
       title,
       article,
-      cardDescription: item.card_description || "Цена — за деталь. Доставка отдельно. Проверка по VIN.",
+      cardDescription: compactCardDescription(item.card_description),
       condition: item.condition || "",
       origin: item.origin || "",
       brand: item.brand || "Без марки",
@@ -80,12 +88,31 @@
     });
     });
 
+  const CART_STORAGE_KEY = "kitradeCatalogSelectionV1";
+  const COMMENT_STORAGE_KEY = "kitradeCatalogCommentV1";
+
+  function readStoredSelection() {
+    try {
+      const stored = JSON.parse(localStorage.getItem(CART_STORAGE_KEY) || "[]");
+      const ids = Array.isArray(stored) ? stored : stored?.ids;
+      if (!Array.isArray(ids)) return [];
+      const available = new Set(items.map((item) => item.id));
+      return [...new Set(ids.map(String))].filter((id) => available.has(id));
+    } catch {
+      return [];
+    }
+  }
+
+  function persistSelection() {
+    try { localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(state.selected)); } catch {}
+  }
+
   const state = {
     query: "",
     visible: DISPLAY_PAGE_SIZE,
     page: routePage,
     offset: (routePage - 1) * PAGE_SIZE,
-    selected: [],
+    selected: readStoredSelection(),
   };
 
   const partsGrid = document.querySelector("#partsGrid");
@@ -336,8 +363,8 @@
       ? `<img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)}" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false" /><div class="photo-fallback" hidden>Фото уточняется</div>`
       : `<div class="photo-fallback">Фото уточняется</div>`;
     return `
-      <article class="part-card" data-id="${escapeHtml(item.id)}">
-        <a class="part-photo"${href} data-product-link data-product-id="${escapeHtml(item.id)}">${image}</a>
+      <article class="part-card" data-id="${escapeHtml(item.id)}" data-product-card data-product-id="${escapeHtml(item.id)}">
+        <a class="part-photo"${href} data-product-link data-product-id="${escapeHtml(item.id)}">${image}<span class="part-preview-label">Быстрый просмотр</span></a>
         <div class="part-content">
           <span class="part-category">${escapeHtml(item.group)}</span>
           <h3><a class="part-title-link"${href} data-product-link data-product-id="${escapeHtml(item.id)}">${escapeHtml(item.title)}</a></h3>
@@ -345,7 +372,7 @@
           <div class="part-meta">
             <strong class="part-price">${formatPrice(item)}</strong>
             <span class="part-time">${deliveryLabel(item)}</span>
-            <button class="card-action" type="button" data-add="${escapeHtml(item.id)}">${selected ? "В заявке" : "В заявку"}</button>
+            <button class="card-action" type="button" data-add="${escapeHtml(item.id)}" aria-pressed="${selected}">${selected ? "В заявке" : "В заявку"}</button>
           </div>
         </div>
       </article>`;
@@ -528,6 +555,7 @@
     const id = button.dataset.add;
     if (state.selected.includes(id)) state.selected = state.selected.filter((itemId) => itemId !== id);
     else state.selected.push(id);
+    persistSelection();
     if (state.selected.includes(id)) window.KITRADE_TRACK?.("add_to_request", { product_id: id, page_type: "catalog" });
     renderRequest();
     render();
@@ -538,6 +566,7 @@
     const button = event.target.closest("button[data-remove]");
     if (!button) return;
     state.selected = state.selected.filter((id) => id !== button.dataset.remove);
+    persistSelection();
     renderRequest();
     render();
   });
@@ -598,10 +627,18 @@
     const id = String(event.detail?.id || "");
     if (!id || state.selected.includes(id)) return;
     state.selected.push(id);
+    persistSelection();
     renderRequest();
     render();
     showToast("Позиция добавлена в заявку");
   });
+  const requestComment = document.querySelector("#requestComment");
+  if (requestComment) {
+    try { requestComment.value = localStorage.getItem(COMMENT_STORAGE_KEY) || ""; } catch {}
+    requestComment.addEventListener("input", () => {
+      try { localStorage.setItem(COMMENT_STORAGE_KEY, requestComment.value); } catch {}
+    });
+  }
   render();
   renderRequest();
 })();

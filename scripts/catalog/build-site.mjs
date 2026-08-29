@@ -189,8 +189,8 @@ function productCard(product, item) {
   const description = content.cardDescription || "Цена — за деталь. Доставка отдельно. Проверка по VIN.";
   const href = productState?.indexable ? ` href="${escapeHtml(product.canonical_path)}"` : "";
   return `
-      <article class="part-card" data-id="${escapeHtml(item?.id || product.source_id)}">
-        <a class="part-photo"${href} data-product-link data-product-id="${escapeHtml(item?.id || product.source_id)}">${image}</a>
+      <article class="part-card" data-id="${escapeHtml(item?.id || product.source_id)}" data-product-card data-product-id="${escapeHtml(item?.id || product.source_id)}">
+        <a class="part-photo"${href} data-product-link data-product-id="${escapeHtml(item?.id || product.source_id)}">${image}<span class="part-preview-label">Быстрый просмотр</span></a>
         <div class="part-content">
           <span class="part-category">${escapeHtml(publicCategory)}</span>
           <h3><a class="part-title-link"${href} data-product-link data-product-id="${escapeHtml(item?.id || product.source_id)}">${escapeHtml(title)}</a></h3>
@@ -342,7 +342,7 @@ for (const directory of ["assets", "source-dist2"]) {
   if (fs.existsSync(source)) copyTree(source, path.join(outputDir, directory));
 }
 for (const filename of fs.readdirSync(projectDir)) {
-  if (!/\.(?:css|js|html)$/i.test(filename) || filename === "catalog.html") continue;
+  if (!/\.(?:css|js|html)$/i.test(filename) || ["catalog.html", "privacy-policy.html", "personal-data-consent.html"].includes(filename)) continue;
   fs.copyFileSync(path.join(projectDir, filename), path.join(outputDir, filename));
 }
 const homeOutputPath = path.join(outputDir, "index.html");
@@ -353,6 +353,8 @@ if (fs.existsSync(homeOutputPath)) {
   );
   fs.writeFileSync(homeOutputPath, homeHtml);
 }
+writeRoute("/privacy-policy/", fs.readFileSync(path.join(projectDir, "privacy-policy.html"), "utf8"));
+writeRoute("/personal-data-consent/", fs.readFileSync(path.join(projectDir, "personal-data-consent.html"), "utf8"));
 for (const filename of ["_headers"]) {
   const source = path.join(projectDir, filename);
   if (fs.existsSync(source)) fs.copyFileSync(source, path.join(outputDir, filename));
@@ -373,7 +375,7 @@ fs.writeFileSync(path.join(outputDir, "site-runtime-config.js"), `window.KITRADE
   basePath: publicBasePath,
   analytics: runtimeAnalytics,
 })};\n`);
-const sitemapUrls = [canonicalUrl("/"), canonicalUrl("/catalog/"), ...publicUrlRows.filter((row) => row.indexable).map((row) => row.canonical_url), ...paginationSitemapPaths.map(canonicalUrl)];
+const sitemapUrls = [canonicalUrl("/"), canonicalUrl("/catalog/"), canonicalUrl("/privacy-policy"), canonicalUrl("/personal-data-consent"), ...publicUrlRows.filter((row) => row.indexable).map((row) => row.canonical_url), ...paginationSitemapPaths.map(canonicalUrl)];
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${[...new Set(sitemapUrls)].map((url) => `  <url><loc>${escapeHtml(url)}</loc></url>`).join("\n")}\n</urlset>\n`;
 fs.writeFileSync(path.join(outputDir, "sitemap.xml"), sitemap);
 fs.writeFileSync(path.join(outputDir, "robots.txt"), isNonProductionBuild
@@ -459,8 +461,25 @@ function productPage(product, item) {
   const realPhoto = sourcePhoto(item);
   const photo = realPhoto || fallbackPhoto(item);
   const imageAlt = productImageAlt(content, item, brand, model);
-  const description = content.description || "";
+  const description = String(content.description || "").replaceAll("—", "–");
   const meta = content.meta || [brand?.name, model?.name].filter(Boolean).join(" · ");
+  const article = content.article || item?.article || "";
+  const years = item?.yearFrom
+    ? item.yearTo && item.yearTo !== item.yearFrom
+      ? `${item.yearFrom}–${item.yearTo}`
+      : String(item.yearFrom)
+    : "";
+  const specificationRows = [
+    ["Марка", brand?.name],
+    ["Модель", model?.name],
+    ["Поколение", item?.generation],
+    ["Годы выпуска", years],
+    ["OEM / артикул", article],
+    ["Состояние", item?.condition],
+  ].filter(([, value]) => value);
+  const specificationHtml = specificationRows
+    .map(([label, value]) => `<div><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(value)}</dd></div>`)
+    .join("");
   const hasIndexableRoute = (routePath) => Boolean(seoState.seoByPath.get(routePath)?.indexable);
   const crumbs = [
     ['/', 'Главная'], ['/catalog/', 'Каталог'],
@@ -500,15 +519,26 @@ function productPage(product, item) {
   <script type="application/ld+json">${safeJson(schemas)}</script>
   <link rel="stylesheet" href="/catalog-v2.css?v=10" />
   <link rel="stylesheet" href="/catalog-responsive.css?v=3" />
-  <link rel="stylesheet" href="/product-page.css?v=1" />
+  <link rel="stylesheet" href="/shared-header.css?v=3" />
+  <link rel="stylesheet" href="/product-page.css?v=2" />
+  <link rel="stylesheet" href="/privacy-controls.css?v=1" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="site-header-shell">
-      <a class="brand" href="/" aria-label="Китрейд, на главную"><img src="/assets/external-media/cloudinary-6a8387a47ccd342e.webp" alt="Китрейд" /></a>
-      <nav class="top-nav" aria-label="Навигация"><a href="/#company">О компании</a><a href="/#about">Преимущества</a><a href="/#workflow">Доставка</a><a href="/#orders">Кейсы</a><a class="active" href="/catalog/">Каталог</a></nav>
-      <div class="site-header-actions"><a class="header-cta" href="tel:+79964574301">Связаться с нами</a></div>
+  <header class="reference-header" data-header>
+    <div class="reference-header-shell">
+      <a class="reference-logo" href="/" aria-label="Китрейд, на главную"><img src="/assets/kitrade-wordmark.webp" alt="Китрейд" /></a>
+      <nav class="reference-nav" aria-label="Навигация">
+        <a href="/#company">О компании</a><a href="/#about">Преимущества</a><a href="/#workflow">Доставка</a><a href="/#orders">Кейсы</a><a href="/catalog/">Каталог</a>
+      </nav>
+      <div class="reference-header-actions">
+        <a class="reference-phone" href="tel:+79964574301">+7 (996) 457-43-01</a>
+        <a class="reference-contact" href="tel:+79964574301">Связаться с нами</a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="product-mobile-navigation" aria-label="Открыть меню" data-menu-toggle><span></span><span></span><span></span></button>
+      </div>
     </div>
+    <nav class="mobile-nav" id="product-mobile-navigation" aria-label="Мобильная навигация" hidden data-mobile-nav>
+      <a href="/#company">О компании</a><a href="/#about">Преимущества</a><a href="/#workflow">Доставка</a><a href="/#orders">Кейсы</a><a href="/catalog/">Каталог</a><a class="mobile-nav-cta" href="tel:+79964574301">Связаться с нами</a>
+    </nav>
   </header>
   <main class="product-page-main">
     <div class="product-page-shell">
@@ -519,17 +549,42 @@ function productPage(product, item) {
           <p class="product-page-category">${escapeHtml(category?.name || product.public_category || item?.category || "Запчасть")}</p>
           <h1>${escapeHtml(seo?.h1 || title)}</h1>
           <p class="product-page-meta">${escapeHtml(meta)}</p>
+          ${specificationHtml ? `<dl class="product-page-specs">${specificationHtml}</dl>` : ""}
           ${description ? `<p class="product-page-description">${escapeHtml(description)}</p>` : ""}
-          <strong class="product-page-price">${escapeHtml(formatPrice(item))}</strong>
-          <button class="product-page-request" type="button" data-product-request>Добавить в заявку</button>
+          <div class="product-page-purchase">
+            <span>Стоимость детали</span>
+            <strong class="product-page-price">${escapeHtml(formatPrice(item))}</strong>
+            <p>Доставку рассчитаем отдельно после проверки совместимости и наличия.</p>
+            <button class="product-page-request" type="button" data-product-request>Добавить в заявку</button>
+          </div>
         </div>
       </article>
+      <section class="product-page-assurance" aria-labelledby="product-assurance-title">
+        <div>
+          <p class="product-page-category">Перед заказом</p>
+          <h2 id="product-assurance-title">Проверим деталь и поставщика</h2>
+        </div>
+        <div class="product-page-assurance-list">
+          <article><strong>Совместимость</strong><p>Сверим применимость по VIN и OEM-номеру.</p></article>
+          <article><strong>Состояние</strong><p>Запросим актуальные фото детали до оплаты.</p></article>
+          <article><strong>Поставка</strong><p>Согласуем итоговую стоимость и срок доставки.</p></article>
+        </div>
+      </section>
     </div>
   </main>
+  <footer class="legal-site-footer">
+    <small>© 2026 Китрейд · ИП Заварзин Дмитрий Александрович</small>
+    <nav class="legal-site-footer__links" aria-label="Правовая информация">
+      <a href="/privacy-policy/">Политика обработки персональных данных</a>
+      <a href="/personal-data-consent/">Согласие на обработку персональных данных</a>
+      <button type="button" data-cookie-settings>Настройки cookie</button>
+    </nav>
+  </footer>
   <script id="product-page-data" type="application/json">${safeJson(productData)}</script>
   <script src="/site-runtime-config.js?v=1"></script>
   <script src="/analytics.js?v=2"></script>
-  <script src="/product-page.js?v=1"></script>
+  <script src="/product-page.js?v=4"></script>
+  <script src="/privacy-controls.js?v=1"></script>
 </body>
 </html>`;
 }
@@ -568,6 +623,7 @@ function vinSelectionPage() {
   <link rel="stylesheet" href="/catalog-v2.css?v=10" />
   <link rel="stylesheet" href="/catalog-responsive.css?v=3" />
   <link rel="stylesheet" href="/product-page.css?v=1" />
+  <link rel="stylesheet" href="/privacy-controls.css?v=1" />
 </head>
 <body>
   <header class="site-header">
@@ -592,8 +648,17 @@ function vinSelectionPage() {
       </article>
     </div>
   </main>
+  <footer class="legal-site-footer">
+    <small>© 2026 Китрейд · ИП Заварзин Дмитрий Александрович</small>
+    <nav class="legal-site-footer__links" aria-label="Правовая информация">
+      <a href="/privacy-policy/">Политика обработки персональных данных</a>
+      <a href="/personal-data-consent/">Согласие на обработку персональных данных</a>
+      <button type="button" data-cookie-settings>Настройки cookie</button>
+    </nav>
+  </footer>
   <script src="/site-runtime-config.js?v=1"></script>
   <script src="/analytics.js?v=2"></script>
+  <script src="/privacy-controls.js?v=1"></script>
 </body>
 </html>`;
 }
@@ -639,6 +704,8 @@ addFavicons(outputDir);
 const redirects = [
   "/catalog.html /catalog/ 301!",
   "/catalog /catalog/ 301!",
+  "/privacy-policy /privacy-policy/ 301!",
+  "/personal-data-consent /personal-data-consent/ 301!",
   "/index.html / 301!",
 ];
 for (const group of Object.values(registry.entities)) {
