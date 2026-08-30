@@ -446,9 +446,14 @@
     const selectedTitle = selectedItems.length === 1
       ? "1 позиция выбрана"
       : `${selectedItems.length} ${plural(selectedItems.length)} ${selectedItems.length < 5 ? "выбраны" : "выбрано"}`;
+    const lookupOpen = requestLookupToggle?.getAttribute("aria-expanded") === "true";
+    const visibleLimit = lookupOpen ? 1 : 3;
+    const visibleItems = selectedItems.slice(0, visibleLimit);
+    const hiddenCount = selectedItems.length - visibleItems.length;
     requestSelection.innerHTML = `
       <strong>${selectedTitle}</strong>
-      ${selectedItems.map((item) => `<div class="selected-item"><a href="${escapeHtml(item.canonicalPath)}">${escapeHtml(item.title)}</a><button type="button" data-remove="${escapeHtml(item.id)}">Удалить</button></div>`).join("")}`;
+      ${visibleItems.map((item) => `<div class="selected-item"><a href="${escapeHtml(item.canonicalPath)}">${escapeHtml(item.title)}</a><button type="button" data-remove="${escapeHtml(item.id)}">Удалить</button></div>`).join("")}
+      ${hiddenCount > 0 ? `<p class="request-selection-more">Ещё ${hiddenCount} ${plural(hiddenCount)} в заявке</p>` : ""}`;
     updateRequestSummary();
   }
 
@@ -637,6 +642,7 @@
     requestLookupToggle.textContent = open
       ? "Скрыть запрос на поиск"
       : "Не нашли нужную деталь? Отправить запрос на поиск";
+    renderRequest();
     if (open) requestCarModel?.focus();
   }
 

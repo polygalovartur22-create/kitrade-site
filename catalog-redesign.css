@@ -537,7 +537,7 @@ textarea:focus-visible {
   top: 92px !important;
   max-height: calc(100dvh - 112px) !important;
   padding: 24px 20px 22px;
-  overflow-y: auto;
+  overflow: hidden !important;
 }
 
 .request-kicker {
@@ -572,6 +572,7 @@ textarea:focus-visible {
   border-color: var(--catalog-line);
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.018);
+  overflow: hidden;
 }
 
 .request-selection strong {
@@ -582,6 +583,12 @@ textarea:focus-visible {
 .request-selection p {
   color: var(--catalog-dim);
   font-size: 12px;
+}
+
+.request-selection .request-selection-more {
+  margin-top: 8px;
+  color: rgba(255, 255, 255, 0.54);
+  font-size: 11px;
 }
 
 .request-selection .selected-item a {
@@ -689,7 +696,17 @@ textarea:focus-visible {
 }
 
 .request-contact-stage {
-  margin-top: 20px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px 8px;
+  margin-top: 16px;
+}
+
+.request-contact-stage > .request-summary,
+.request-contact-stage > .request-messengers,
+.request-contact-stage > .request-comment,
+.request-contact-stage > .request-consent,
+.request-contact-stage > .request-error {
+  grid-column: 1 / -1;
 }
 
 .request-summary {
@@ -821,8 +838,8 @@ textarea:focus-visible {
 }
 
 .request-comment textarea {
-  min-height: 136px;
-  padding: 13px;
+  min-height: 76px;
+  padding: 10px 12px;
   border-radius: 9px;
   font-size: 13px;
 }
@@ -851,6 +868,86 @@ textarea:focus-visible {
   color: var(--catalog-dim);
   font-size: 11px;
   line-height: 1.45;
+}
+
+@media (min-width: 1181px) and (max-height: 760px) {
+  .request-panel {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .request-panel > h2 {
+    margin-top: 12px;
+    font-size: 24px;
+  }
+
+  .request-intro {
+    margin-top: 8px;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .request-selection {
+    margin-top: 12px;
+    padding: 8px 11px;
+  }
+
+  .selected-item {
+    padding: 6px 0;
+  }
+
+  .selected-item:first-of-type {
+    margin-top: 6px;
+  }
+
+  .request-lookup,
+  .request-contact-stage {
+    margin-top: 10px;
+  }
+
+  .request-lookup-fields,
+  .request-contact-stage {
+    gap: 7px;
+  }
+
+  .request-lookup-fields {
+    margin-top: 10px;
+  }
+
+  .request-lookup-fields input,
+  .request-field input {
+    min-height: 36px;
+  }
+
+  .request-lookup-fields textarea,
+  .request-comment textarea {
+    min-height: 52px;
+  }
+
+  .request-summary {
+    padding: 9px 11px;
+    line-height: 1.35;
+  }
+
+  .request-messengers span {
+    min-height: 31px;
+  }
+
+  .request-messengers legend,
+  .request-comment > span {
+    margin-bottom: 4px;
+  }
+
+  .request-submit {
+    min-height: 38px;
+    margin-top: 7px;
+  }
+
+  .request-panel > small {
+    margin-top: 6px;
+    font-size: 9px;
+    line-height: 1.35;
+  }
 }
 
 .load-more {
@@ -954,7 +1051,7 @@ textarea:focus-visible {
     width: 100% !important;
     max-height: min(88dvh, 760px) !important;
     padding: 20px 16px max(24px, env(safe-area-inset-bottom)) !important;
-    overflow-y: auto !important;
+    overflow: hidden !important;
     border-radius: 18px 18px 0 0 !important;
     background: #0c0e0f !important;
     box-shadow: 0 -30px 90px rgba(0, 0, 0, 0.72);
@@ -1109,6 +1206,77 @@ textarea:focus-visible {
 
   .request-submit {
     width: 100%;
+  }
+
+  .request-panel > h2 {
+    margin-top: 12px;
+    font-size: 24px;
+  }
+
+  .request-intro {
+    margin-top: 8px;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .request-selection {
+    margin-top: 12px;
+    padding: 10px 12px;
+  }
+
+  .selected-item {
+    padding: 7px 0;
+  }
+
+  .selected-item:first-of-type {
+    margin-top: 7px;
+  }
+
+  .request-lookup,
+  .request-contact-stage {
+    margin-top: 10px;
+  }
+
+  .request-lookup-fields,
+  .request-contact-stage {
+    gap: 7px;
+  }
+
+  .request-lookup-fields {
+    margin-top: 10px;
+  }
+
+  .request-lookup-fields input,
+  .request-field input {
+    min-height: 36px;
+  }
+
+  .request-lookup-fields textarea,
+  .request-comment textarea {
+    min-height: 58px;
+  }
+
+  .request-summary {
+    padding: 9px 11px;
+  }
+
+  .request-messengers span {
+    min-height: 31px;
+  }
+
+  .request-messengers legend,
+  .request-comment > span {
+    margin-bottom: 4px;
+  }
+
+  .request-submit {
+    min-height: 40px;
+    margin-top: 9px;
+  }
+
+  .request-panel > small {
+    margin-top: 8px;
+    font-size: 10px;
   }
 }
 
