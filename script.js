@@ -1,7 +1,7 @@
 "use strict";
 
-const FORM_ENDPOINT =
-  "https://script.google.com/macros/s/AKfycbwYrw2uPwJi8Cgx5uPJq2rtwTXXvFWWhd_WHFW38QWvsG-nvlaku8TkUMZHN7dNh2oqlw/exec";
+const FORM_ENDPOINT = window.KITRADE_SITE_CONFIG?.crmIntakeUrl
+  || "https://195.19.20.105/api/website-intake";
 const MAX_FILES = 5;
 const MAX_FILE_SIZE = 5 * 1024 * 1024;
 
@@ -484,20 +484,6 @@ if (requestForm) {
     if (!validateStepTwo()) return;
 
     const messenger = requestForm.elements.messenger.value;
-    const contactType = messenger === "Telegram" ? "Telegram" : "Телефон";
-    const message = [
-      "Услуга: Автозапчасти",
-      "",
-      `Автомобиль: ${carModelInput.value.trim()}`,
-      `Год: ${carYearInput.value.trim() || "не указан"}`,
-      `VIN: ${vinInput.value.trim().toUpperCase() || "не указан"}`,
-      `Запчасть: ${detailsField.value.trim()}`,
-      `Имя: ${nameInput.value.trim()}`,
-      `${contactType}: ${phoneInput.value.trim()}`,
-      `Мессенджер: ${messenger}`,
-      `Фото: ${selectedFiles.length} шт.`,
-    ].join("\n");
-
     submitButton.disabled = true;
     submitLabel.textContent = "Отправка...";
     requestForm.setAttribute("aria-busy", "true");
@@ -519,29 +505,51 @@ if (requestForm) {
         preliminary_sum: preliminarySum,
         currency: "RUB",
       };
+      const payload = {
+        external_id: order.order_id,
+        website: "",
+        client: {
+          name: nameInput.value.trim(),
+          contact: phoneInput.value.trim(),
+          messenger,
+        },
+        vehicle: {
+          model: carModelInput.value.trim(),
+          year: carYearInput.value.trim(),
+          vin: vinInput.value.trim().toUpperCase(),
+        },
+        details: detailsField.value.trim(),
+        photos,
+        order,
+      };
       window.KITRADE_TRACK?.("request_submit_attempt", {
         order_id: order.order_id,
         product_count: products.length,
         preliminary_sum: preliminarySum,
       });
       const requestController = new AbortController();
-      const requestTimeout = window.setTimeout(() => requestController.abort(), 20000);
+      const requestTimeout = window.setTimeout(() => requestController.abort(), 60000);
       let response;
 
       try {
         response = await fetch(FORM_ENDPOINT, {
           method: "POST",
-          mode: "no-cors",
-          headers: { "Content-Type": "text/plain" },
-          body: JSON.stringify({ text: message, photos, order }),
+          mode: "cors",
+          credentials: "omit",
+          headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
           signal: requestController.signal,
         });
       } finally {
         window.clearTimeout(requestTimeout);
       }
 
-      if (response.type !== "opaque" && !response.ok) {
-        throw new Error(`Request failed with status ${response.status}`);
+      const confirmation = await response.json().catch(() => null);
+      if (!response.ok || !confirmation?.ok || confirmation.confirmation !== "saved") {
+        throw new Error(confirmation?.error || `Request failed with status ${response.status}`);
       }
 
       stepOne.hidden = true;

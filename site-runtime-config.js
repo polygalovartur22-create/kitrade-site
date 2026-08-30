@@ -1,6 +1,7 @@
 window.KITRADE_SITE_CONFIG = Object.freeze({
   basePath: "",
   siteUrl: "https://xn--d1abifc1bn.xn--p1ai",
+  crmIntakeUrl: "https://195.19.20.105/api/website-intake",
   catalogPath: "/catalog/",
   analytics: Object.freeze({
     provider: "yandex_metrika",

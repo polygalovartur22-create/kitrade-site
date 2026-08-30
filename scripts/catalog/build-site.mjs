@@ -373,6 +373,7 @@ const runtimeAnalytics = { ...config.analytics, enabled: isNonProductionBuild ? 
 fs.writeFileSync(path.join(outputDir, "site-runtime-config.js"), `window.KITRADE_SITE_CONFIG = ${safeJson({
   deploymentMode,
   basePath: publicBasePath,
+  crmIntakeUrl: config.crmIntakeUrl,
   analytics: runtimeAnalytics,
 })};\n`);
 const sitemapUrls = [canonicalUrl("/"), canonicalUrl("/catalog/"), canonicalUrl("/privacy-policy"), canonicalUrl("/personal-data-consent"), ...publicUrlRows.filter((row) => row.indexable).map((row) => row.canonical_url), ...paginationSitemapPaths.map(canonicalUrl)];

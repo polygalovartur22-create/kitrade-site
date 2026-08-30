@@ -180,10 +180,8 @@ assert.ok(nginxExample.includes("catalog-runtime-data|catalog-url-data|site-runt
 assert.ok(nginxExample.includes("[0-9a-f]{8,}") && nginxExample.includes("immutable"), "Nginx example does not limit immutable caching to versioned assets");
 const formScript = fs.readFileSync(path.join(outputDir, "script.js"), "utf8");
 assert.ok(formScript.indexOf('KITRADE_TRACK?.("request_submit_attempt")') < formScript.indexOf("await fetch("), "Submission attempt is not tracked before the request");
-assert.ok(formScript.includes('mode: "no-cors"'), "Current Google Apps Script transport no longer uses its required no-cors mode");
-assert.ok(formScript.includes('response.type === "opaque"'), "Opaque no-cors responses are not handled separately");
-const opaqueResponseBranch = formScript.match(/if \(response\.type === "opaque"\) \{([\s\S]*?)\n\s*\}/)?.[1] || "";
-assert.ok(/\breturn;/.test(opaqueResponseBranch), "Opaque response can reach the success UI or request_submit_success event");
+assert.ok(formScript.includes('mode: "cors"'), "CRM form transport must use CORS");
+assert.ok(formScript.includes('confirmation.confirmation !== "saved"'), "CRM save confirmation is not validated");
 assert.ok(formScript.indexOf('KITRADE_TRACK?.("request_submit_success",') > formScript.indexOf("if (!response.ok)"), "Success is tracked before a confirmed server response");
 assert.ok(formScript.indexOf("successView.hidden = false") > formScript.indexOf("if (!response.ok)"), "Error response can reach the success UI");
 for (const field of ["metrika_client_id", "yclid", "first_landing_url", "order_id", "selected_products", "preliminary_sum"]) {
@@ -663,18 +661,14 @@ assert.ok(directTargetGaps.every((gap) => !searchTargetMap.groups.some((group) =
   && group.canonical_path === gap.canonical_path
 ))), "A Direct group with a confirmed canonical page was placed in the target-gap report");
 assert.ok(!/(?:onrender\.com|github\.io|netlify\.app|pages\.dev|vercel\.app)/i.test(JSON.stringify(directTargetGaps)), "Preview URL leaked into the Direct target-gap report");
-assert.equal(formSubmissionAudit.current_state?.endpoint, "Google Apps Script", "Form audit lost the current endpoint type");
-assert.equal(formSubmissionAudit.current_state?.request_mode, "no-cors", "Form audit lost the current no-cors mode");
-assert.equal(formSubmissionAudit.current_state?.response_visibility, "opaque", "Form audit does not describe the opaque response");
-assert.equal(formSubmissionAudit.current_state?.request_submit_success_sent, false, "Form audit falsely claims current confirmed success tracking");
-assert.ok(formSubmissionAudit.required_server_change?.cors_enabled
-  && formSubmissionAudit.required_server_change?.response_format === "JSON"
-  && /2xx/i.test(formSubmissionAudit.required_server_change?.success_status || ""), "Form audit lacks the required server-side CORS/JSON/2xx change");
-assert.ok(formSubmissionAudit.required_client_change?.remove_no_cors
-  && formSubmissionAudit.required_client_change?.request_mode === "cors"
-  && formSubmissionAudit.required_client_change?.read_response_json
-  && formSubmissionAudit.required_client_change?.validate_server_confirmation, "Form audit lacks the required client-side CORS and JSON-confirmation change");
-assert.equal(formSubmissionAudit.confirmed_success_gate?.opaque_or_error_must_not_succeed, true, "Form audit permits false success for an opaque or error response");
+assert.equal(formSubmissionAudit.current_state?.endpoint, "KITRADE CRM", "Form audit lost the CRM endpoint type");
+assert.equal(formSubmissionAudit.current_state?.request_mode, "cors", "Form audit lost the CORS request mode");
+assert.equal(formSubmissionAudit.current_state?.response_visibility, "json", "Form audit does not describe the JSON response");
+assert.equal(formSubmissionAudit.current_state?.request_submit_success_sent, true, "Form audit lost confirmed success tracking");
+assert.ok(formSubmissionAudit.server_contract?.cors_enabled
+  && formSubmissionAudit.server_contract?.response_format === "JSON"
+  && /2xx/i.test(formSubmissionAudit.server_contract?.success_status || ""), "Form audit lacks the CRM CORS/JSON/2xx contract");
+assert.equal(formSubmissionAudit.confirmed_success_gate?.invalid_json_or_error_must_not_succeed, true, "Form audit permits false success for an invalid CRM response");
 assert.deepEqual(formSubmissionAudit.analytics?.offline_events, config.analytics?.offlineEvents || [], "Offline analytics goals changed in the form audit");
 assert.deepEqual(formSubmissionAudit.analytics?.online_events, config.analytics?.events || [], "Browser analytics goals changed in the form audit");
 

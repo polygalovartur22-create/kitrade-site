@@ -390,34 +390,27 @@ if (unresolvedDirectGroups.some((gap) => gap.canonical_path
 fs.writeFileSync(path.join(reportsDir, "direct-target-gaps.json"), `${JSON.stringify(unresolvedDirectGroups, null, 2)}\n`);
 
 fs.writeFileSync(path.join(reportsDir, "form-submission-audit.json"), `${JSON.stringify({
-  status: "server_confirmation_unavailable",
+  status: "crm_confirmation_enabled",
   current_state: {
-    endpoint: "Google Apps Script",
-    request_mode: "no-cors",
-    response_visibility: "opaque",
-    server_confirmation_available: false,
-    success_ui_shown: false,
-    request_submit_success_sent: false,
-    explanation: "The opaque response cannot prove that the request was saved, so it is not treated as confirmed success.",
+    endpoint: "KITRADE CRM",
+    request_mode: "cors",
+    response_visibility: "json",
+    server_confirmation_available: true,
+    success_ui_shown: true,
+    request_submit_success_sent: true,
+    explanation: "Success is shown only after KITRADE CRM confirms that the client, order and task were saved.",
   },
-  required_server_change: {
+  server_contract: {
     cors_enabled: true,
     response_format: "JSON",
     success_status: "HTTP 2xx only after the request has actually been saved",
-    confirmation_contract: "Return a verifiable JSON confirmation only after the request and attribution payload have been stored successfully.",
-  },
-  required_client_change: {
-    request_mode: "cors",
-    remove_no_cors: true,
-    read_response_json: true,
-    validate_server_confirmation: true,
-    migration_note: "When the server supports CORS, remove no-cors (or explicitly use CORS), parse JSON and verify the save confirmation.",
+    confirmation_contract: "The response must contain ok=true and confirmation=saved.",
   },
   confirmed_success_gate: {
     condition: "Only a valid server JSON confirmation after an HTTP 2xx response may show success and send request_submit_success.",
     show_success_after_confirmation: true,
     send_request_submit_success_after_confirmation: true,
-    opaque_or_error_must_not_succeed: true,
+    invalid_json_or_error_must_not_succeed: true,
   },
   analytics: {
     attempt_event: "request_submit_attempt",
