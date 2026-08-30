@@ -90,6 +90,9 @@
 
   const CART_STORAGE_KEY = "kitradeCatalogSelectionV1";
   const COMMENT_STORAGE_KEY = "kitradeCatalogCommentV1";
+  const REQUEST_DRAFT_STORAGE_KEY = "kitradeCatalogRequestDraftV1";
+  const FORM_ENDPOINT = window.KITRADE_SITE_CONFIG?.crmIntakeUrl
+    || "https://195.19.20.105/api/website-intake";
 
   function readStoredSelection() {
     try {
@@ -113,6 +116,8 @@
     page: routePage,
     offset: (routePage - 1) * PAGE_SIZE,
     selected: readStoredSelection(),
+    requestStep: 1,
+    requestSubmitting: false,
   };
 
   const partsGrid = document.querySelector("#partsGrid");
@@ -121,6 +126,29 @@
   const emptyState = document.querySelector("#emptyState");
   const loadMore = document.querySelector("#loadMore");
   const requestSelection = document.querySelector("#requestSelection");
+  const requestPanel = document.querySelector("#request");
+  const requestTitle = requestPanel?.querySelector("[data-request-title]");
+  const requestIntro = requestPanel?.querySelector("[data-request-intro]");
+  const requestDetailsStage = requestPanel?.querySelector('[data-request-stage="details"]');
+  const requestContactStage = requestPanel?.querySelector('[data-request-stage="contacts"]');
+  const requestSuccess = requestPanel?.querySelector("[data-request-success]");
+  const requestNote = requestPanel?.querySelector("[data-request-note]");
+  const requestLookupToggle = requestPanel?.querySelector(".request-lookup-toggle");
+  const requestLookupFields = document.querySelector("#requestLookupFields");
+  const requestDetailsError = requestPanel?.querySelector("[data-request-details-error]");
+  const requestContactError = requestPanel?.querySelector("[data-request-contact-error]");
+  const requestSummary = requestPanel?.querySelector("[data-request-summary]");
+  const requestSubmit = document.querySelector("#requestSubmit");
+  const requestBack = document.querySelector("#requestBack");
+  const requestCarModel = document.querySelector("#requestCarModel");
+  const requestCarYear = document.querySelector("#requestCarYear");
+  const requestVin = document.querySelector("#requestVin");
+  const requestMissingPart = document.querySelector("#requestMissingPart");
+  const requestCustomerName = document.querySelector("#requestCustomerName");
+  const requestCustomerContact = document.querySelector("#requestCustomerContact");
+  const requestContactLabel = requestPanel?.querySelector("[data-request-contact-label]");
+  const requestComment = document.querySelector("#requestComment");
+  const requestPrivacyConsent = document.querySelector("#requestPrivacyConsent");
   const toast = document.querySelector("#toast");
   let toastTimer;
 
@@ -412,6 +440,7 @@
     const selectedItems = state.selected.map((id) => items.find((item) => item.id === id)).filter(Boolean);
     if (!selectedItems.length) {
       requestSelection.innerHTML = "<strong>Позиции не выбраны</strong><p>Добавьте нужные детали из карточек каталога.</p>";
+      updateRequestSummary();
       return;
     }
     const selectedTitle = selectedItems.length === 1
@@ -419,7 +448,18 @@
       : `${selectedItems.length} ${plural(selectedItems.length)} ${selectedItems.length < 5 ? "выбраны" : "выбрано"}`;
     requestSelection.innerHTML = `
       <strong>${selectedTitle}</strong>
-      ${selectedItems.map((item) => `<div class="selected-item"><span>${escapeHtml(item.title)}</span><button type="button" data-remove="${escapeHtml(item.id)}">Удалить</button></div>`).join("")}`;
+      ${selectedItems.map((item) => `<div class="selected-item"><a href="${escapeHtml(item.canonicalPath)}">${escapeHtml(item.title)}</a><button type="button" data-remove="${escapeHtml(item.id)}">Удалить</button></div>`).join("")}`;
+    updateRequestSummary();
+  }
+
+  function updateRequestSummary() {
+    if (!requestSummary) return;
+    const productCount = state.selected.length;
+    const hasLookup = Boolean(requestMissingPart?.value.trim());
+    const parts = [];
+    if (productCount) parts.push(`${productCount} ${plural(productCount)} из каталога`);
+    if (hasLookup) parts.push("запрос на поиск детали");
+    requestSummary.textContent = parts.length ? `В заявке: ${parts.join(" и ")}.` : "Состав заявки сохранён.";
   }
 
   function showToast(message) {
@@ -572,35 +612,261 @@
   });
 
   loadMore.addEventListener("click", (event) => { event.preventDefault(); state.visible += DISPLAY_PAGE_SIZE; render(); });
-  document.querySelector("#requestSubmit").addEventListener("click", () => {
-    if (!state.selected.length) {
-      showToast("Сначала добавьте хотя бы одну позицию.");
-      return;
+  function manualRequestValues() {
+    return {
+      model: requestCarModel?.value.trim() || "",
+      year: requestCarYear?.value.trim() || "",
+      vin: requestVin?.value.trim().toUpperCase() || "",
+      part: requestMissingPart?.value.trim() || "",
+    };
+  }
+
+  function saveRequestDraft() {
+    try {
+      localStorage.setItem(REQUEST_DRAFT_STORAGE_KEY, JSON.stringify({
+        ...manualRequestValues(),
+        comment: requestComment?.value || "",
+      }));
+    } catch {}
+  }
+
+  function setLookupOpen(open) {
+    if (!requestLookupFields || !requestLookupToggle) return;
+    requestLookupFields.hidden = !open;
+    requestLookupToggle.setAttribute("aria-expanded", String(open));
+    requestLookupToggle.textContent = open
+      ? "Скрыть запрос на поиск"
+      : "Не нашли нужную деталь? Отправить запрос на поиск";
+    if (open) requestCarModel?.focus();
+  }
+
+  function setRequestStep(step) {
+    state.requestStep = step;
+    requestPanel.dataset.requestStep = String(step);
+    requestDetailsStage.hidden = step !== 1;
+    requestContactStage.hidden = step !== 2;
+    requestSuccess.hidden = true;
+    requestSubmit.hidden = false;
+    requestNote.hidden = false;
+    requestSubmit.disabled = false;
+    requestSubmit.textContent = "Отправить на расчет";
+    if (step === 1) {
+      requestTitle.innerHTML = "Соберите корзину<br />запроса";
+      requestIntro.textContent = "Добавьте детали или опишите задачу. Цена в каталоге — за деталь; доставку рассчитает менеджер.";
+    } else {
+      requestTitle.innerHTML = "Контакты<br />для связи";
+      requestIntro.textContent = "Оставьте данные, чтобы менеджер мог уточнить детали и подготовить расчёт.";
+      updateRequestSummary();
+      requestCustomerName?.focus();
     }
+    requestPanel.scrollTo({ top: 0, behavior: "smooth" });
+  }
 
-    const selectedItems = state.selected
+  function validateRequestDetails() {
+    requestDetailsError.textContent = "";
+    const manual = manualRequestValues();
+    const manualActive = Object.values(manual).some(Boolean);
+    if (!state.selected.length && !manual.part) {
+      requestDetailsError.textContent = "Добавьте товар или опишите нужную деталь.";
+      if (!requestLookupFields.hidden) requestMissingPart?.focus();
+      else setLookupOpen(true);
+      return false;
+    }
+    if (manualActive && (!manual.model || !manual.part)) {
+      requestDetailsError.textContent = "Для поиска укажите автомобиль и нужную запчасть.";
+      setLookupOpen(true);
+      return false;
+    }
+    if (manual.year && !/^(19|20)\d{2}$/.test(manual.year)) {
+      requestDetailsError.textContent = "Проверьте год выпуска автомобиля.";
+      setLookupOpen(true);
+      requestCarYear?.focus();
+      return false;
+    }
+    if (manual.vin && !/^[A-HJ-NPR-Z0-9]{17}$/.test(manual.vin)) {
+      requestDetailsError.textContent = "VIN должен содержать 17 символов.";
+      setLookupOpen(true);
+      requestVin?.focus();
+      return false;
+    }
+    return true;
+  }
+
+  function selectedRequestProducts() {
+    return state.selected
       .map((id) => items.find((item) => String(item.id) === String(id)))
-      .filter(Boolean);
-    const comment = document.querySelector("#requestComment")?.value.trim();
-    const lines = selectedItems.map((item, index) => {
-      const article = item.article ? `, арт. ${item.article}` : "";
-      return `${index + 1}. ${item.title}${article}`;
-    });
-    if (comment) lines.push("", `Комментарий: ${comment}`);
-
-    sessionStorage.setItem("kitradeCatalogDraft", JSON.stringify({
-      details: `Позиции из каталога:\n${lines.join("\n")}`,
-      selected_products: selectedItems.map((item) => ({
+      .filter(Boolean)
+      .map((item) => ({
         product_id: item.id,
         title: item.title,
         article: item.article || "",
         price: item.priceNumber || 0,
-      })),
-      preliminary_sum: selectedItems.reduce((sum, item) => sum + item.priceNumber, 0),
-      createdAt: Date.now(),
-    }));
-    window.KITRADE_TRACK?.("request_open", { source: "catalog", product_count: selectedItems.length });
-    window.location.href = sitePath("/#request");
+        url: new URL(item.canonicalPath, window.location.origin).href,
+      }));
+  }
+
+  function validateRequestContacts() {
+    requestContactError.textContent = "";
+    const name = requestCustomerName?.value.trim() || "";
+    const contact = requestCustomerContact?.value.trim() || "";
+    const messenger = requestPanel.querySelector('input[name="catalogMessenger"]:checked')?.value || "Звонок";
+    if (!name) {
+      requestContactError.textContent = "Укажите ваше имя.";
+      requestCustomerName?.focus();
+      return false;
+    }
+    if (messenger === "Telegram") {
+      if (!/^@?[A-Za-z0-9_]{5,32}$/.test(contact)) {
+        requestContactError.textContent = "Укажите корректный Telegram тег.";
+        requestCustomerContact?.focus();
+        return false;
+      }
+    } else if (!/^\d{10,15}$/.test(contact.replace(/\D/g, ""))) {
+      requestContactError.textContent = "Укажите корректный номер телефона.";
+      requestCustomerContact?.focus();
+      return false;
+    }
+    if (!requestPrivacyConsent?.checked) {
+      requestContactError.textContent = "Подтвердите согласие на обработку данных.";
+      requestPrivacyConsent?.focus();
+      return false;
+    }
+    return true;
+  }
+
+  async function submitCatalogRequest() {
+    if (state.requestSubmitting || !validateRequestContacts()) return;
+    const manual = manualRequestValues();
+    const products = selectedRequestProducts();
+    const messenger = requestPanel.querySelector('input[name="catalogMessenger"]:checked')?.value || "Звонок";
+    const details = [
+      products.length && `Выбрано позиций из каталога: ${products.length}.`,
+      manual.part && `Запрос на поиск: ${manual.part}`,
+      requestComment?.value.trim() && `Комментарий: ${requestComment.value.trim()}`,
+    ].filter(Boolean).join("\n");
+    const orderId = `catalog-${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
+    const payload = {
+      external_id: orderId,
+      website: "",
+      client: {
+        name: requestCustomerName.value.trim(),
+        contact: requestCustomerContact.value.trim(),
+        messenger,
+      },
+      vehicle: {
+        model: manual.model,
+        year: manual.year,
+        vin: manual.vin,
+      },
+      details,
+      photos: [],
+      order: {
+        order_id: orderId,
+        attribution: window.KITRADE_GET_ATTRIBUTION?.() || {
+          metrika_client_id: "",
+          yclid: "",
+          utm: {},
+          first_landing_url: window.location.href,
+        },
+        selected_products: products,
+        preliminary_sum: products.reduce((sum, item) => sum + item.price, 0),
+        currency: "RUB",
+      },
+    };
+
+    state.requestSubmitting = true;
+    requestSubmit.disabled = true;
+    requestSubmit.textContent = "Отправка...";
+    requestPanel.setAttribute("aria-busy", "true");
+    window.KITRADE_TRACK?.("request_submit_attempt", {
+      source: "catalog",
+      order_id: orderId,
+      product_count: products.length,
+    });
+
+    try {
+      const controller = new AbortController();
+      const timeout = window.setTimeout(() => controller.abort(), 60000);
+      let response;
+      try {
+        response = await fetch(FORM_ENDPOINT, {
+          method: "POST",
+          mode: "cors",
+          credentials: "omit",
+          headers: { "Accept": "application/json", "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+          signal: controller.signal,
+        });
+      } finally {
+        window.clearTimeout(timeout);
+      }
+      const confirmation = await response.json().catch(() => null);
+      if (!response.ok || !confirmation?.ok || confirmation.confirmation !== "saved") {
+        throw new Error(confirmation?.error || `Request failed with status ${response.status}`);
+      }
+
+      state.selected = [];
+      persistSelection();
+      localStorage.removeItem(REQUEST_DRAFT_STORAGE_KEY);
+      localStorage.removeItem(COMMENT_STORAGE_KEY);
+      requestDetailsStage.hidden = true;
+      requestContactStage.hidden = true;
+      requestSubmit.hidden = true;
+      requestNote.hidden = true;
+      requestTitle.innerHTML = "Заявка<br />отправлена";
+      requestIntro.textContent = "Мы получили ваш запрос и передали его менеджеру.";
+      requestSuccess.hidden = false;
+      requestSuccess.focus();
+      renderRequest();
+      render();
+      window.KITRADE_TRACK?.("request_submit_success", {
+        source: "catalog",
+        order_id: orderId,
+        product_count: products.length,
+      });
+    } catch (error) {
+      requestContactError.textContent = error?.name === "AbortError"
+        ? "Сервер долго не отвечает. Попробуйте отправить ещё раз."
+        : "Не удалось отправить заявку. Проверьте соединение и повторите попытку.";
+      requestSubmit.disabled = false;
+      requestSubmit.textContent = "Отправить на расчет";
+      window.KITRADE_TRACK?.("request_submit_error", { source: "catalog", message: error?.message || "unknown" });
+    } finally {
+      state.requestSubmitting = false;
+      requestPanel.removeAttribute("aria-busy");
+    }
+  }
+
+  requestLookupToggle?.addEventListener("click", () => {
+    setLookupOpen(requestLookupToggle.getAttribute("aria-expanded") !== "true");
+  });
+  requestSubmit?.addEventListener("click", () => {
+    if (state.requestStep === 1) {
+      if (!validateRequestDetails()) return;
+      window.KITRADE_TRACK?.("request_open", { source: "catalog", product_count: state.selected.length });
+      setRequestStep(2);
+      return;
+    }
+    submitCatalogRequest();
+  });
+  requestBack?.addEventListener("click", () => setRequestStep(1));
+  requestPanel?.querySelectorAll('input[name="catalogMessenger"]').forEach((radio) => {
+    radio.addEventListener("change", () => {
+      const telegram = radio.value === "Telegram";
+      requestContactLabel.textContent = telegram ? "Telegram тег" : "Телефон";
+      requestCustomerContact.type = telegram ? "text" : "tel";
+      requestCustomerContact.placeholder = telegram ? "@username" : "+7 (___) ___-__-__";
+      requestCustomerContact.autocomplete = telegram ? "off" : "tel";
+      requestCustomerContact.inputMode = telegram ? "text" : "tel";
+      requestContactError.textContent = "";
+    });
+  });
+  [requestCarModel, requestCarYear, requestVin, requestMissingPart, requestComment].forEach((field) => {
+    field?.addEventListener("input", () => {
+      requestDetailsError.textContent = "";
+      saveRequestDraft();
+      updateRequestSummary();
+    });
   });
 
   renderAllFilterOptions();
@@ -632,13 +898,15 @@
     render();
     showToast("Позиция добавлена в заявку");
   });
-  const requestComment = document.querySelector("#requestComment");
-  if (requestComment) {
-    try { requestComment.value = localStorage.getItem(COMMENT_STORAGE_KEY) || ""; } catch {}
-    requestComment.addEventListener("input", () => {
-      try { localStorage.setItem(COMMENT_STORAGE_KEY, requestComment.value); } catch {}
-    });
-  }
+  try {
+    const draft = JSON.parse(localStorage.getItem(REQUEST_DRAFT_STORAGE_KEY) || "{}");
+    requestCarModel.value = draft.model || "";
+    requestCarYear.value = draft.year || "";
+    requestVin.value = draft.vin || "";
+    requestMissingPart.value = draft.part || "";
+    requestComment.value = draft.comment || localStorage.getItem(COMMENT_STORAGE_KEY) || "";
+    if (draft.model || draft.year || draft.vin || draft.part) setLookupOpen(true);
+  } catch {}
   render();
   renderRequest();
 })();

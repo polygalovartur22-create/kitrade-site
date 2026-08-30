@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/product-page.css?v=1" />
     <link rel="stylesheet" href="/product-quick-view.css?v=5" />
     <link rel="stylesheet" href="/shared-header.css?v=3" />
-    <link rel="stylesheet" href="/catalog-redesign.css?v=6" />
+    <link rel="stylesheet" href="/catalog-redesign.css?v=8" />
     <link rel="stylesheet" href="/catalog-mobile-polish.css?v=3" />
     <link rel="stylesheet" href="/privacy-controls.css?v=1" />
   </head>
@@ -165,22 +165,80 @@
           </div>
         </section>
 
-        <aside class="request-panel" id="request">
+        <aside class="request-panel" id="request" data-request-step="1">
           <p class="request-kicker"><span></span>Заявка</p>
-          <h2>Соберите корзину<br />запроса</h2>
-          <p class="request-intro">Добавьте детали или опишите задачу. Цена в каталоге — за деталь; доставку рассчитает менеджер.</p>
+          <h2 data-request-title>Соберите корзину<br />запроса</h2>
+          <p class="request-intro" data-request-intro>Добавьте детали или опишите задачу. Цена в каталоге — за деталь; доставку рассчитает менеджер.</p>
 
-          <div class="request-selection" id="requestSelection">
-            <strong>Позиции не выбраны</strong>
-            <p>Добавьте нужные детали из карточек каталога.</p>
+          <div data-request-stage="details">
+            <div class="request-selection" id="requestSelection">
+              <strong>Позиции не выбраны</strong>
+              <p>Добавьте нужные детали из карточек каталога.</p>
+            </div>
+
+            <div class="request-lookup">
+              <button class="request-lookup-toggle" type="button" aria-expanded="false" aria-controls="requestLookupFields">
+                Не нашли нужную деталь? Отправить запрос на поиск
+              </button>
+              <div class="request-lookup-fields" id="requestLookupFields" hidden>
+                <div class="request-lookup-grid">
+                  <label>
+                    <span>Марка и модель</span>
+                    <input id="requestCarModel" type="text" autocomplete="off" placeholder="Chery Tiggo 7 Pro" />
+                  </label>
+                  <label>
+                    <span>Год</span>
+                    <input id="requestCarYear" type="text" inputmode="numeric" maxlength="4" placeholder="2023" />
+                  </label>
+                </div>
+                <label>
+                  <span>VIN</span>
+                  <input id="requestVin" type="text" maxlength="17" autocomplete="off" placeholder="17 символов" />
+                </label>
+                <label>
+                  <span>Нужная запчасть</span>
+                  <textarea id="requestMissingPart" placeholder="Название и, если есть, артикул"></textarea>
+                </label>
+                <p class="request-error" data-request-details-error role="alert"></p>
+              </div>
+            </div>
           </div>
 
-          <label class="request-comment">
-            <span>Комментарий</span>
-            <textarea id="requestComment" placeholder="VIN, год, город доставки, пожелания по оригиналу..."></textarea>
-          </label>
+          <div class="request-contact-stage" data-request-stage="contacts" hidden>
+            <p class="request-summary" data-request-summary></p>
+            <label class="request-field">
+              <span>Ваше имя</span>
+              <input id="requestCustomerName" type="text" autocomplete="name" placeholder="Иван Иванов" />
+            </label>
+            <label class="request-field">
+              <span data-request-contact-label>Телефон</span>
+              <input id="requestCustomerContact" type="tel" autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" />
+            </label>
+            <fieldset class="request-messengers">
+              <legend>Удобный способ связи</legend>
+              <label><input type="radio" name="catalogMessenger" value="Max" checked /><span>Max</span></label>
+              <label><input type="radio" name="catalogMessenger" value="Telegram" /><span>Telegram</span></label>
+              <label><input type="radio" name="catalogMessenger" value="Звонок" /><span>Звонок</span></label>
+            </fieldset>
+            <label class="request-comment">
+              <span>Комментарий</span>
+              <textarea id="requestComment" placeholder="Город доставки и дополнительные пожелания"></textarea>
+            </label>
+            <label class="request-consent">
+              <input id="requestPrivacyConsent" type="checkbox" />
+              <span>Я согласен на обработку персональных данных на условиях <a href="/personal-data-consent/" target="_blank" rel="noopener">согласия</a>.</span>
+            </label>
+            <p class="request-error" data-request-contact-error role="alert"></p>
+            <button class="request-back" id="requestBack" type="button">Назад</button>
+          </div>
+
+          <div class="request-success" data-request-success hidden tabindex="-1">
+            <strong>Заявка отправлена</strong>
+            <p>Менеджер свяжется с вами, уточнит детали и подготовит расчёт.</p>
+          </div>
+
           <button class="request-submit" id="requestSubmit" type="button">Отправить на расчет</button>
-          <small>Минимальная сумма заказа — 50 000 ₽ · можно объединить детали.</small>
+          <small data-request-note>Минимальная сумма заказа — 50 000 ₽ · можно объединить детали.</small>
         </aside>
       </section>
     </main>
@@ -200,7 +258,7 @@
     <script src="/product-quick-view.js?v=7"></script>
     <script src="/site-runtime-config.js?v=1"></script>
     <script src="/analytics.js?v=2"></script>
-    <script src="/catalog-app.js?v=25"></script>
+    <script src="/catalog-app.js?v=26"></script>
     <script src="/catalog-adaptive.js?v=4"></script>
     <script src="/privacy-controls.js?v=1"></script>
   </body>
