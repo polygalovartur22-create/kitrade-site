@@ -69,7 +69,7 @@ body.reference-only .reference-header .reference-logo {
   line-height: 1.2;
   letter-spacing: 0;
   text-decoration: none;
-  transition: color 240ms ease;
+  transition: color 360ms ease;
 }
 
 .reference-nav a::after {
@@ -80,9 +80,10 @@ body.reference-only .reference-header .reference-logo {
   height: 1px;
   background: #fff;
   content: "";
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 280ms cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0;
+  transform: none;
+  transform-origin: center;
+  transition: opacity 360ms ease;
 }
 
 .reference-nav a:hover,
@@ -94,14 +95,15 @@ body.reference-only .reference-header .reference-logo {
 .reference-nav a:hover::after,
 .reference-nav a:focus-visible::after,
 .reference-nav a.active::after {
-  transform: scaleX(1);
-  transform-origin: left;
+  opacity: 1;
+  transform: none;
+  transform-origin: center;
 }
 
 /* Keep the homepage navigation animation identical to the catalog header. */
 body.reference-only .reference-header .reference-nav a {
   transform: none;
-  transition: color 240ms ease;
+  transition: color 360ms ease;
 }
 
 body.reference-only .reference-header .reference-nav a::after {
@@ -112,10 +114,10 @@ body.reference-only .reference-header .reference-nav a::after {
   height: 1px;
   border-radius: 0;
   background: #fff;
-  opacity: 1;
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 280ms cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0;
+  transform: none;
+  transform-origin: center;
+  transition: opacity 360ms ease;
 }
 
 body.reference-only .reference-header .reference-nav a:hover,
@@ -128,8 +130,8 @@ body.reference-only .reference-header .reference-nav a:hover::after,
 body.reference-only .reference-header .reference-nav a:focus-visible::after,
 body.reference-only .reference-header .reference-nav a.active::after {
   opacity: 1;
-  transform: scaleX(1);
-  transform-origin: left;
+  transform: none;
+  transform-origin: center;
 }
 
 .reference-header-actions,
@@ -185,9 +187,45 @@ body.reference-only .reference-header .reference-header-actions {
   transition: border-color 220ms ease, background-color 220ms ease;
 }
 
-.reference-contact::before {
-  content: none;
-  animation: none;
+@property --header-contact-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.reference-header .reference-contact::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  z-index: 1;
+  padding: 1px;
+  border-radius: inherit;
+  background: conic-gradient(from var(--header-contact-angle),
+    transparent 242deg,
+    oklch(from #fff705 l c h / .06) 254deg,
+    oklch(from #fff705 l c h / .28) 274deg,
+    oklch(from #fff705 l c h) 301deg,
+    oklch(from #fffbd2 l c h) 314deg,
+    oklch(from #fff705 l c h) 325deg,
+    oklch(from #fff705 l c h / .34) 342deg,
+    transparent 360deg);
+  -webkit-mask: linear-gradient(black 0 0) content-box, linear-gradient(black 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(black 0 0) content-box, linear-gradient(black 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  animation: header-contact-flow 4.2s linear infinite;
+}
+
+@keyframes header-contact-flow { to { --header-contact-angle: 360deg; } }
+
+.reference-header .reference-contact:focus-visible {
+  outline: 2px solid oklch(from #fff705 l c h);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reference-header .reference-contact::before { animation: none; }
 }
 
 .reference-contact:hover,
@@ -296,13 +334,14 @@ body.menu-open {
   .reference-header-shell,
   body.reference-only .reference-header .reference-header-shell {
     grid-template-columns: 132px minmax(0, 1fr) 44px;
+    gap: 12px;
     width: calc(100% - 48px);
     min-height: 76px;
   }
 
   .reference-header.is-scrolled .reference-header-shell,
   body.reference-only .reference-header.is-scrolled .reference-header-shell {
-    min-height: 68px;
+    min-height: 76px;
   }
 
   .reference-nav,
@@ -326,6 +365,8 @@ body.menu-open {
     width: 100%;
   }
 
+  .reference-header-actions .menu-toggle { grid-column: 2; justify-self: end; }
+
   .reference-phone {
     min-width: 0;
     min-height: 44px;
@@ -344,7 +385,7 @@ body.menu-open {
 
   .reference-header.is-scrolled .reference-header-shell,
   body.reference-only .reference-header.is-scrolled .reference-header-shell {
-    min-height: 64px;
+    min-height: 68px;
   }
 
   .reference-logo,
@@ -359,5 +400,47 @@ body.menu-open {
   .reference-header .mobile-nav {
     max-height: calc(100dvh - 64px);
     padding-inline: 16px;
+  }
+}
+
+@media (max-width: 359px) {
+  .reference-header .reference-phone { display: none; }
+}
+
+/* Keep keyboard navigation clear and respect reduced motion. */
+.reference-header .reference-nav a:focus-visible,
+.reference-header .mobile-nav a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+.reference-header .mobile-nav a:not(.mobile-nav-cta) {
+  transform: none;
+  transition: color 360ms ease, background-color 360ms ease;
+}
+.reference-header .mobile-nav a:not(.mobile-nav-cta):hover,
+.reference-header .mobile-nav a:not(.mobile-nav-cta):focus-visible {
+  transform: none;
+  color: oklch(1 0 0);
+  background-color: oklch(1 0 0 / .04);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reference-header .reference-nav a,
+  .reference-header .reference-nav a::after,
+  body.reference-only .reference-header .reference-nav a,
+  body.reference-only .reference-header .reference-nav a::after,
+  .reference-header .mobile-nav a:not(.mobile-nav-cta) {
+    transition: none;
+  }
+}
+
+/* The homepage and catalog share the same desktop contact control. */
+@media (min-width: 1201px) {
+  body .reference-header .reference-header-actions .reference-contact {
+    min-width: 132px;
+    min-height: 36px;
+    padding-inline: 10px;
+    box-sizing: border-box;
+    font-size: 12px;
   }
 }

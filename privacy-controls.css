@@ -266,24 +266,31 @@
 }
 
 .kit-cookie-banner {
+  box-sizing: border-box;
   position: fixed;
   z-index: 5000;
-  right: 24px;
-  bottom: 24px;
-  left: 24px;
-  width: min(920px, calc(100% - 48px));
+  right: 16px;
+  bottom: 16px;
+  left: 16px;
+  width: min(820px, calc(100vw - 32px));
   margin-inline: auto;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: 24px;
+  gap: 16px;
   align-items: center;
-  padding: 22px 24px;
+  padding: 14px 16px;
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 14px;
   background: rgba(15, 18, 18, 0.97);
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.58);
   color: var(--kit-legal-text);
   backdrop-filter: blur(18px);
+}
+
+/* Keep this shared fixed overlay in viewport pixels on the scaled homepage. */
+body.reference-only > .kit-cookie-banner,
+body.site-scaled > .kit-cookie-banner {
+  zoom: var(--site-artboard-inverse-scale, 1);
 }
 
 .kit-cookie-banner[hidden] {
@@ -294,7 +301,7 @@
   max-width: 680px;
   margin: 0;
   color: rgba(244, 244, 239, 0.74);
-  font: 450 14px/1.55 "Segoe UI Variable", "Segoe UI", Arial, sans-serif;
+  font: 450 13px/1.45 "Segoe UI Variable", "Segoe UI", Arial, sans-serif;
 }
 
 .kit-cookie-banner a {
@@ -310,12 +317,12 @@
 
 .kit-cookie-banner button {
   min-height: 44px;
-  padding: 0 17px;
+  padding: 0 12px;
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 9px;
   background: rgba(255, 255, 255, 0.055);
   color: var(--kit-legal-text);
-  font: 620 13px/1 "Segoe UI Variable", "Segoe UI", Arial, sans-serif;
+  font: 620 12px/1.3 "Segoe UI Variable", "Segoe UI", Arial, sans-serif;
   letter-spacing: 0.02em;
   cursor: pointer;
 }
@@ -412,23 +419,32 @@
   }
 
   .kit-cookie-banner {
-    right: 12px;
-    bottom: max(12px, env(safe-area-inset-bottom));
-    left: 12px;
+    right: 8px;
+    bottom: max(8px, env(safe-area-inset-bottom));
+    left: 8px;
     width: auto;
     grid-template-columns: 1fr;
-    gap: 18px;
-    padding: 20px;
-    border-radius: 16px;
+    gap: 8px;
+    padding: 10px;
+    border-radius: 13px;
+  }
+
+  .kit-cookie-banner p {
+    font-size: 12px;
+    line-height: 1.4;
   }
 
   .kit-cookie-banner__actions {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 8px;
   }
 
   .kit-cookie-banner button {
-    min-height: 48px;
-    padding-inline: 12px;
+    min-height: 44px;
+    padding-inline: 7px;
+    font-size: 11px;
+    letter-spacing: 0;
+    white-space: nowrap;
   }
 }

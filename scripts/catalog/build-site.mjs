@@ -104,6 +104,26 @@ function sentence(value) {
 }
 
 function writeRoute(routePath, html) {
+  html = html.replace(/((?:href|src)=")\.\//g, '$1/');
+  if (!html.includes('cart-store.js')) html = html.replace('</head>', '<script src="/cart-store.js?v=6"></script>\n</head>');
+  // Apply the homepage sizing contract to every generated secondary route.
+  if (!html.includes('site-sizing.css')) {
+    html = html.replace(/<body([^>]*)>/, (tag, attributes) => {
+      if (/class="/.test(attributes)) return `<body${attributes.replace(/class="/, 'class="site-scaled ')}>`;
+      return `<body class="site-scaled"${attributes}>`;
+    });
+    html = html.replace('</head>', '<link rel="stylesheet" href="/site-sizing.css?v=1">\n</head>');
+    html = html.replace('</body>', '<script src="/artboard-scale.js?v=4" defer></script>\n</body>');
+  }
+  html = html.replace(/privacy-controls\.css\?v=\d+/g, 'privacy-controls.css?v=5')
+    .replace(/privacy-controls\.js\?v=\d+/g, 'privacy-controls.js?v=2')
+    .replace(/analytics\.js\?v=\d+/g, 'analytics.js?v=3')
+    .replace(/(catalog-(?:v2|responsive|adaptive-final|redesign|mobile-polish)\.css)\?v=\d+/g, '$1?v=31')
+    .replace(/product-page\.css\?v=\d+/g, 'product-page.css?v=3');
+  if (html.includes('class="reference-header"')) {
+    html = html.replace(/<link rel="stylesheet" href="\/shared-header\.css\?v=\d+"\s*\/?>/g, '')
+      .replace('</head>', '<link rel="stylesheet" href="/shared-header.css?v=10">\n</head>');
+  }
   const relative = routePath.replace(/^\/+|\/+$/g, "");
   const directory = path.join(outputDir, ...relative.split("/"));
   fs.mkdirSync(directory, { recursive: true });
@@ -204,7 +224,8 @@ function productCard(product, item) {
       </article>`;
 }
 
-const catalogTemplate = fs.readFileSync(path.join(projectDir, "catalog.html"), "utf8");
+const catalogTemplate = fs.readFileSync(path.join(projectDir, "catalog.html"), "utf8")
+  .replace(/((?:href|src)=")\.\//g, '$1/');
 
 function staticFilterOptions(links) {
   return links.map(({ href, label }) => `<label data-filter-value="${escapeHtml(label)}"><input type="checkbox" value="${escapeHtml(label)}" /><a href="${escapeHtml(href)}" data-filter-option-link>${escapeHtml(label)}</a><i aria-hidden="true"></i></label>`).join("");
@@ -520,9 +541,9 @@ function productPage(product, item) {
   <script type="application/ld+json">${safeJson(schemas)}</script>
   <link rel="stylesheet" href="/catalog-v2.css?v=10" />
   <link rel="stylesheet" href="/catalog-responsive.css?v=3" />
-  <link rel="stylesheet" href="/shared-header.css?v=3" />
+  <link rel="stylesheet" href="/shared-header.css?v=10" />
   <link rel="stylesheet" href="/product-page.css?v=2" />
-  <link rel="stylesheet" href="/privacy-controls.css?v=1" />
+  <link rel="stylesheet" href="/privacy-controls.css?v=5" />
 </head>
 <body>
   <header class="reference-header" data-header>
@@ -533,7 +554,7 @@ function productPage(product, item) {
       </nav>
       <div class="reference-header-actions">
         <a class="reference-phone" href="tel:+79964574301">+7 (996) 457-43-01</a>
-        <a class="reference-contact" href="tel:+79964574301">Связаться с нами</a>
+        <a class="reference-contact" href="/#contacts">Связаться с нами</a>
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="product-mobile-navigation" aria-label="Открыть меню" data-menu-toggle><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -584,7 +605,7 @@ function productPage(product, item) {
   <script id="product-page-data" type="application/json">${safeJson(productData)}</script>
   <script src="/site-runtime-config.js?v=1"></script>
   <script src="/analytics.js?v=2"></script>
-  <script src="/product-page.js?v=4"></script>
+  <script src="/product-page.js?v=5"></script>
   <script src="/privacy-controls.js?v=1"></script>
 </body>
 </html>`;
@@ -624,7 +645,7 @@ function vinSelectionPage() {
   <link rel="stylesheet" href="/catalog-v2.css?v=10" />
   <link rel="stylesheet" href="/catalog-responsive.css?v=3" />
   <link rel="stylesheet" href="/product-page.css?v=1" />
-  <link rel="stylesheet" href="/privacy-controls.css?v=1" />
+  <link rel="stylesheet" href="/privacy-controls.css?v=5" />
 </head>
 <body>
   <header class="site-header">

@@ -21,7 +21,11 @@
   if (!root) return;
 
   const base = String(window.KITRADE_SITE_CONFIG?.basePath || "").replace(/\/$/, "");
-  const assetPath = (value) => `${base}${value}`;
+  const isOpenDesignPreview = window.location.pathname.includes("/api/projects/")
+    && window.location.pathname.includes("/preview/");
+  const assetPath = (value) => isOpenDesignPreview && value.startsWith("/")
+    ? `.${value}`
+    : `${base}${value}`;
   let started = false;
 
   const loadScript = (src) => new Promise((resolve, reject) => {
@@ -38,7 +42,7 @@
     try {
       await loadScript("/catalog-runtime-data.js?v=2");
       await loadScript("/product-quick-view.js?v=7");
-      await loadScript("/home-catalog-strip.js?v=9");
+      await loadScript("/home-catalog-strip.js?v=10");
     } catch (error) {
       console.error("Каталог временно недоступен", error);
     }

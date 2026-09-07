@@ -32,18 +32,22 @@
     banner.setAttribute("aria-label", "Настройки cookie");
     banner.hidden = true;
     banner.innerHTML = `
-      <p>Мы используем файлы cookie для корректной работы сайта и улучшения его работы. Подробнее — в <a href="${sitePath("/privacy-policy/")}">Политике обработки персональных данных</a>.</p>
+      <p>Мы используем обязательные cookie для работы сайта и, с вашего согласия, Яндекс Метрику для анализа посещаемости. Подробнее — в <a href="${sitePath("/privacy-policy/")}">Политике обработки персональных данных</a>.</p>
       <div class="kit-cookie-banner__actions">
-        <button type="button" data-cookie-choice="rejected">Отказаться</button>
-        <button type="button" data-cookie-choice="accepted">Согласиться</button>
+        <button type="button" data-cookie-choice="rejected">Только необходимые</button>
+        <button type="button" data-cookie-choice="accepted">Разрешить аналитику</button>
       </div>`;
     document.body.append(banner);
 
     banner.addEventListener("click", (event) => {
       const button = event.target.closest("[data-cookie-choice]");
       if (!button) return;
-      saveChoice(button.dataset.cookieChoice);
+      const choice = button.dataset.cookieChoice;
+      saveChoice(choice);
       banner.hidden = true;
+      window.dispatchEvent(new CustomEvent("kitrade:cookie-choice", {
+        detail: { choice },
+      }));
     });
     return banner;
   };
@@ -79,4 +83,3 @@
     consent.focus();
   }, true);
 })();
-

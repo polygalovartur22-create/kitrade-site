@@ -1,4 +1,5 @@
 (() => {
+  const CONSENT_STORAGE_KEY = "kitradeCookieConsentV1";
   const settings = window.KITRADE_SITE_CONFIG?.analytics;
   const counterId = Number(settings?.counterId);
   const allowedEvents = new Set(settings?.events || []);
@@ -12,6 +13,7 @@
     && window.location.hostname !== configuredHost
     && !window.location.hostname.endsWith(`.${configuredHost}`);
   const analyticsBlocked = previewHost || wrongConfiguredHost || !settings?.enabled || !counterId;
+  const disableKey = `disableYaCounter${counterId}`;
   const attributionKey = "kitrade:first-touch:v1";
   const currentParams = new URLSearchParams(window.location.search);
   const currentUtm = Object.fromEntries([
@@ -23,16 +25,27 @@
   ].map((name) => [name, currentParams.get(name) || ""]).filter(([, value]) => value));
   let attribution = {};
 
-  try { attribution = JSON.parse(localStorage.getItem(attributionKey) || "{}"); } catch { attribution = {}; }
+  const readConsentChoice = () => {
+    try {
+      const value = JSON.parse(localStorage.getItem(CONSENT_STORAGE_KEY) || "null");
+      return value?.choice === "accepted" || value?.choice === "rejected" ? value.choice : "";
+    } catch {
+      return "";
+    }
+  };
+
+  if (readConsentChoice() === "accepted") {
+    try { attribution = JSON.parse(localStorage.getItem(attributionKey) || "{}"); } catch { attribution = {}; }
+  }
   if (!attribution || typeof attribution !== "object" || Array.isArray(attribution)) attribution = {};
   if (!attribution.first_landing_url) attribution.first_landing_url = window.location.href;
   if (!attribution.yclid && currentParams.get("yclid")) attribution.yclid = currentParams.get("yclid");
   if (!attribution.utm || !Object.keys(attribution.utm).length) attribution.utm = currentUtm;
 
   const saveAttribution = () => {
+    if (readConsentChoice() !== "accepted") return;
     try { localStorage.setItem(attributionKey, JSON.stringify(attribution)); } catch { /* storage is optional */ }
   };
-  saveAttribution();
 
   window.KITRADE_GET_ATTRIBUTION = () => ({
     metrika_client_id: String(attribution.metrika_client_id || ""),
@@ -42,34 +55,53 @@
   });
 
   window.KITRADE_TRACK = (eventName, params = {}) => {
-    if (analyticsBlocked || !allowedEvents.has(eventName) || typeof window.ym !== "function") return;
+    if (analyticsBlocked || readConsentChoice() !== "accepted" || !window.__KITRADE_METRIKA_INITIALIZED__
+      || !allowedEvents.has(eventName) || typeof window.ym !== "function") return;
     window.ym(counterId, "reachGoal", eventName, params);
   };
 
-  if (analyticsBlocked || window.__KITRADE_METRIKA_INITIALIZED__) return;
-  window.__KITRADE_METRIKA_INITIALIZED__ = true;
-  window.ym = window.ym || function () { (window.ym.a = window.ym.a || []).push(arguments); };
-  window.ym.l = Date.now();
-  const tagUrl = `https://mc.yandex.ru/metrika/tag.js?id=${counterId}`;
-  if (![...document.scripts].some((script) => script.src === tagUrl)) {
-    const script = document.createElement("script");
-    script.async = true;
-    script.src = tagUrl;
-    document.head.append(script);
-  }
-  window.ym(counterId, "init", {
-    ssr: true,
-    webvisor: Boolean(settings?.webvisor),
-    clickmap: true,
-    ecommerce: "dataLayer",
-    referrer: document.referrer,
-    url: window.location.href,
-    accurateTrackBounce: true,
-    trackLinks: true,
-  });
-  window.ym(counterId, "getClientID", (clientId) => {
-    if (!clientId) return;
-    attribution.metrika_client_id = String(clientId);
+  window[disableKey] = readConsentChoice() !== "accepted";
+
+  const initializeAnalytics = () => {
+    if (analyticsBlocked || readConsentChoice() !== "accepted") return;
+    window[disableKey] = false;
     saveAttribution();
+    if (window.__KITRADE_METRIKA_INITIALIZED__) return;
+
+    window.__KITRADE_METRIKA_INITIALIZED__ = true;
+    window.ym = window.ym || function () { (window.ym.a = window.ym.a || []).push(arguments); };
+    window.ym.l = Date.now();
+    const tagUrl = `https://mc.yandex.ru/metrika/tag.js?id=${counterId}`;
+    if (![...document.scripts].some((script) => script.src === tagUrl)) {
+      const script = document.createElement("script");
+      script.async = true;
+      script.src = tagUrl;
+      document.head.append(script);
+    }
+    window.ym(counterId, "init", {
+      ssr: true,
+      webvisor: Boolean(settings?.webvisor),
+      clickmap: true,
+      ecommerce: "dataLayer",
+      referrer: document.referrer,
+      url: window.location.href,
+      accurateTrackBounce: true,
+      trackLinks: true,
+    });
+    window.ym(counterId, "getClientID", (clientId) => {
+      if (!clientId) return;
+      attribution.metrika_client_id = String(clientId);
+      saveAttribution();
+    });
+  };
+
+  window.addEventListener("kitrade:cookie-choice", (event) => {
+    if (event.detail?.choice === "accepted") {
+      initializeAnalytics();
+      return;
+    }
+    if (event.detail?.choice === "rejected") window[disableKey] = true;
   });
+
+  initializeAnalytics();
 })();

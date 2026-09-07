@@ -4,7 +4,7 @@
   const root = document.documentElement;
   const page = document.body;
 
-  if (!page?.classList.contains("reference-only")) return;
+  if (!page || !["reference-only", "site-scaled"].some((name) => page.classList.contains(name))) return;
 
   let resizeFrame = 0;
 

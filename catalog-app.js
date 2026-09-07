@@ -95,19 +95,11 @@
     || "https://195.19.20.105/api/website-intake";
 
   function readStoredSelection() {
-    try {
-      const stored = JSON.parse(localStorage.getItem(CART_STORAGE_KEY) || "[]");
-      const ids = Array.isArray(stored) ? stored : stored?.ids;
-      if (!Array.isArray(ids)) return [];
-      const available = new Set(items.map((item) => item.id));
-      return [...new Set(ids.map(String))].filter((id) => available.has(id));
-    } catch {
-      return [];
-    }
+    return window.KITRADE_CART.ids();
   }
 
   function persistSelection() {
-    try { localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(state.selected)); } catch {}
+    state.selected = readStoredSelection();
   }
 
   const state = {
@@ -204,7 +196,7 @@
     const basePath = categoryRoute || modelRoute || brandRoute || "/catalog/";
     const path = state.page > 1 ? `${basePath}page/${state.page}/` : basePath;
     const browserPath = sitePath(path);
-    if (window.location.pathname !== browserPath) history.replaceState(null, "", browserPath);
+    if (window.location.protocol !== "file:" && window.location.pathname !== browserPath) history.replaceState(history.state, "", browserPath + window.location.hash);
     const canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) canonical.href = new URL(path, catalogData.site_url || window.location.origin).href;
     return basePath;
@@ -353,16 +345,21 @@
     const types = checkedValues("#typeFilters");
     const condition = selectedCondition().toLocaleLowerCase("ru");
 
+    const scores = new Map();
     const filtered = items
       .filter((item) => {
         if (brands.length && !brands.some((brand) => item.brand.toLocaleLowerCase("ru") === brand.toLocaleLowerCase("ru"))) return false;
         if (models.length && !models.includes(item.model)) return false;
         if (types.length && !types.includes(item.group)) return false;
         if (condition && !String(item.condition || "").toLocaleLowerCase("ru").startsWith(condition.slice(0, 5))) return false;
-        if (state.query && fuzzyScore(state.query, item.search) < 0) return false;
+        if (state.query) {
+          const score = fuzzyScore(state.query, item.search);
+          if (score < 0) return false;
+          scores.set(item.id, score);
+        }
         return true;
       });
-    if (state.query) filtered.sort((left, right) => fuzzyScore(state.query, right.search) - fuzzyScore(state.query, left.search));
+    if (state.query) filtered.sort((left, right) => scores.get(right.id) - scores.get(left.id));
     return filtered;
   }
 
@@ -384,6 +381,16 @@
     return "доставка отдельно";
   }
 
+  function quantityMarkup(id) {
+    const key = escapeHtml(id);
+    const quantity = window.KITRADE_CART.get(id)?.quantity || 0;
+    return quantity ? `<div class="card-quantity" role="group" aria-label="Количество товара">
+      <button type="button" data-quantity-id="${key}" data-quantity-delta="-1" aria-label="Уменьшить количество">−</button>
+      <output aria-live="polite" aria-atomic="true">${quantity}</output>
+      <button type="button" data-quantity-id="${key}" data-quantity-delta="1" aria-label="Увеличить количество">+</button>
+    </div>` : `<button class="card-action" type="button" data-add="${key}">В заявку</button>`;
+  }
+
   function cardMarkup(item) {
     const selected = state.selected.includes(item.id);
     const href = item.indexable ? ` href="${escapeHtml(item.canonicalPath)}"` : "";
@@ -391,8 +398,8 @@
       ? `<img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)}" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false" /><div class="photo-fallback" hidden>Фото уточняется</div>`
       : `<div class="photo-fallback">Фото уточняется</div>`;
     return `
-      <article class="part-card" data-id="${escapeHtml(item.id)}" data-product-card data-product-id="${escapeHtml(item.id)}">
-        <a class="part-photo"${href} data-product-link data-product-id="${escapeHtml(item.id)}">${image}<span class="part-preview-label">Быстрый просмотр</span></a>
+      <article class="part-card" data-id="${escapeHtml(item.id)}" data-od-id="product-${escapeHtml(item.id)}" data-product-card data-product-id="${escapeHtml(item.id)}">
+        <a class="part-photo"${href} data-product-link data-product-id="${escapeHtml(item.id)}">${image}</a>
         <div class="part-content">
           <span class="part-category">${escapeHtml(item.group)}</span>
           <h3><a class="part-title-link"${href} data-product-link data-product-id="${escapeHtml(item.id)}">${escapeHtml(item.title)}</a></h3>
@@ -400,7 +407,7 @@
           <div class="part-meta">
             <strong class="part-price">${formatPrice(item)}</strong>
             <span class="part-time">${deliveryLabel(item)}</span>
-            <button class="card-action" type="button" data-add="${escapeHtml(item.id)}" aria-pressed="${selected}">${selected ? "В заявке" : "В заявку"}</button>
+            <div class="card-order-control" data-order-control="${escapeHtml(item.id)}" data-od-id="quantity-${escapeHtml(item.id)}">${quantityMarkup(item.id)}</div>
           </div>
         </div>
       </article>`;
@@ -414,7 +421,7 @@
     const brands = checkedValues("#brandFilters");
     const models = checkedValues("#modelFilters");
     const types = checkedValues("#typeFilters");
-    resultSummary.textContent = [brands.join(" / "), models.join(" / "), types.join(" / ")]
+    resultSummary.textContent = state.query ? `Поиск: «${state.query}»` : [brands.join(" / "), models.join(" / "), types.join(" / ")]
       .filter(Boolean).join(" / ") || "Все марки и категории";
     emptyState.hidden = filtered.length > 0;
     loadMore.hidden = state.offset + visible.length >= filtered.length;
@@ -436,8 +443,9 @@
     return "позиций";
   }
 
+
   function renderRequest() {
-    const selectedItems = state.selected.map((id) => items.find((item) => item.id === id)).filter(Boolean);
+    const selectedItems = state.selected.map((id) => items.find((item) => item.id === id) || { ...window.KITRADE_CART.get(id), title: (window.KITRADE_CART.get(id)?.title || `Позиция ${id}`) + " — наличие уточняется", canonicalPath: sitePath("/catalog/") }).filter(Boolean);
     if (!selectedItems.length) {
       requestSelection.innerHTML = "<strong>Позиции не выбраны</strong><p>Добавьте нужные детали из карточек каталога.</p>";
       updateRequestSummary();
@@ -448,9 +456,21 @@
       : `${selectedItems.length} ${plural(selectedItems.length)} ${selectedItems.length < 5 ? "выбраны" : "выбрано"}`;
     requestSelection.innerHTML = `
       <strong>${selectedTitle}</strong>
-      <div class="request-selection-list">
-        ${selectedItems.map((item) => `<div class="selected-item"><a href="${escapeHtml(item.canonicalPath)}">${escapeHtml(item.title)}</a><button type="button" data-remove="${escapeHtml(item.id)}">Удалить</button></div>`).join("")}
-      </div>`;
+      <div class="request-selection-list" id="basket-items" data-expanded="false">
+        ${selectedItems.map((item, index) => `<div class="selected-item" ${index > 2 ? 'hidden' : ''}>
+          <a href="${escapeHtml(item.canonicalPath)}">${escapeHtml(item.title)}</a>
+          <div class="basket-item-controls">
+            <div class="basket-quantity" role="group" aria-label="Количество товара">
+              <button type="button" data-basket-id="${escapeHtml(item.id)}" data-basket-delta="-1" aria-label="Уменьшить количество">−</button>
+              <span>${window.KITRADE_CART.get(item.id)?.quantity || 1}</span>
+              <button type="button" data-basket-id="${escapeHtml(item.id)}" data-basket-delta="1" aria-label="Увеличить количество">+</button>
+            </div>
+            <button type="button" data-remove="${escapeHtml(item.id)}">Удалить</button>
+          </div>
+          <span class="basket-item-price">${formatPrice(item)} / шт.</span>
+        </div>`).join("")}
+      </div>
+      <button type="button" class="basket-expand" data-basket-expand data-od-id="basket-expand" aria-haspopup="dialog">Посмотреть всю корзину (${selectedItems.length})</button>`;
     updateRequestSummary();
   }
 
@@ -569,21 +589,28 @@
     });
   });
 
-  document.querySelector("#catalogSearch").addEventListener("submit", (event) => {
-    event.preventDefault();
-    const query = document.querySelector("#catalogQuery").value.trim();
+  const searchInput = document.querySelector("#catalogQuery");
+  let searchTimer;
+  const applySearch = () => {
+    clearTimeout(searchTimer);
+    const query = searchInput.value.trim();
     if (query) clearFilterControls();
     state.query = query;
     resetPaging();
     render();
+  };
+  document.querySelector("#catalogSearch").addEventListener("submit", (event) => {
+    event.preventDefault();
+    applySearch();
   });
-
-  document.querySelector("#catalogQuery").addEventListener("search", (event) => {
-    if (event.target.value) return;
-    state.query = "";
-    resetPaging();
-    render();
+  searchInput.addEventListener("input", event => {
+    clearTimeout(searchTimer);
+    if (event.isComposing) return;
+    if (!searchInput.value.trim()) applySearch();
+    else searchTimer = setTimeout(applySearch, 250);
   });
+  searchInput.addEventListener("compositionend", applySearch);
+  searchInput.addEventListener("search", applySearch);
 
   document.querySelector("#resetFilters").addEventListener("click", () => {
     clearFilterControls();
@@ -592,22 +619,29 @@
   });
 
   partsGrid.addEventListener("click", (event) => {
+    const quantityButton = event.target.closest('[data-quantity-delta]');
+    if (quantityButton) {
+      window.KITRADE_CART.changeQuantity(quantityButton.dataset.quantityId, Number(quantityButton.dataset.quantityDelta));
+      return;
+    }
     const button = event.target.closest("button[data-add]");
     if (!button) return;
     const id = button.dataset.add;
-    if (state.selected.includes(id)) state.selected = state.selected.filter((itemId) => itemId !== id);
-    else state.selected.push(id);
+    if (readStoredSelection().includes(id)) {
+      window.dispatchEvent(new CustomEvent('kitrade:open-request'));
+      return;
+    }
+    window.KITRADE_CART.add(items.find(item => item.id === id));
     persistSelection();
     if (state.selected.includes(id)) window.KITRADE_TRACK?.("add_to_request", { product_id: id, page_type: "catalog" });
     renderRequest();
-    render();
     showToast(state.selected.includes(id) ? "Позиция добавлена в заявку" : "Позиция удалена из заявки");
   });
 
   requestSelection.addEventListener("click", (event) => {
     const button = event.target.closest("button[data-remove]");
     if (!button) return;
-    state.selected = state.selected.filter((id) => id !== button.dataset.remove);
+    window.KITRADE_CART.remove(button.dataset.remove);
     persistSelection();
     renderRequest();
     render();
@@ -670,8 +704,8 @@
     const manual = manualRequestValues();
     const manualActive = Object.values(manual).some(Boolean);
     if (!state.selected.length && !manual.part) {
-      requestDetailsError.textContent = "Добавьте товар или опишите нужную деталь.";
-      if (!requestLookupFields.hidden) requestMissingPart?.focus();
+      requestDetailsError.textContent = "Добавьте товар из каталога или перейдите по ссылке заявки на подбор.";
+      if (requestLookupFields && !requestLookupFields.hidden) requestMissingPart?.focus();
       else setLookupOpen(true);
       return false;
     }
@@ -697,14 +731,15 @@
 
   function selectedRequestProducts() {
     return state.selected
-      .map((id) => items.find((item) => String(item.id) === String(id)))
+      .map((id) => items.find((item) => String(item.id) === String(id)) || window.KITRADE_CART.get(id))
       .filter(Boolean)
       .map((item) => ({
         product_id: item.id,
-        title: item.title,
+        title: item.title || `Позиция ${item.id} — наличие уточняется`,
         article: item.article || "",
         price: item.priceNumber || 0,
-        url: new URL(item.canonicalPath, window.location.origin).href,
+        quantity: window.KITRADE_CART.get(item.id)?.quantity || 1,
+        url: new URL(item.canonicalPath || sitePath('/catalog/'), window.location.origin).href,
       }));
   }
 
@@ -744,6 +779,7 @@
     const messenger = requestPanel.querySelector('input[name="catalogMessenger"]:checked')?.value || "Звонок";
     const details = [
       products.length && `Выбрано позиций из каталога: ${products.length}.`,
+      ...products.map(item => `${item.title}: ${item.quantity} шт.`),
       manual.part && `Запрос на поиск: ${manual.part}`,
       requestComment?.value.trim() && `Комментарий: ${requestComment.value.trim()}`,
     ].filter(Boolean).join("\n");
@@ -772,7 +808,7 @@
           first_landing_url: window.location.href,
         },
         selected_products: products,
-        preliminary_sum: products.reduce((sum, item) => sum + item.price, 0),
+        preliminary_sum: products.reduce((sum, item) => sum + item.price * item.quantity, 0),
         currency: "RUB",
       },
     };
@@ -808,8 +844,9 @@
         throw new Error(confirmation?.error || `Request failed with status ${response.status}`);
       }
 
-      state.selected = [];
+      window.KITRADE_CART.consume(products);
       persistSelection();
+      try { sessionStorage.removeItem("kitradeCatalogContactSessionV1"); } catch {}
       localStorage.removeItem(REQUEST_DRAFT_STORAGE_KEY);
       localStorage.removeItem(COMMENT_STORAGE_KEY);
       requestDetailsStage.hidden = true;
@@ -895,7 +932,7 @@
   document.addEventListener("kitrade:add-product", (event) => {
     const id = String(event.detail?.id || "");
     if (!id || state.selected.includes(id)) return;
-    state.selected.push(id);
+    window.KITRADE_CART.add(items.find(item => item.id === id) || { id });
     persistSelection();
     renderRequest();
     render();
@@ -903,13 +940,79 @@
   });
   try {
     const draft = JSON.parse(localStorage.getItem(REQUEST_DRAFT_STORAGE_KEY) || "{}");
-    requestCarModel.value = draft.model || "";
-    requestCarYear.value = draft.year || "";
-    requestVin.value = draft.vin || "";
-    requestMissingPart.value = draft.part || "";
+    if (requestCarModel) requestCarModel.value = draft.model || "";
+    if (requestCarYear) requestCarYear.value = draft.year || "";
+    if (requestVin) requestVin.value = draft.vin || "";
+    if (requestMissingPart) requestMissingPart.value = draft.part || "";
     requestComment.value = draft.comment || localStorage.getItem(COMMENT_STORAGE_KEY) || "";
     if (draft.model || draft.year || draft.vin || draft.part) setLookupOpen(true);
   } catch {}
+  // Refresh snapshots for migrated positions without changing the selection.
+  state.selected.forEach(id => {
+    const product = items.find(item => item.id === id);
+    if (product && !window.KITRADE_CART.get(id)?.title) window.KITRADE_CART.add(product);
+  });
+  const contactKey = 'kitradeCatalogContactSessionV1';
+  try {
+    const saved = JSON.parse(sessionStorage.getItem(contactKey) || 'null');
+    if (saved) {
+      requestCustomerName.value = saved.name || '';
+      requestCustomerContact.value = saved.contact || '';
+      const radio = [...requestPanel.querySelectorAll('input[name="catalogMessenger"]')].find(input => input.value === saved.messenger);
+      if (radio) { radio.checked = true; radio.dispatchEvent(new Event('change')); }
+    }
+  } catch {}
+  [requestCustomerName, requestCustomerContact, ...requestPanel.querySelectorAll('input[name="catalogMessenger"]')].forEach(field => {
+    field?.addEventListener('input', () => {
+      try { sessionStorage.setItem(contactKey, JSON.stringify({ name: requestCustomerName.value, contact: requestCustomerContact.value,
+        messenger: requestPanel.querySelector('input[name="catalogMessenger"]:checked')?.value })); } catch {}
+    });
+  });
+  window.addEventListener('kitrade:cart-change', () => {
+    state.selected = readStoredSelection();
+    renderRequest();
+    // Keep the current product DOM and its focus when the basket changes.
+    partsGrid.querySelectorAll('[data-order-control]').forEach(control => {
+      const quantity = window.KITRADE_CART.get(control.dataset.orderControl)?.quantity || 0;
+      const output = control.querySelector('output');
+      if (quantity && output) { output.textContent = quantity; return; }
+      const focused = control.contains(document.activeElement);
+      control.innerHTML = quantityMarkup(control.dataset.orderControl);
+      if (focused) control.querySelector('button')?.focus({ preventScroll: true });
+    });
+  });
+  const viewKey = 'kitradeCatalogViewV1';
+  const saveView = () => {
+    try { sessionStorage.setItem(viewKey, JSON.stringify({
+      path: location.pathname, query: state.query, visible: state.visible,
+      page: state.page, offset: state.offset, y: window.scrollY,
+      brands: checkedValues('#brandFilters'), models: checkedValues('#modelFilters'),
+      categories: checkedValues('#typeFilters'), condition: selectedCondition()
+    })); } catch {}
+  };
+  window.addEventListener('pagehide', saveView);
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') saveView();
+  });
+  document.addEventListener('kitrade:save-catalog', saveView);
+  let restoreY = null;
+  try {
+    const saved = JSON.parse(sessionStorage.getItem(viewKey) || 'null');
+    if (saved?.path === location.pathname) {
+      clearFilterControls();
+      const check = (selector, values) => document.querySelectorAll(selector + ' input').forEach(input => { input.checked = values.includes(input.value); });
+      check('#brandFilters', saved.brands || []);
+      renderModelFilter(saved.brands || []);
+      check('#modelFilters', saved.models || []);
+      check('#typeFilters', saved.categories || []);
+      check('#conditionFilters', [saved.condition || '']);
+      ['#brandFilters', '#modelFilters', '#typeFilters'].forEach(selector => updateFilterSummary(document.querySelector(selector)));
+      Object.assign(state, { query: saved.query || '', visible: saved.visible || DISPLAY_PAGE_SIZE, page: saved.page || 1, offset: saved.offset || 0 });
+      document.querySelector('#catalogQuery').value = state.query;
+      restoreY = saved.y;
+    }
+  } catch {}
   render();
   renderRequest();
+  if (restoreY !== null && location.hash !== "#request") requestAnimationFrame(() => window.scrollTo(0, restoreY));
 })();

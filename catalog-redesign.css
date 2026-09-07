@@ -891,7 +891,7 @@ textarea:focus-visible {
   line-height: 1.45;
 }
 
-@media (min-width: 1181px) and (max-height: 760px) {
+@media (min-width: 1200px) and (max-height: 760px) {
   .request-panel {
     padding-top: 16px;
     padding-bottom: 16px;
@@ -1008,7 +1008,7 @@ textarea:focus-visible {
   }
 }
 
-@media (max-width: 1180px) {
+@media (max-width: 1199px) {
   .catalog-workspace {
     grid-template-columns: 230px minmax(0, 1fr);
   }
@@ -1042,7 +1042,7 @@ textarea:focus-visible {
   }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1199px) {
   :root {
     --catalog-page: calc(100% - 32px);
   }
@@ -1301,7 +1301,7 @@ textarea:focus-visible {
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 599px) {
   :root {
     --catalog-page: calc(100% - 28px);
   }
@@ -1513,3 +1513,19 @@ textarea:focus-visible {
     transition: none !important;
   }
 }
+
+/* Product cards: distinct surface, shorter copy area, full photo frame. */
+#partsGrid .part-card {
+  border: 1px solid var(--catalog-line-strong);
+  background: var(--catalog-surface-raised);
+}
+#partsGrid .part-card:hover {
+  border-color: var(--catalog-text);
+  background: var(--catalog-surface-raised);
+  transform: translateY(-2px);
+}
+#partsGrid .part-content { min-height: 0; gap: 7px; padding: 12px 14px 14px; }
+#partsGrid .part-content h3 { min-height: 0; }
+#partsGrid .part-photo img, #partsGrid .part-card:hover .part-photo img { object-fit: contain; transform: none; }
+#partsGrid .card-action { min-height: 44px; }
+#partsGrid :is(a, button):focus-visible { outline: 2px solid var(--catalog-accent); outline-offset: -3px; }

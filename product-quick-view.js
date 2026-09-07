@@ -1,5 +1,4 @@
 (() => {
-  const isFilePreview = window.location.protocol === "file:";
   const sitePath = (value) => {
     const path = String(value || "/");
     const base = String(window.KITRADE_SITE_CONFIG?.basePath || "").replace(/\/$/, "");
@@ -9,6 +8,18 @@
   const itemsById = new Map(source.map((item) => [String(item.id), item]));
   let dialog;
   let activeItem;
+  let returnFocus;
+  let returnY = 0;
+  const closeView = () => {
+    if (history.state?.kitradeProduct) history.back();
+    else dialog?.close();
+  };
+  window.addEventListener('popstate', () => {
+    if (history.state?.kitradeProduct) {
+      const item = itemsById.get(String(history.state.kitradeProduct));
+      if (item && !dialog?.open) openQuickView(item, false);
+    } else if (dialog?.open) dialog.close();
+  });
 
   const normalizePhoto = (url) => {
     const value = String(url || "").trim();
@@ -34,62 +45,60 @@
   function createDialog() {
     const element = document.createElement("dialog");
     element.className = "product-quick-view";
+    element.dataset.odId = "product-fullscreen";
     element.setAttribute("aria-labelledby", "product-quick-view-title");
     element.innerHTML = `
       <div class="product-quick-view__shell">
-        <button class="product-quick-view__close" type="button" aria-label="Закрыть" data-quick-close>×</button>
-        <div class="product-quick-view__media" data-quick-media></div>
-        <div class="product-quick-view__content">
+        <button class="product-quick-view__back" type="button" data-od-id="product-back" data-quick-close><span aria-hidden="true">←</span> Назад в каталог</button>
+        <div class="product-quick-view__media" data-od-id="product-photo" data-quick-media></div>
+        <div class="product-quick-view__content" data-od-id="product-information">
           <p class="product-quick-view__category" data-quick-category></p>
-          <h2 id="product-quick-view-title"><a data-quick-page><span data-quick-title></span></a></h2>
+          <h2 id="product-quick-view-title" data-od-id="product-title" data-quick-title></h2>
           <p class="product-quick-view__meta" data-quick-meta></p>
-          <p class="product-quick-view__description" data-quick-description></p>
+          <div class="product-quick-view__purchase" data-od-id="product-purchase">
+          <span class="product-quick-view__price-label">Стоимость детали</span>
           <strong class="product-quick-view__price" data-quick-price></strong>
           <div class="product-quick-view__actions">
-            <a class="product-quick-view__details" data-quick-page>Все характеристики</a>
-            <button type="button" data-quick-add>В заявку</button>
+            <button type="button" data-od-id="product-add" data-quick-add>В заявку</button>
+            <div class="product-quick-view__quantity" data-quick-quantity role="group" aria-label="Количество товара" hidden>
+              <button type="button" data-quick-minus aria-label="Уменьшить количество">−</button>
+              <output data-quick-count aria-live="polite">1</output>
+              <button type="button" data-quick-plus aria-label="Увеличить количество">+</button>
+            </div>
+          </div>
+          </div>
+          <div class="product-quick-view__terms" data-od-id="product-terms">
+            <h3>Условия заказа</h3>
+            <p class="product-quick-view__description" data-quick-description></p>
           </div>
         </div>
       </div>`;
-    element.querySelector("[data-quick-close]").addEventListener("click", () => element.close());
-    element.addEventListener("click", async (event) => {
-      const pageLink = event.target.closest("[data-quick-page][href]");
-      if (!pageLink || event.defaultPrevented || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
-      if (!isFilePreview) return;
-      event.preventDefault();
-      const canonicalUrl = new URL(pageLink.href, window.location.href);
-      const previewUrl = new URL(`/dist${canonicalUrl.pathname}`, window.location.origin);
-      element.setAttribute("aria-busy", "true");
-      try {
-        const response = await fetch(previewUrl.href, { method: "HEAD", cache: "no-store" });
-        window.location.href = response.ok ? previewUrl.href : canonicalUrl.href;
-      } catch {
-        window.location.href = canonicalUrl.href;
-      }
+    element.querySelector('[data-quick-close]').addEventListener('click', closeView);
+    element.addEventListener('cancel', event => { event.preventDefault(); closeView(); });
+    element.addEventListener('close', () => {
+      document.documentElement.classList.remove('product-view-open');
+      window.scrollTo(0, returnY);
+      if (returnFocus?.isConnected) returnFocus.focus({ preventScroll: true });
     });
     element.querySelector("[data-quick-add]").addEventListener("click", () => {
       if (!activeItem) return;
-      try {
-        const stored = JSON.parse(localStorage.getItem("kitradeCatalogSelectionV1") || "[]");
-        const ids = Array.isArray(stored) ? stored : stored?.ids;
-        const next = [...new Set([...(Array.isArray(ids) ? ids.map(String) : []), String(activeItem.id)])];
-        localStorage.setItem("kitradeCatalogSelectionV1", JSON.stringify(next));
-      } catch {}
+      window.KITRADE_CART.add(activeItem);
       window.KITRADE_TRACK?.("add_to_request", { product_id: String(activeItem.id), page_type: "quick_view" });
       document.dispatchEvent(new CustomEvent("kitrade:add-product", { detail: { id: String(activeItem.id) } }));
-      const button = element.querySelector("[data-quick-add]");
-      button.textContent = "В заявке";
-      button.setAttribute("aria-pressed", "true");
+      syncQuantity();
+      element.querySelector('[data-quick-plus]').focus({ preventScroll: true });
     });
+    element.querySelector('[data-quick-minus]').addEventListener('click', () => changeQuantity(-1));
+    element.querySelector('[data-quick-plus]').addEventListener('click', () => changeQuantity(1));
     element.addEventListener("click", (event) => {
-      if (event.target === element) element.close();
+      if (event.target === element) closeView();
     });
-    document.body.append(element);
+    document.documentElement.append(element);
     return element;
   }
 
-  function openQuickView(item) {
-    if (!item?.canonical_path) return false;
+  function openQuickView(item, pushHistory = true) {
+    if (!item) return false;
     activeItem = item;
     dialog ||= createDialog();
     const photo = normalizePhoto(item.photos?.[0]) || fallbackPhoto(item);
@@ -99,7 +108,7 @@
       const image = document.createElement("img");
       image.src = photo;
       image.alt = item.title || "Автозапчасть";
-      image.addEventListener("error", () => image.remove(), { once: true });
+      image.addEventListener("error", () => { media.textContent = 'Фото уточняется'; }, { once: true });
       media.append(image);
     } else {
       media.textContent = "Фото уточняется";
@@ -109,30 +118,37 @@
     dialog.querySelector("[data-quick-meta]").textContent = item.meta || [item.brand, item.model].filter(Boolean).join(" · ");
     dialog.querySelector("[data-quick-description]").textContent = item.quick_description || "Цена — за деталь. Доставка отдельно. Проверка по VIN. Минимальная сумма заказа — 50 000 ₽; детали можно объединить.";
     dialog.querySelector("[data-quick-price]").textContent = formatPrice(item.price);
-    dialog.querySelectorAll("[data-quick-page]").forEach((pageLink) => {
-      pageLink.hidden = !item.indexable;
-      pageLink.setAttribute("aria-disabled", String(!item.indexable));
-      if (item.indexable) pageLink.href = sitePath(item.canonical_path);
-      else pageLink.removeAttribute("href");
-    });
-    let selected = false;
-    try {
-      const stored = JSON.parse(localStorage.getItem("kitradeCatalogSelectionV1") || "[]");
-      const ids = Array.isArray(stored) ? stored : stored?.ids;
-      selected = Array.isArray(ids) && ids.map(String).includes(String(item.id));
-    } catch {}
-    const addButton = dialog.querySelector("[data-quick-add]");
-    addButton.textContent = selected ? "В заявке" : "В заявку";
-    addButton.setAttribute("aria-pressed", String(selected));
+    syncQuantity();
+    returnFocus = document.activeElement;
+    returnY = window.scrollY;
+    document.dispatchEvent(new CustomEvent('kitrade:save-catalog'));
+    if (pushHistory) history.pushState({ ...(history.state || {}), kitradeProduct: String(item.id) }, '', '#product-' + encodeURIComponent(item.id));
+    document.documentElement.classList.add('product-view-open');
     dialog.showModal();
+    dialog.scrollTop = 0;
+    dialog.querySelector('[data-quick-close]').focus({ preventScroll: true });
     window.KITRADE_TRACK?.("product_view", { product_id: String(item.id), page_type: "quick_view" });
     return true;
   }
 
+  function syncQuantity() {
+    if (!dialog || !activeItem) return;
+    const quantity = window.KITRADE_CART.get(activeItem.id)?.quantity || 0;
+    dialog.querySelector('[data-quick-add]').hidden = quantity > 0;
+    dialog.querySelector('[data-quick-quantity]').hidden = quantity === 0;
+    dialog.querySelector('[data-quick-count]').textContent = String(quantity);
+  }
+  function changeQuantity(delta) {
+    if (!activeItem) return;
+    window.KITRADE_CART.changeQuantity(activeItem.id, delta);
+    syncQuantity();
+    if (!window.KITRADE_CART.get(activeItem.id)) dialog.querySelector('[data-quick-add]').focus({ preventScroll: true });
+  }
+  window.addEventListener('kitrade:cart-change', syncQuantity);
   document.addEventListener("click", (event) => {
     const link = event.target.closest("a[data-product-link]");
     if (link && (event.defaultPrevented || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey)) return;
-    if (event.target.closest("button, input, textarea, select")) return;
+    if (event.target.closest("button, input, textarea, select, [data-order-control]")) return;
     const card = event.target.closest("[data-product-card]");
     if (!link && !card) return;
     const item = itemsById.get(String(link?.dataset.productId || card?.dataset.productId || ""));

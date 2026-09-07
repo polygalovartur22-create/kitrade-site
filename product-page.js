@@ -35,36 +35,23 @@
   if (!dataNode || !button) return;
   let product;
   try { product = JSON.parse(dataNode.textContent); } catch { return; }
-  try {
-    const stored = JSON.parse(localStorage.getItem("kitradeCatalogSelectionV1") || "[]");
-    const ids = Array.isArray(stored) ? stored : stored?.ids;
-    if (Array.isArray(ids) && ids.map(String).includes(String(product.id))) {
-      button.textContent = "В заявке";
-      button.setAttribute("aria-pressed", "true");
-    }
-  } catch {}
+  const sync = () => {
+    const selected = window.KITRADE_CART.ids().includes(String(product.id));
+    button.textContent = selected ? 'В заявке' : 'В заявку';
+    button.setAttribute('aria-pressed', String(selected));
+  };
+  sync();
+  window.addEventListener('kitrade:cart-change', sync);
   window.KITRADE_TRACK?.("product_view", { product_id: product.id, page_type: "product" });
   button.addEventListener("click", () => {
     window.KITRADE_TRACK?.("add_to_request", { product_id: product.id, page_type: "product" });
     window.KITRADE_TRACK?.("request_open", { source: "product_page" });
-    const article = product.article ? `, арт. ${product.article}` : "";
+    window.KITRADE_CART.add(product);
+    let target = sitePath('/catalog/');
     try {
-      const stored = JSON.parse(localStorage.getItem("kitradeCatalogSelectionV1") || "[]");
-      const ids = Array.isArray(stored) ? stored : stored?.ids;
-      const next = [...new Set([...(Array.isArray(ids) ? ids.map(String) : []), String(product.id)])];
-      localStorage.setItem("kitradeCatalogSelectionV1", JSON.stringify(next));
+      const saved = JSON.parse(sessionStorage.getItem('kitradeCatalogViewV1') || 'null');
+      if (saved?.path?.startsWith(sitePath('/catalog/'))) target = saved.path;
     } catch {}
-    sessionStorage.setItem("kitradeCatalogDraft", JSON.stringify({
-      details: `Позиция из каталога:\n1. ${product.title}${article}`,
-      selected_products: [{
-        product_id: String(product.id || ""),
-        title: product.title || "",
-        article: product.article || "",
-        price: Number(product.price) || 0,
-      }],
-      preliminary_sum: Number(product.price) || 0,
-      createdAt: Date.now(),
-    }));
-    window.location.href = sitePath("/#request");
+    window.location.href = target + '#request';
   });
 })();

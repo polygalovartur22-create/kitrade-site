@@ -48,7 +48,6 @@ try {
   } else catalogDraft = null;
 } catch {
   catalogDraft = null;
-  sessionStorage.removeItem("kitradeCatalogDraft");
 }
 
 categoryButtons.forEach((button) => {
@@ -565,6 +564,7 @@ if (requestForm) {
         preliminary_sum: preliminarySum,
       });
       pendingOrderId = "";
+      window.KITRADE_CART?.remove(products.map(item => item.product_id));
       catalogDraft = null;
       sessionStorage.removeItem("kitradeCatalogDraft");
     } catch (error) {
@@ -612,7 +612,12 @@ const localOrderCovers = [
   "./assets/order-06-cover.jpg",
 ];
 
-const sourceDataPromise = fetch("./assets/kitrade-source-data.json")
+const isOpenDesignPreview = window.location.pathname.includes("/api/projects/")
+  && window.location.pathname.includes("/preview/");
+
+const sourceDataPromise = (isOpenDesignPreview
+  ? Promise.resolve({ videos: [], orders: [] })
+  : fetch("./assets/kitrade-source-data.json")
   .then((response) => {
     if (!response.ok) throw new Error(`Source data request failed: ${response.status}`);
     return response.json();
@@ -627,7 +632,7 @@ const sourceDataPromise = fetch("./assets/kitrade-source-data.json")
   .catch((error) => {
     console.error(error);
     return { videos: [], orders: [] };
-  });
+  }));
 
 const suppliersDialog = document.querySelector("[data-suppliers-dialog]");
 const suppliersVideo = document.querySelector("[data-suppliers-video]");
@@ -746,18 +751,37 @@ function updateOrdersCarousel() {
   if (ordersStatus) ordersStatus.textContent = `Позиция ${page + 1} из ${orderProgressItems.length}`;
 }
 
+function getOrdersScrollStep() {
+  const firstCard = ordersViewport?.querySelector(".order-card");
+  const track = ordersViewport?.querySelector(".orders-track");
+  if (!firstCard) return Math.max(260, (ordersViewport?.clientWidth || 0) * 0.2);
+  const gap = track ? Number.parseFloat(getComputedStyle(track).columnGap) || 0 : 0;
+  return firstCard.getBoundingClientRect().width + gap;
+}
+
+function scrollOrdersByCard(direction) {
+  if (!ordersViewport) return;
+  const maxScroll = Math.max(0, ordersViewport.scrollWidth - ordersViewport.clientWidth);
+  const targetLeft = Math.max(
+    0,
+    Math.min(maxScroll, ordersViewport.scrollLeft + direction * getOrdersScrollStep()),
+  );
+
+  ordersViewport.scrollTo({ left: targetLeft, behavior: "smooth" });
+}
+
 ordersPrev?.addEventListener("click", () => {
-  const step = Math.max(220, (ordersViewport?.clientWidth || 0) * 0.15);
-  ordersViewport?.scrollBy({ left: -step, behavior: "smooth" });
+  scrollOrdersByCard(-1);
 });
 
 ordersNext?.addEventListener("click", () => {
-  const step = Math.max(220, (ordersViewport?.clientWidth || 0) * 0.15);
-  ordersViewport?.scrollBy({ left: step, behavior: "smooth" });
+  scrollOrdersByCard(1);
 });
 
 ordersViewport?.addEventListener("scroll", updateOrdersCarousel, { passive: true });
 window.addEventListener("resize", updateOrdersCarousel);
+window.addEventListener("load", updateOrdersCarousel, { once: true });
+window.requestAnimationFrame(updateOrdersCarousel);
 updateOrdersCarousel();
 
 const ordersDialog = document.querySelector("[data-orders-dialog]");

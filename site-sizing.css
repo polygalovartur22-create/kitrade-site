@@ -1,0 +1,22 @@
+/* Secondary pages use the same master widths and scale as the homepage. */
+body.site-scaled {
+  --site-artboard-width: 1920px;
+  width: var(--site-artboard-width);
+  min-width: var(--site-artboard-width);
+  max-width: var(--site-artboard-width);
+  margin: 0;
+  zoom: var(--site-artboard-scale, 1);
+}
+@media (max-width: 1199px) {
+  body.site-scaled { --site-artboard-width: 834px; }
+}
+@media (max-width: 599px) {
+  body.site-scaled { --site-artboard-width: 390px; }
+}
+/* The shared header, like the homepage header, stays in viewport pixels. */
+body.site-scaled > .reference-header {
+  width: var(--site-viewport-width, 100vw);
+  max-width: none;
+  transform: scale(var(--site-artboard-inverse-scale, 1));
+  transform-origin: top left;
+}

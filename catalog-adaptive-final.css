@@ -6,7 +6,7 @@ html {
   scroll-padding-top: var(--catalog-header-offset);
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1200px) {
   .catalog-workspace > .filter-panel,
   .catalog-workspace > .request-panel {
     top: var(--catalog-header-offset) !important;
@@ -21,7 +21,7 @@ html {
   display: none;
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1199px) {
   :root {
     --catalog-gutter: clamp(14px, 3.5vw, 28px);
   }

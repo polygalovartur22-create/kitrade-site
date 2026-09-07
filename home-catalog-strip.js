@@ -342,7 +342,6 @@
         <a class="home-catalog-card-link" href="${escapeHtml(sitePath(item.canonical_path))}" data-product-link data-product-id="${escapeHtml(id)}">
           <div class="home-catalog-card-media">
             <img src="${escapeHtml(image)}" alt="${escapeHtml(item.title)}" loading="lazy" />
-            <span class="home-catalog-card-preview">Быстрый просмотр</span>
           </div>
           <div class="home-catalog-card-copy">
             <span class="home-catalog-card-category">${escapeHtml(category)}</span>
