@@ -14,9 +14,9 @@
     "pages_with_request_path": 2355,
     "pages_with_phone_contact": 2355,
     "pages_with_minimum_order": 2355,
-    "pages_with_price_delivery_explanation": 2354,
+    "pages_with_price_delivery_explanation": 2353,
     "pages_with_vin_check": 2355,
-    "pages_requiring_review": 0
+    "pages_requiring_review": 1
   },
   "pages": [
     {
@@ -26,13 +26,15 @@
         "request_path": true,
         "phone_contact": true,
         "minimum_order_50000": true,
-        "part_price_and_delivery_explanation": true,
+        "part_price_and_delivery_explanation": false,
         "vin_check": true,
         "visible_price_or_price_context": true,
         "guarantee_terms_on_home": true
       },
-      "missing": [],
-      "decision": "keep"
+      "missing": [
+        "part_price_and_delivery_explanation"
+      ],
+      "decision": "review_existing_copy_or_controls"
     },
     {
       "canonical_path": "/catalog/",

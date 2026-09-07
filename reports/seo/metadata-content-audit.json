@@ -2,7 +2,7 @@
   "audit_version": 2,
   "summary": {
     "pages_checked": 2355,
-    "pages_with_issues": 0,
+    "pages_with_issues": 462,
     "duplicate_titles": 0,
     "duplicate_descriptions": 0,
     "duplicate_h1": 24,
@@ -34,8 +34,11 @@
       "page_type": "catalog",
       "title_length": 41,
       "description_length": 130,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/podbor-zapchastey-po-vin/",
@@ -50,3688 +53,5071 @@
       "page_type": "brand",
       "title_length": 42,
       "description_length": 108,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/voyah/",
       "page_type": "brand",
       "title_length": 49,
       "description_length": 114,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/",
       "page_type": "brand",
       "title_length": 51,
       "description_length": 116,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/volkswagen/",
       "page_type": "brand",
       "title_length": 48,
       "description_length": 114,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/changan/",
       "page_type": "brand",
       "title_length": 54,
       "description_length": 119,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/toyota/",
       "page_type": "brand",
       "title_length": 44,
       "description_length": 110,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/baic/",
       "page_type": "brand",
       "title_length": 49,
       "description_length": 114,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/livan/",
       "page_type": "brand",
       "title_length": 51,
       "description_length": 116,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/xiaomi/",
       "page_type": "brand",
       "title_length": 44,
       "description_length": 110,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/nissan/",
       "page_type": "brand",
       "title_length": 44,
       "description_length": 110,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/tank/",
       "page_type": "brand",
       "title_length": 49,
       "description_length": 114,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/li-auto/",
       "page_type": "brand",
       "title_length": 45,
       "description_length": 111,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/wey/",
       "page_type": "brand",
       "title_length": 47,
       "description_length": 112,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/fang-cheng-bao/",
       "page_type": "brand",
       "title_length": 52,
       "description_length": 118,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/kia/",
       "page_type": "brand",
       "title_length": 41,
       "description_length": 107,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/haval/",
       "page_type": "brand",
       "title_length": 51,
       "description_length": 116,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/dongfeng/",
       "page_type": "brand",
       "title_length": 46,
       "description_length": 112,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/hongqi/",
       "page_type": "brand",
       "title_length": 52,
       "description_length": 117,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/byd/",
       "page_type": "brand",
       "title_length": 47,
       "description_length": 112,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/exeed/",
       "page_type": "brand",
       "title_length": 43,
       "description_length": 109,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/baw/",
       "page_type": "brand",
       "title_length": 41,
       "description_length": 107,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/hiphi/",
       "page_type": "brand",
       "title_length": 43,
       "description_length": 109,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/zeekr/",
       "page_type": "brand",
       "title_length": 43,
       "description_length": 109,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/mercedes-benz/",
       "page_type": "brand",
       "title_length": 51,
       "description_length": 117,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/honda/",
       "page_type": "brand",
       "title_length": 43,
       "description_length": 109,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/polar-stone-jishi/",
       "page_type": "brand",
       "title_length": 57,
       "description_length": 123,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/chevrolet/",
       "page_type": "brand",
       "title_length": 47,
       "description_length": 113,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/baojun/",
       "page_type": "brand",
       "title_length": 44,
       "description_length": 110,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/trumpchi/",
       "page_type": "brand",
       "title_length": 46,
       "description_length": 112,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/lexus/",
       "page_type": "brand",
       "title_length": 43,
       "description_length": 109,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/bmw/",
       "page_type": "brand",
       "title_length": 41,
       "description_length": 107,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/great-wall/",
       "page_type": "brand",
       "title_length": 48,
       "description_length": 114,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/chery/",
       "page_type": "brand",
       "title_length": 43,
       "description_length": 109,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/hyundai/",
       "page_type": "brand",
       "title_length": 45,
       "description_length": 111,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/omoda/",
       "page_type": "brand",
       "title_length": 43,
       "description_length": 109,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/jetour/",
       "page_type": "brand",
       "title_length": 44,
       "description_length": 110,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/audi/",
       "page_type": "brand",
       "title_length": 42,
       "description_length": 108,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/foton/",
       "page_type": "brand",
       "title_length": 43,
       "description_length": 109,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/aito/m8/",
       "page_type": "model",
       "title_length": 35,
       "description_length": 115,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/voyah/free/",
       "page_type": "model",
       "title_length": 48,
       "description_length": 113,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/voyah/passion/",
       "page_type": "model",
       "title_length": 42,
       "description_length": 107,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/galaxy-m9/",
       "page_type": "model",
       "title_length": 53,
       "description_length": 118,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/volkswagen/tavendor/",
       "page_type": "model",
       "title_length": 47,
       "description_length": 127,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/changan/hunter-plus/",
       "page_type": "model",
       "title_length": 47,
       "description_length": 127,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/toyota/corolla/",
       "page_type": "model",
       "title_length": 42,
       "description_length": 122,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/toyota/highlander/",
       "page_type": "model",
       "title_length": 45,
       "description_length": 125,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/baic/u5-plus/",
       "page_type": "model",
       "title_length": 50,
       "description_length": 115,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/baic/x35/",
       "page_type": "model",
       "title_length": 46,
       "description_length": 111,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/livan/x6-pro/",
       "page_type": "model",
       "title_length": 40,
       "description_length": 120,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/voyah/dream/",
       "page_type": "model",
       "title_length": 49,
       "description_length": 114,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/baic/bj40/",
       "page_type": "model",
       "title_length": 37,
       "description_length": 117,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/toyota/camry/",
       "page_type": "model",
       "title_length": 40,
       "description_length": 120,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/xiaomi/su7/",
       "page_type": "model",
       "title_length": 38,
       "description_length": 118,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/nissan/x-trail/",
       "page_type": "model",
       "title_length": 42,
       "description_length": 122,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/tank/500/",
       "page_type": "model",
       "title_length": 46,
       "description_length": 111,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/toyota/rav4/",
       "page_type": "model",
       "title_length": 39,
       "description_length": 119,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/li-auto/l7/",
       "page_type": "model",
       "title_length": 48,
       "description_length": 113,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/voyah/taishan/",
       "page_type": "model",
       "title_length": 41,
       "description_length": 121,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/wey/80/",
       "page_type": "model",
       "title_length": 34,
       "description_length": 114,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/fang-cheng-bao/titanium-7/",
       "page_type": "model",
       "title_length": 53,
       "description_length": 133,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/preface/",
       "page_type": "model",
       "title_length": 51,
       "description_length": 116,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/baic/x55/",
       "page_type": "model",
       "title_length": 36,
       "description_length": 116,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/livan/x3-pro/",
       "page_type": "model",
       "title_length": 50,
       "description_length": 115,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/changan/cs75-plus/",
       "page_type": "model",
       "title_length": 55,
       "description_length": 120,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/kia/seltos/",
       "page_type": "model",
       "title_length": 38,
       "description_length": 118,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/changan/shenlan-deepal-s07/",
       "page_type": "model",
       "title_length": 48,
       "description_length": 113,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/haval/xiaolong-max/",
       "page_type": "model",
       "title_length": 54,
       "description_length": 119,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/dongfeng/dfsk-ix5/",
       "page_type": "model",
       "title_length": 44,
       "description_length": 109,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/volkswagen/tayron/",
       "page_type": "model",
       "title_length": 45,
       "description_length": 125,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/hongqi/hs5/",
       "page_type": "model",
       "title_length": 39,
       "description_length": 104,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/atlas/",
       "page_type": "model",
       "title_length": 49,
       "description_length": 114,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/byd/tang-l/",
       "page_type": "model",
       "title_length": 48,
       "description_length": 113,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/fang-cheng-bao/bao-5-leopard-5/",
       "page_type": "model",
       "title_length": 56,
       "description_length": 136,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/exeed/exlantix-es/",
       "page_type": "model",
       "title_length": 45,
       "description_length": 125,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/baw/212/",
       "page_type": "model",
       "title_length": 35,
       "description_length": 115,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/haval/jolion/",
       "page_type": "model",
       "title_length": 51,
       "description_length": 116,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/byd/seal-06-gt/",
       "page_type": "model",
       "title_length": 42,
       "description_length": 122,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/galaxy-l7/",
       "page_type": "model",
       "title_length": 53,
       "description_length": 118,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/changan/cs95/",
       "page_type": "model",
       "title_length": 41,
       "description_length": 106,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/galaxy-starship-7/",
       "page_type": "model",
       "title_length": 61,
       "description_length": 126,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/monjaro/",
       "page_type": "model",
       "title_length": 51,
       "description_length": 116,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/kia/k5/",
       "page_type": "model",
       "title_length": 34,
       "description_length": 114,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/baic/x7/",
       "page_type": "model",
       "title_length": 45,
       "description_length": 110,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/kia/k3/",
       "page_type": "model",
       "title_length": 34,
       "description_length": 114,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/byd/yangwang-u8/",
       "page_type": "model",
       "title_length": 53,
       "description_length": 118,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/wey/07/",
       "page_type": "model",
       "title_length": 44,
       "description_length": 109,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/hiphi/z/",
       "page_type": "model",
       "title_length": 35,
       "description_length": 115,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/zeekr/9x/",
       "page_type": "model",
       "title_length": 36,
       "description_length": 116,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/volkswagen/talagon/",
       "page_type": "model",
       "title_length": 46,
       "description_length": 126,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/kia/sportage-china/",
       "page_type": "model",
       "title_length": 48,
       "description_length": 128,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/okavango/",
       "page_type": "model",
       "title_length": 42,
       "description_length": 122,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/mercedes-benz/g-klass/",
       "page_type": "model",
       "title_length": 49,
       "description_length": 129,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/zeekr/001/",
       "page_type": "model",
       "title_length": 47,
       "description_length": 112,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/nissan/pathfinder-china/",
       "page_type": "model",
       "title_length": 53,
       "description_length": 133,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/honda/crider/",
       "page_type": "model",
       "title_length": 40,
       "description_length": 120,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/polar-stone-jishi/01/",
       "page_type": "model",
       "title_length": 50,
       "description_length": 130,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/vision-x6-pro/",
       "page_type": "model",
       "title_length": 47,
       "description_length": 127,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/chevrolet/monza/",
       "page_type": "model",
       "title_length": 43,
       "description_length": 123,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/changan/auchan-z6/",
       "page_type": "model",
       "title_length": 45,
       "description_length": 125,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/baojun/rs-5/",
       "page_type": "model",
       "title_length": 39,
       "description_length": 119,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/tank/700/",
       "page_type": "model",
       "title_length": 46,
       "description_length": 111,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/trumpchi/m8/",
       "page_type": "model",
       "title_length": 39,
       "description_length": 119,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/lexus/rx/",
       "page_type": "model",
       "title_length": 36,
       "description_length": 116,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/baojun/rc-5/",
       "page_type": "model",
       "title_length": 39,
       "description_length": 119,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/bmw/x5/",
       "page_type": "model",
       "title_length": 34,
       "description_length": 114,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/toyota/venza/",
       "page_type": "model",
       "title_length": 40,
       "description_length": 120,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/changan/uni-k/",
       "page_type": "model",
       "title_length": 51,
       "description_length": 116,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/great-wall/poer/",
       "page_type": "model",
       "title_length": 53,
       "description_length": 118,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/changan/alsvin/",
       "page_type": "model",
       "title_length": 42,
       "description_length": 122,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/chery/tiggo-7-pro-max/",
       "page_type": "model",
       "title_length": 59,
       "description_length": 124,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/chevrolet/camaro/",
       "page_type": "model",
       "title_length": 44,
       "description_length": 124,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/chery/tiggo-4/",
       "page_type": "model",
       "title_length": 41,
       "description_length": 121,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/haval/f7/",
       "page_type": "model",
       "title_length": 46,
       "description_length": 111,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/coolray/",
       "page_type": "model",
       "title_length": 51,
       "description_length": 116,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/toyota/land-cruiser-prado/",
       "page_type": "model",
       "title_length": 53,
       "description_length": 133,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/hyundai/santa-fe/",
       "page_type": "model",
       "title_length": 44,
       "description_length": 124,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/exeed/vx/",
       "page_type": "model",
       "title_length": 46,
       "description_length": 111,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/changan/cs35-plus/",
       "page_type": "model",
       "title_length": 45,
       "description_length": 125,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/exeed/txl/",
       "page_type": "model",
       "title_length": 37,
       "description_length": 117,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/omoda/c5/",
       "page_type": "model",
       "title_length": 46,
       "description_length": 111,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/great-wall/poer-king-kong/",
       "page_type": "model",
       "title_length": 63,
       "description_length": 128,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/jetour/t2/",
       "page_type": "model",
       "title_length": 47,
       "description_length": 112,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/zeekr/007/",
       "page_type": "model",
       "title_length": 37,
       "description_length": 117,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/audi/q5-sportback/",
       "page_type": "model",
       "title_length": 45,
       "description_length": 125,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/li-auto/l9/",
       "page_type": "model",
       "title_length": 38,
       "description_length": 118,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/mercedes-benz/g-klass-amg/",
       "page_type": "model",
       "title_length": 53,
       "description_length": 133,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/atlas-pro/",
       "page_type": "model",
       "title_length": 53,
       "description_length": 118,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/tank/300/",
       "page_type": "model",
       "title_length": 46,
       "description_length": 111,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/haval/h3/",
       "page_type": "model",
       "title_length": 46,
       "description_length": 111,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/toyota/wildlander/",
       "page_type": "model",
       "title_length": 45,
       "description_length": 125,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/li-auto/l6/",
       "page_type": "model",
       "title_length": 38,
       "description_length": 118,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/chery/tiggo-4-pro/",
       "page_type": "model",
       "title_length": 55,
       "description_length": 120,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/foton/tunland-g7/",
       "page_type": "model",
       "title_length": 54,
       "description_length": 119,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/haval/f7x/",
       "page_type": "model",
       "title_length": 47,
       "description_length": 112,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/audi/a8/",
       "page_type": "model",
       "title_length": 35,
       "description_length": 115,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/aito/m8/optika/",
       "page_type": "category",
       "title_length": 35,
       "description_length": 105,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/voyah/free/optika/",
       "page_type": "category",
       "title_length": 38,
       "description_length": 108,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/voyah/passion/optika/",
       "page_type": "category",
       "title_length": 41,
       "description_length": 111,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/galaxy-m9/optika/",
       "page_type": "category",
       "title_length": 43,
       "description_length": 113,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/volkswagen/tavendor/optika/",
       "page_type": "category",
       "title_length": 47,
       "description_length": 117,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/changan/hunter-plus/optika/",
       "page_type": "category",
       "title_length": 47,
       "description_length": 117,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/toyota/corolla/optika/",
       "page_type": "category",
       "title_length": 42,
       "description_length": 112,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/toyota/highlander/optika/",
       "page_type": "category",
       "title_length": 45,
       "description_length": 115,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/baic/u5-plus/optika/",
       "page_type": "category",
       "title_length": 40,
       "description_length": 110,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/baic/x35/optika/",
       "page_type": "category",
       "title_length": 36,
       "description_length": 106,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/livan/x6-pro/optika/",
       "page_type": "category",
       "title_length": 40,
       "description_length": 110,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/voyah/dream/optika/",
       "page_type": "category",
       "title_length": 39,
       "description_length": 109,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/baic/bj40/optika/",
       "page_type": "category",
       "title_length": 37,
       "description_length": 107,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/toyota/camry/optika/",
       "page_type": "category",
       "title_length": 40,
       "description_length": 110,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/xiaomi/su7/optika/",
       "page_type": "category",
       "title_length": 38,
       "description_length": 108,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/nissan/x-trail/optika/",
       "page_type": "category",
       "title_length": 42,
       "description_length": 112,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/tank/500/optika/",
       "page_type": "category",
       "title_length": 36,
       "description_length": 106,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/toyota/rav4/optika/",
       "page_type": "category",
       "title_length": 39,
       "description_length": 109,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/li-auto/l7/optika/",
       "page_type": "category",
       "title_length": 38,
       "description_length": 108,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/voyah/taishan/optika/",
       "page_type": "category",
       "title_length": 41,
       "description_length": 111,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/wey/80/optika/",
       "page_type": "category",
       "title_length": 34,
       "description_length": 104,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/fang-cheng-bao/titanium-7/optika/",
       "page_type": "category",
       "title_length": 53,
       "description_length": 123,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/preface/optika/",
       "page_type": "category",
       "title_length": 41,
       "description_length": 111,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/baic/x55/optika/",
       "page_type": "category",
       "title_length": 36,
       "description_length": 106,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/livan/x3-pro/optika/",
       "page_type": "category",
       "title_length": 40,
       "description_length": 110,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/changan/cs75-plus/optika/",
       "page_type": "category",
       "title_length": 45,
       "description_length": 115,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/kia/seltos/optika/",
       "page_type": "category",
       "title_length": 38,
       "description_length": 108,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/changan/shenlan-deepal-s07/optika/",
       "page_type": "category",
       "title_length": 56,
       "description_length": 126,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/haval/xiaolong-max/optika/",
       "page_type": "category",
       "title_length": 46,
       "description_length": 116,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/dongfeng/dfsk-ix5/optika/",
       "page_type": "category",
       "title_length": 45,
       "description_length": 115,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/volkswagen/tayron/optika/",
       "page_type": "category",
       "title_length": 45,
       "description_length": 115,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/hongqi/hs5/optika/",
       "page_type": "category",
       "title_length": 38,
       "description_length": 108,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/atlas/optika/",
       "page_type": "category",
       "title_length": 39,
       "description_length": 109,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/byd/tang-l/optika/",
       "page_type": "category",
       "title_length": 38,
       "description_length": 108,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/fang-cheng-bao/bao-5-leopard-5/optika/",
       "page_type": "category",
       "title_length": 56,
       "description_length": 126,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/exeed/exlantix-es/optika/",
       "page_type": "category",
       "title_length": 45,
       "description_length": 115,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/baw/212/optika/",
       "page_type": "category",
       "title_length": 35,
       "description_length": 105,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/haval/jolion/optika/",
       "page_type": "category",
       "title_length": 40,
       "description_length": 110,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/byd/seal-06-gt/optika/",
       "page_type": "category",
       "title_length": 42,
       "description_length": 112,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/galaxy-l7/optika/",
       "page_type": "category",
       "title_length": 43,
       "description_length": 113,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/changan/cs95/optika/",
       "page_type": "category",
       "title_length": 40,
       "description_length": 110,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/galaxy-starship-7/optika/",
       "page_type": "category",
       "title_length": 51,
       "description_length": 121,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/monjaro/optika/",
       "page_type": "category",
       "title_length": 41,
       "description_length": 111,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/kia/k5/optika/",
       "page_type": "category",
       "title_length": 34,
       "description_length": 104,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/baic/x7/optika/",
       "page_type": "category",
       "title_length": 35,
       "description_length": 105,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/kia/k3/optika/",
       "page_type": "category",
       "title_length": 34,
       "description_length": 104,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/byd/yangwang-u8/optika/",
       "page_type": "category",
       "title_length": 43,
       "description_length": 113,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/wey/07/optika/",
       "page_type": "category",
       "title_length": 34,
       "description_length": 104,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/hiphi/z/optika/",
       "page_type": "category",
       "title_length": 35,
       "description_length": 105,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/zeekr/9x/optika/",
       "page_type": "category",
       "title_length": 36,
       "description_length": 106,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/volkswagen/talagon/optika/",
       "page_type": "category",
       "title_length": 46,
       "description_length": 116,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/kia/sportage-china/optika/",
       "page_type": "category",
       "title_length": 48,
       "description_length": 118,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/okavango/optika/",
       "page_type": "category",
       "title_length": 42,
       "description_length": 112,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/mercedes-benz/g-klass/optika/",
       "page_type": "category",
       "title_length": 49,
       "description_length": 119,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/zeekr/001/optika/",
       "page_type": "category",
       "title_length": 37,
       "description_length": 107,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/nissan/pathfinder-china/optika/",
       "page_type": "category",
       "title_length": 53,
       "description_length": 123,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/honda/crider/optika/",
       "page_type": "category",
       "title_length": 40,
       "description_length": 110,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/polar-stone-jishi/01/optika/",
       "page_type": "category",
       "title_length": 50,
       "description_length": 120,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/vision-x6-pro/optika/",
       "page_type": "category",
       "title_length": 47,
       "description_length": 117,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/chevrolet/monza/optika/",
       "page_type": "category",
       "title_length": 43,
       "description_length": 113,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/kia/seltos/sistema-ohlazhdeniya/",
       "page_type": "category",
       "title_length": 43,
       "description_length": 113,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/hongqi/hs5/dvigatel/",
       "page_type": "category",
       "title_length": 43,
       "description_length": 113,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/monjaro/sistema-ohlazhdeniya/",
       "page_type": "category",
       "title_length": 46,
       "description_length": 116,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/haval/jolion/sistema-ohlazhdeniya/",
       "page_type": "category",
       "title_length": 45,
       "description_length": 115,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/galaxy-l7/sistema-ohlazhdeniya/",
       "page_type": "category",
       "title_length": 48,
       "description_length": 118,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/mercedes-benz/g-klass/sistema-ohlazhdeniya/",
       "page_type": "category",
       "title_length": 54,
       "description_length": 124,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/livan/x6-pro/dvigatel/",
       "page_type": "category",
       "title_length": 45,
       "description_length": 115,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/kia/sportage-china/dvigatel/",
       "page_type": "category",
       "title_length": 53,
       "description_length": 123,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/wey/07/sistema-ohlazhdeniya/",
       "page_type": "category",
       "title_length": 39,
       "description_length": 109,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/hongqi/hs5/sistema-ohlazhdeniya/",
       "page_type": "category",
       "title_length": 43,
       "description_length": 113,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/kia/sportage-china/sistema-ohlazhdeniya/",
       "page_type": "category",
       "title_length": 53,
       "description_length": 123,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/exeed/exlantix-es/sistema-ohlazhdeniya/",
       "page_type": "category",
       "title_length": 50,
       "description_length": 120,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/aito/m8/dvigatel/",
       "page_type": "category",
       "title_length": 40,
       "description_length": 110,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/volkswagen/tayron/sistema-ohlazhdeniya/",
       "page_type": "category",
       "title_length": 50,
       "description_length": 120,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/livan/x6-pro/sistema-ohlazhdeniya/",
       "page_type": "category",
       "title_length": 45,
       "description_length": 115,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/toyota/highlander/sistema-ohlazhdeniya/",
       "page_type": "category",
       "title_length": 50,
       "description_length": 120,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/voyah/dream/sistema-ohlazhdeniya/",
       "page_type": "category",
       "title_length": 44,
       "description_length": 114,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/changan/cs75-plus/dvigatel/",
       "page_type": "category",
       "title_length": 50,
       "description_length": 120,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/baic/x7/sistema-ohlazhdeniya/",
       "page_type": "category",
       "title_length": 40,
       "description_length": 110,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/changan/cs75-plus/sistema-ohlazhdeniya/",
       "page_type": "category",
       "title_length": 50,
       "description_length": 120,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/volkswagen/talagon/sistema-ohlazhdeniya/",
       "page_type": "category",
       "title_length": 51,
       "description_length": 121,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/monjaro/dvigatel/",
       "page_type": "category",
       "title_length": 46,
       "description_length": 116,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/exeed/exlantix-es/dvigatel/",
       "page_type": "category",
       "title_length": 50,
       "description_length": 120,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/baic/x7/dvigatel/",
       "page_type": "category",
       "title_length": 40,
       "description_length": 110,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/haval/xiaolong-max/sistema-ohlazhdeniya/",
       "page_type": "category",
       "title_length": 51,
       "description_length": 121,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/toyota/rav4/dvigatel/",
       "page_type": "category",
       "title_length": 44,
       "description_length": 114,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/toyota/camry/dvigatel/",
       "page_type": "category",
       "title_length": 45,
       "description_length": 115,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/volkswagen/talagon/dvigatel/",
       "page_type": "category",
       "title_length": 51,
       "description_length": 121,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/toyota/camry/sistema-ohlazhdeniya/",
       "page_type": "category",
       "title_length": 45,
       "description_length": 115,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/galaxy-starship-7/sistema-ohlazhdeniya/",
       "page_type": "category",
       "title_length": 56,
       "description_length": 126,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/baic/u5-plus/dvigatel/",
       "page_type": "category",
       "title_length": 45,
       "description_length": 115,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/kia/seltos/dvigatel/",
       "page_type": "category",
       "title_length": 43,
       "description_length": 113,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/changan/shenlan-deepal-s07/sistema-ohlazhdeniya/",
       "page_type": "category",
       "title_length": 61,
       "description_length": 131,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/galaxy-starship-7/dvigatel/",
       "page_type": "category",
       "title_length": 56,
       "description_length": 126,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/polar-stone-jishi/01/sistema-ohlazhdeniya/",
       "page_type": "category",
       "title_length": 55,
       "description_length": 125,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/wey/07/dvigatel/",
       "page_type": "category",
       "title_length": 39,
       "description_length": 109,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/baic/u5-plus/sistema-ohlazhdeniya/",
       "page_type": "category",
       "title_length": 45,
       "description_length": 115,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/kia/k5/sistema-ohlazhdeniya/",
       "page_type": "category",
       "title_length": 39,
       "description_length": 109,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/changan/shenlan-deepal-s07/dvigatel/",
       "page_type": "category",
       "title_length": 61,
       "description_length": 131,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/nissan/x-trail/sistema-ohlazhdeniya/",
       "page_type": "category",
       "title_length": 47,
       "description_length": 117,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/haval/xiaolong-max/dvigatel/",
       "page_type": "category",
       "title_length": 51,
       "description_length": 121,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/volkswagen/tayron/dvigatel/",
       "page_type": "category",
       "title_length": 50,
       "description_length": 120,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/livan/x3-pro/dvigatel/",
       "page_type": "category",
       "title_length": 45,
       "description_length": 115,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/toyota/rav4/sistema-ohlazhdeniya/",
       "page_type": "category",
       "title_length": 44,
       "description_length": 114,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/galaxy-l7/dvigatel/",
       "page_type": "category",
       "title_length": 48,
       "description_length": 118,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/aito/m8/sistema-ohlazhdeniya/",
       "page_type": "category",
       "title_length": 40,
       "description_length": 110,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/baw/212/dvigatel/",
       "page_type": "category",
       "title_length": 40,
       "description_length": 110,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/toyota/highlander/dvigatel/",
       "page_type": "category",
       "title_length": 50,
       "description_length": 120,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/changan/auchan-z6/sistema-ohlazhdeniya/",
       "page_type": "category",
       "title_length": 50,
       "description_length": 120,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/chevrolet/monza/sistema-ohlazhdeniya/",
       "page_type": "category",
       "title_length": 48,
       "description_length": 118,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/chevrolet/monza/dvigatel/",
       "page_type": "category",
       "title_length": 48,
       "description_length": 118,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/voyah/free/tormoznaya-sistema/",
       "page_type": "category",
       "title_length": 51,
       "description_length": 121,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/fang-cheng-bao/bao-5-leopard-5/tormoznaya-sistema/",
       "page_type": "category",
       "title_length": 69,
       "description_length": 139,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/monjaro/tormoznaya-sistema/",
       "page_type": "category",
       "title_length": 54,
       "description_length": 124,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/vision-x6-pro/tormoznaya-sistema/",
       "page_type": "category",
       "title_length": 60,
       "description_length": 130,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/fang-cheng-bao/titanium-7/tormoznaya-sistema/",
       "page_type": "category",
       "title_length": 66,
       "description_length": 136,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/baojun/rs-5/tormoznaya-sistema/",
       "page_type": "category",
       "title_length": 52,
       "description_length": 122,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/tank/500/tormoznaya-sistema/",
       "page_type": "category",
       "title_length": 49,
       "description_length": 119,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/li-auto/l7/tormoznaya-sistema/",
       "page_type": "category",
       "title_length": 51,
       "description_length": 121,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/voyah/passion/dvigatel/",
       "page_type": "category",
       "title_length": 46,
       "description_length": 116,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/hongqi/hs5/elektrika/",
       "page_type": "category",
       "title_length": 38,
       "description_length": 108,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/baic/u5-plus/elektrika/",
       "page_type": "category",
       "title_length": 40,
       "description_length": 110,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/polar-stone-jishi/01/elektrika/",
       "page_type": "category",
       "title_length": 50,
       "description_length": 120,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/kia/k5/elektrika/",
       "page_type": "category",
       "title_length": 34,
       "description_length": 104,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/kia/seltos/salon/",
       "page_type": "category",
       "title_length": 38,
       "description_length": 108,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/voyah/passion/elektrika/",
       "page_type": "category",
       "title_length": 41,
       "description_length": 111,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/galaxy-l7/elektrika/",
       "page_type": "category",
       "title_length": 43,
       "description_length": 113,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/voyah/dream/elektrika/",
       "page_type": "category",
       "title_length": 39,
       "description_length": 109,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/haval/jolion/elektrika/",
       "page_type": "category",
       "title_length": 40,
       "description_length": 110,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/livan/x3-pro/elektrika/",
       "page_type": "category",
       "title_length": 40,
       "description_length": 110,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/volkswagen/tayron/elektrika/",
       "page_type": "category",
       "title_length": 45,
       "description_length": 115,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/changan/hunter-plus/elektrika/",
       "page_type": "category",
       "title_length": 47,
       "description_length": 117,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/voyah/dream/dvigatel/",
       "page_type": "category",
       "title_length": 44,
       "description_length": 114,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/voyah/free/elektrika/",
       "page_type": "category",
       "title_length": 38,
       "description_length": 108,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/nissan/x-trail/elektrika/",
       "page_type": "category",
       "title_length": 42,
       "description_length": 112,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/fang-cheng-bao/bao-5-leopard-5/elektrika/",
       "page_type": "category",
       "title_length": 56,
       "description_length": 126,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/livan/x3-pro/salon/",
       "page_type": "category",
       "title_length": 40,
       "description_length": 110,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/toyota/camry/elektrika/",
       "page_type": "category",
       "title_length": 40,
       "description_length": 110,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/baic/x7/elektrika/",
       "page_type": "category",
       "title_length": 35,
       "description_length": 105,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/mercedes-benz/g-klass/elektrika/",
       "page_type": "category",
       "title_length": 49,
       "description_length": 119,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/baic/x55/elektrika/",
       "page_type": "category",
       "title_length": 36,
       "description_length": 106,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/baojun/rs-5/rulevoe-upravlenie/",
       "page_type": "category",
       "title_length": 44,
       "description_length": 114,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/fang-cheng-bao/bao-5-leopard-5/rulevoe-upravlenie/",
       "page_type": "category",
       "title_length": 61,
       "description_length": 131,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/monjaro/toplivnaya-i-vyhlopnaya-sistemy/",
       "page_type": "category",
       "title_length": 57,
       "description_length": 127,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/haval/jolion/toplivnaya-i-vyhlopnaya-sistemy/",
       "page_type": "category",
       "title_length": 56,
       "description_length": 126,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/hongqi/hs5/toplivnaya-i-vyhlopnaya-sistemy/",
       "page_type": "category",
       "title_length": 54,
       "description_length": 124,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/exeed/exlantix-es/toplivnaya-i-vyhlopnaya-sistemy/",
       "page_type": "category",
       "title_length": 61,
       "description_length": 131,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/fang-cheng-bao/titanium-7/stekla/",
       "page_type": "category",
       "title_length": 60,
       "description_length": 130,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/baw/212/stekla/",
       "page_type": "category",
       "title_length": 42,
       "description_length": 112,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/tank/700/stekla/",
       "page_type": "category",
       "title_length": 43,
       "description_length": 113,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/toyota/highlander/stekla/",
       "page_type": "category",
       "title_length": 52,
       "description_length": 122,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/voyah/taishan/kuzov/",
       "page_type": "category",
       "title_length": 45,
       "description_length": 115,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/byd/yangwang-u8/kuzov/",
       "page_type": "category",
       "title_length": 47,
       "description_length": 117,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/haval/jolion/stekla/",
       "page_type": "category",
       "title_length": 47,
       "description_length": 117,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/baic/x7/stekla/",
       "page_type": "category",
       "title_length": 42,
       "description_length": 112,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/voyah/passion/stekla/",
       "page_type": "category",
       "title_length": 48,
       "description_length": 118,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/trumpchi/m8/stekla/",
       "page_type": "category",
       "title_length": 46,
       "description_length": 116,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/zeekr/9x/stekla/",
       "page_type": "category",
       "title_length": 43,
       "description_length": 113,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/changan/cs95/stekla/",
       "page_type": "category",
       "title_length": 47,
       "description_length": 117,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/volkswagen/tavendor/stekla/",
       "page_type": "category",
       "title_length": 54,
       "description_length": 124,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/tank/500/stekla/",
       "page_type": "category",
       "title_length": 43,
       "description_length": 113,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/kia/seltos/stekla/",
       "page_type": "category",
       "title_length": 45,
       "description_length": 115,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/polar-stone-jishi/01/stekla/",
       "page_type": "category",
       "title_length": 57,
       "description_length": 127,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/monjaro/kuzov/",
       "page_type": "category",
       "title_length": 45,
       "description_length": 115,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/exeed/exlantix-es/stekla/",
       "page_type": "category",
       "title_length": 52,
       "description_length": 122,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/fang-cheng-bao/bao-5-leopard-5/kuzov/",
       "page_type": "category",
       "title_length": 60,
       "description_length": 130,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/changan/cs75-plus/stekla/",
       "page_type": "category",
       "title_length": 52,
       "description_length": 122,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/kia/sportage-china/stekla/",
       "page_type": "category",
       "title_length": 55,
       "description_length": 125,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/tank/700/kuzov/",
       "page_type": "category",
       "title_length": 40,
       "description_length": 110,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/lexus/rx/stekla/",
       "page_type": "category",
       "title_length": 43,
       "description_length": 113,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/vision-x6-pro/stekla/",
       "page_type": "category",
       "title_length": 54,
       "description_length": 124,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/byd/yangwang-u8/stekla/",
       "page_type": "category",
       "title_length": 50,
       "description_length": 120,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/baic/bj40/stekla/",
       "page_type": "category",
       "title_length": 44,
       "description_length": 114,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/tank/500/kuzov/",
       "page_type": "category",
       "title_length": 40,
       "description_length": 110,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/galaxy-l7/stekla/",
       "page_type": "category",
       "title_length": 50,
       "description_length": 120,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/baic/u5-plus/stekla/",
       "page_type": "category",
       "title_length": 47,
       "description_length": 117,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/volkswagen/talagon/stekla/",
       "page_type": "category",
       "title_length": 53,
       "description_length": 123,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/galaxy-starship-7/stekla/",
       "page_type": "category",
       "title_length": 58,
       "description_length": 128,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/changan/hunter-plus/kuzov/",
       "page_type": "category",
       "title_length": 51,
       "description_length": 121,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/voyah/taishan/stekla/",
       "page_type": "category",
       "title_length": 48,
       "description_length": 118,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/baojun/rc-5/kuzov/",
       "page_type": "category",
       "title_length": 43,
       "description_length": 113,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/aito/m8/stekla/",
       "page_type": "category",
       "title_length": 42,
       "description_length": 112,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/bmw/x5/stekla/",
       "page_type": "category",
       "title_length": 41,
       "description_length": 111,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/fang-cheng-bao/bao-5-leopard-5/stekla/",
       "page_type": "category",
       "title_length": 63,
       "description_length": 133,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/kia/k5/stekla/",
       "page_type": "category",
       "title_length": 41,
       "description_length": 111,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/toyota/rav4/stekla/",
       "page_type": "category",
       "title_length": 46,
       "description_length": 116,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/voyah/free/stekla/",
       "page_type": "category",
       "title_length": 45,
       "description_length": 115,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/volkswagen/tayron/stekla/",
       "page_type": "category",
       "title_length": 52,
       "description_length": 122,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/changan/shenlan-deepal-s07/stekla/",
       "page_type": "category",
       "title_length": 63,
       "description_length": 133,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/monjaro/stekla/",
       "page_type": "category",
       "title_length": 48,
       "description_length": 118,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/wey/07/stekla/",
       "page_type": "category",
       "title_length": 41,
       "description_length": 111,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/byd/seal-06-gt/stekla/",
       "page_type": "category",
       "title_length": 49,
       "description_length": 119,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/toyota/corolla/stekla/",
       "page_type": "category",
       "title_length": 49,
       "description_length": 119,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/nissan/x-trail/stekla/",
       "page_type": "category",
       "title_length": 49,
       "description_length": 119,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/byd/tang-l/stekla/",
       "page_type": "category",
       "title_length": 45,
       "description_length": 115,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/kia/k3/stekla/",
       "page_type": "category",
       "title_length": 41,
       "description_length": 111,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/toyota/venza/stekla/",
       "page_type": "category",
       "title_length": 47,
       "description_length": 117,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/li-auto/l7/stekla/",
       "page_type": "category",
       "title_length": 45,
       "description_length": 115,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/changan/uni-k/stekla/",
       "page_type": "category",
       "title_length": 48,
       "description_length": 118,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/wey/80/stekla/",
       "page_type": "category",
       "title_length": 41,
       "description_length": 111,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/xiaomi/su7/stekla/",
       "page_type": "category",
       "title_length": 45,
       "description_length": 115,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/galaxy-m9/stekla/",
       "page_type": "category",
       "title_length": 50,
       "description_length": 120,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/changan/hunter-plus/stekla/",
       "page_type": "category",
       "title_length": 54,
       "description_length": 124,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/voyah/free/kuzov/",
       "page_type": "category",
       "title_length": 42,
       "description_length": 112,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/baic/x35/stekla/",
       "page_type": "category",
       "title_length": 43,
       "description_length": 113,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/changan/auchan-z6/stekla/",
       "page_type": "category",
       "title_length": 52,
       "description_length": 122,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/chevrolet/monza/stekla/",
       "page_type": "category",
       "title_length": 50,
       "description_length": 120,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/great-wall/poer/transmissiya-i-privod/",
       "page_type": "category",
       "title_length": 50,
       "description_length": 120,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/changan/uni-k/transmissiya-i-privod/",
       "page_type": "category",
       "title_length": 48,
       "description_length": 118,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/changan/alsvin/transmissiya-i-privod/",
       "page_type": "category",
       "title_length": 49,
       "description_length": 119,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/chery/tiggo-7-pro-max/transmissiya-i-privod/",
       "page_type": "category",
       "title_length": 56,
       "description_length": 126,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/zeekr/9x/transmissiya-i-privod/",
       "page_type": "category",
       "title_length": 43,
       "description_length": 113,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/monjaro/transmissiya-i-privod/",
       "page_type": "category",
       "title_length": 48,
       "description_length": 118,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/chevrolet/camaro/transmissiya-i-privod/",
       "page_type": "category",
       "title_length": 51,
       "description_length": 121,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/volkswagen/talagon/transmissiya-i-privod/",
       "page_type": "category",
       "title_length": 53,
       "description_length": 123,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/fang-cheng-bao/bao-5-leopard-5/transmissiya-i-privod/",
       "page_type": "category",
       "title_length": 63,
       "description_length": 133,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/chery/tiggo-4/transmissiya-i-privod/",
       "page_type": "category",
       "title_length": 48,
       "description_length": 118,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/haval/f7/transmissiya-i-privod/",
       "page_type": "category",
       "title_length": 43,
       "description_length": 113,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/changan/uni-k/dvigatel/",
       "page_type": "category",
       "title_length": 46,
       "description_length": 116,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/nissan/x-trail/dvigatel/",
       "page_type": "category",
       "title_length": 47,
       "description_length": 117,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/coolray/dvigatel/",
       "page_type": "category",
       "title_length": 46,
       "description_length": 116,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/toyota/land-cruiser-prado/dvigatel/",
       "page_type": "category",
       "title_length": 58,
       "description_length": 128,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/haval/jolion/dvigatel/",
       "page_type": "category",
       "title_length": 45,
       "description_length": 115,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/changan/uni-k/tormoznaya-sistema/",
       "page_type": "category",
       "title_length": 54,
       "description_length": 124,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/hyundai/santa-fe/dvigatel/",
       "page_type": "category",
       "title_length": 49,
       "description_length": 119,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/livan/x3-pro/podveska/",
       "page_type": "category",
       "title_length": 44,
       "description_length": 114,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/toyota/camry/podveska/",
       "page_type": "category",
       "title_length": 44,
       "description_length": 114,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/nissan/pathfinder-china/podveska/",
       "page_type": "category",
       "title_length": 57,
       "description_length": 127,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/fang-cheng-bao/bao-5-leopard-5/podveska/",
       "page_type": "category",
       "title_length": 60,
       "description_length": 130,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/monjaro/podveska/",
       "page_type": "category",
       "title_length": 45,
       "description_length": 115,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/polar-stone-jishi/01/podveska/",
       "page_type": "category",
       "title_length": 54,
       "description_length": 124,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/livan/x6-pro/podveska/",
       "page_type": "category",
       "title_length": 44,
       "description_length": 114,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/changan/hunter-plus/podveska/",
       "page_type": "category",
       "title_length": 51,
       "description_length": 121,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/kia/seltos/podveska/",
       "page_type": "category",
       "title_length": 42,
       "description_length": 112,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/li-auto/l7/podveska/",
       "page_type": "category",
       "title_length": 42,
       "description_length": 112,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/great-wall/poer/podveska/",
       "page_type": "category",
       "title_length": 47,
       "description_length": 117,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/toyota/camry/salon/",
       "page_type": "category",
       "title_length": 40,
       "description_length": 110,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/changan/hunter-plus/salon/",
       "page_type": "category",
       "title_length": 47,
       "description_length": 117,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/haval/jolion/salon/",
       "page_type": "category",
       "title_length": 40,
       "description_length": 110,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/changan/cs75-plus/salon/",
       "page_type": "category",
       "title_length": 45,
       "description_length": 115,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/monjaro/salon/",
       "page_type": "category",
       "title_length": 41,
       "description_length": 111,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/voyah/free/salon/",
       "page_type": "category",
       "title_length": 38,
       "description_length": 108,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/fang-cheng-bao/bao-5-leopard-5/salon/",
       "page_type": "category",
       "title_length": 56,
       "description_length": 126,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/li-auto/l7/salon/",
       "page_type": "category",
       "title_length": 38,
       "description_length": 108,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/toyota/rav4/salon/",
       "page_type": "category",
       "title_length": 39,
       "description_length": 109,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/changan/auchan-z6/salon/",
       "page_type": "category",
       "title_length": 45,
       "description_length": 115,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/voyah/passion/kuzov/",
       "page_type": "category",
       "title_length": 45,
       "description_length": 115,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/kia/k3/kuzov/",
       "page_type": "category",
       "title_length": 38,
       "description_length": 108,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/baw/212/kuzov/",
       "page_type": "category",
       "title_length": 39,
       "description_length": 109,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/polar-stone-jishi/01/kuzov/",
       "page_type": "category",
       "title_length": 54,
       "description_length": 124,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/kia/k5/kuzov/",
       "page_type": "category",
       "title_length": 38,
       "description_length": 108,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/haval/xiaolong-max/kuzov/",
       "page_type": "category",
       "title_length": 50,
       "description_length": 120,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/wey/80/kuzov/",
       "page_type": "category",
       "title_length": 38,
       "description_length": 108,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/volkswagen/tayron/kuzov/",
       "page_type": "category",
       "title_length": 49,
       "description_length": 119,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/livan/x6-pro/kuzov/",
       "page_type": "category",
       "title_length": 44,
       "description_length": 114,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/byd/seal-06-gt/kuzov/",
       "page_type": "category",
       "title_length": 46,
       "description_length": 116,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/galaxy-l7/kuzov/",
       "page_type": "category",
       "title_length": 47,
       "description_length": 117,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/nissan/x-trail/kuzov/",
       "page_type": "category",
       "title_length": 46,
       "description_length": 116,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/toyota/camry/kuzov/",
       "page_type": "category",
       "title_length": 44,
       "description_length": 114,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/wey/07/kuzov/",
       "page_type": "category",
       "title_length": 48,
       "description_length": 113,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/atlas/kuzov/",
       "page_type": "category",
       "title_length": 43,
       "description_length": 113,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/livan/x3-pro/kuzov/",
       "page_type": "category",
       "title_length": 44,
       "description_length": 114,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/baic/x7/kuzov/",
       "page_type": "category",
       "title_length": 39,
       "description_length": 109,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/exeed/exlantix-es/kuzov/",
       "page_type": "category",
       "title_length": 49,
       "description_length": 119,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/kia/sportage-china/kuzov/",
       "page_type": "category",
       "title_length": 52,
       "description_length": 122,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/fang-cheng-bao/titanium-7/kuzov/",
       "page_type": "category",
       "title_length": 57,
       "description_length": 127,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/voyah/dream/kuzov/",
       "page_type": "category",
       "title_length": 43,
       "description_length": 113,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/aito/m8/kuzov/",
       "page_type": "category",
       "title_length": 39,
       "description_length": 109,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/preface/kuzov/",
       "page_type": "category",
       "title_length": 45,
       "description_length": 115,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/kia/seltos/kuzov/",
       "page_type": "category",
       "title_length": 42,
       "description_length": 112,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/exeed/vx/kuzov/",
       "page_type": "category",
       "title_length": 40,
       "description_length": 110,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/toyota/highlander/kuzov/",
       "page_type": "category",
       "title_length": 49,
       "description_length": 119,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/galaxy-starship-7/kuzov/",
       "page_type": "category",
       "title_length": 55,
       "description_length": 125,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/zeekr/9x/kuzov/",
       "page_type": "category",
       "title_length": 40,
       "description_length": 110,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/coolray/kuzov/",
       "page_type": "category",
       "title_length": 45,
       "description_length": 115,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/byd/tang-l/kuzov/",
       "page_type": "category",
       "title_length": 42,
       "description_length": 112,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/hongqi/hs5/kuzov/",
       "page_type": "category",
       "title_length": 42,
       "description_length": 112,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/galaxy-m9/kuzov/",
       "page_type": "category",
       "title_length": 47,
       "description_length": 117,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/baic/x35/kuzov/",
       "page_type": "category",
       "title_length": 40,
       "description_length": 110,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/volkswagen/talagon/kuzov/",
       "page_type": "category",
       "title_length": 50,
       "description_length": 120,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/volkswagen/tavendor/kuzov/",
       "page_type": "category",
       "title_length": 51,
       "description_length": 121,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/mercedes-benz/g-klass/kuzov/",
       "page_type": "category",
       "title_length": 53,
       "description_length": 123,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/okavango/kuzov/",
       "page_type": "category",
       "title_length": 46,
       "description_length": 116,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/baic/u5-plus/kuzov/",
       "page_type": "category",
       "title_length": 44,
       "description_length": 114,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/xiaomi/su7/kuzov/",
       "page_type": "category",
       "title_length": 42,
       "description_length": 112,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/changan/cs35-plus/kuzov/",
       "page_type": "category",
       "title_length": 49,
       "description_length": 119,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/toyota/rav4/kuzov/",
       "page_type": "category",
       "title_length": 43,
       "description_length": 113,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/exeed/txl/kuzov/",
       "page_type": "category",
       "title_length": 41,
       "description_length": 111,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/zeekr/001/kuzov/",
       "page_type": "category",
       "title_length": 41,
       "description_length": 111,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/baic/bj40/kuzov/",
       "page_type": "category",
       "title_length": 41,
       "description_length": 111,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/changan/shenlan-deepal-s07/kuzov/",
       "page_type": "category",
       "title_length": 60,
       "description_length": 130,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/li-auto/l7/kuzov/",
       "page_type": "category",
       "title_length": 42,
       "description_length": 112,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/baic/x55/kuzov/",
       "page_type": "category",
       "title_length": 40,
       "description_length": 110,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/omoda/c5/kuzov/",
       "page_type": "category",
       "title_length": 40,
       "description_length": 110,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/toyota/corolla/kuzov/",
       "page_type": "category",
       "title_length": 46,
       "description_length": 116,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/haval/jolion/kuzov/",
       "page_type": "category",
       "title_length": 44,
       "description_length": 114,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/great-wall/poer/kuzov/",
       "page_type": "category",
       "title_length": 47,
       "description_length": 117,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/changan/cs75-plus/kuzov/",
       "page_type": "category",
       "title_length": 49,
       "description_length": 119,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/great-wall/poer-king-kong/kuzov/",
       "page_type": "category",
       "title_length": 57,
       "description_length": 127,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/vision-x6-pro/kuzov/",
       "page_type": "category",
       "title_length": 51,
       "description_length": 121,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/changan/cs95/kuzov/",
       "page_type": "category",
       "title_length": 44,
       "description_length": 114,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/jetour/t2/kuzov/",
       "page_type": "category",
       "title_length": 41,
       "description_length": 111,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/lexus/rx/kuzov/",
       "page_type": "category",
       "title_length": 40,
       "description_length": 110,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/zeekr/007/kuzov/",
       "page_type": "category",
       "title_length": 41,
       "description_length": 111,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/audi/q5-sportback/kuzov/",
       "page_type": "category",
       "title_length": 49,
       "description_length": 119,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/li-auto/l9/kuzov/",
       "page_type": "category",
       "title_length": 42,
       "description_length": 112,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/changan/uni-k/kuzov/",
       "page_type": "category",
       "title_length": 45,
       "description_length": 115,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/mercedes-benz/g-klass-amg/optika/",
       "page_type": "category",
       "title_length": 53,
       "description_length": 123,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/mercedes-benz/g-klass-amg/kuzov/",
       "page_type": "category",
       "title_length": 57,
       "description_length": 127,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/nissan/pathfinder-china/kuzov/",
       "page_type": "category",
       "title_length": 57,
       "description_length": 127,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/geely/atlas-pro/kuzov/",
       "page_type": "category",
       "title_length": 47,
       "description_length": 117,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/tank/300/kuzov/",
       "page_type": "category",
       "title_length": 40,
       "description_length": 110,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/haval/h3/kuzov/",
       "page_type": "category",
       "title_length": 40,
       "description_length": 110,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/toyota/wildlander/kuzov/",
       "page_type": "category",
       "title_length": 49,
       "description_length": 119,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/li-auto/l6/kuzov/",
       "page_type": "category",
       "title_length": 42,
       "description_length": 112,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/chery/tiggo-4-pro/kuzov/",
       "page_type": "category",
       "title_length": 49,
       "description_length": 119,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/dongfeng/dfsk-ix5/kuzov/",
       "page_type": "category",
       "title_length": 49,
       "description_length": 119,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/lexus/rx/dvigatel/",
       "page_type": "category",
       "title_length": 41,
       "description_length": 111,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/baojun/rs-5/kuzov/",
       "page_type": "category",
       "title_length": 43,
       "description_length": 113,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/haval/xiaolong-max/podveska/",
       "page_type": "category",
       "title_length": 50,
       "description_length": 120,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/hiphi/z/kuzov/",
       "page_type": "category",
       "title_length": 39,
       "description_length": 109,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/foton/tunland-g7/kuzov/",
       "page_type": "category",
       "title_length": 48,
       "description_length": 118,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/haval/f7x/kuzov/",
       "page_type": "category",
       "title_length": 41,
       "description_length": 111,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/audi/a8/kuzov/",
       "page_type": "category",
       "title_length": 39,
       "description_length": 109,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/changan/auchan-z6/kuzov/",
       "page_type": "category",
       "title_length": 49,
       "description_length": 119,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/chevrolet/monza/kuzov/",
       "page_type": "category",
       "title_length": 47,
       "description_length": 117,
-      "h1_count": 1,
-      "issues": []
+      "h1_count": 0,
+      "issues": [
+        "h1_count_not_one",
+        "visible_h1_differs_from_seo_map"
+      ]
     },
     {
       "canonical_path": "/catalog/product/perednyaya-fara-levaya-aito-m8-1004/",
