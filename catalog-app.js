@@ -545,7 +545,8 @@
     resultSummary.textContent = state.query ? `Поиск: «${state.query}»` : [brands.join(" / "), models.join(" / "), types.join(" / ")]
       .filter(Boolean).join(" / ") || "Все марки и категории";
     emptyState.hidden = filtered.length > 0;
-    loadMore.hidden = state.offset + visible.length >= filtered.length;
+    const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+    loadMore.hidden = state.page >= totalPages || state.offset + visible.length >= filtered.length;
     loadMore.style.display = loadMore.hidden ? "none" : "";
     const basePath = updateCatalogRoute(historyMode);
     if (!loadMore.hidden) {

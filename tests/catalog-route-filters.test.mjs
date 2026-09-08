@@ -28,6 +28,11 @@ test("the next-page link preserves the current filters, tracking parameters and 
   assert.match(catalogApp, /loadMore\.href = catalogPageUrl\(`/);
 });
 
+test("pagination hides the next-page link on the last static page", () => {
+  assert.match(catalogApp, /const totalPages = Math\.max\(1, Math\.ceil\(filtered\.length \/ PAGE_SIZE\)\)/);
+  assert.match(catalogApp, /loadMore\.hidden = state\.page >= totalPages/);
+});
+
 test("brand, model, category and condition are accepted from a direct URL", () => {
   for (const name of ["brand", "model", "category"]) {
     assert.ok(catalogApp.includes(`urlFilterValues("${name}")`));
