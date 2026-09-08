@@ -259,6 +259,12 @@
     return basePath;
   }
 
+  function catalogPageUrl(path) {
+    const url = new URL(window.location.href);
+    url.pathname = sitePath(path);
+    return `${url.pathname}${url.search}${url.hash}`;
+  }
+
   function unique(values) {
     return [...new Set(values.filter(Boolean))].sort((a, b) => String(a).localeCompare(String(b), "ru", { numeric: true }));
   }
@@ -544,7 +550,7 @@
     const basePath = updateCatalogRoute(historyMode);
     if (!loadMore.hidden) {
       const nextPage = state.page + Math.ceil(state.visible / PAGE_SIZE);
-      loadMore.href = sitePath(`${basePath}page/${nextPage}/`);
+      loadMore.href = catalogPageUrl(`${basePath}page/${nextPage}/`);
     } else {
       loadMore.removeAttribute("href");
     }

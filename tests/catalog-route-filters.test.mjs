@@ -21,6 +21,13 @@ test("catalog routing preserves unrelated query parameters and supports filter h
   assert.match(catalogApp, /window\.addEventListener\("popstate"/);
 });
 
+test("the next-page link preserves the current filters, tracking parameters and hash", () => {
+  assert.match(catalogApp, /function catalogPageUrl\(path\)/);
+  assert.match(catalogApp, /const url = new URL\(window\.location\.href\)/);
+  assert.match(catalogApp, /return `\$\{url\.pathname\}\$\{url\.search\}\$\{url\.hash\}`/);
+  assert.match(catalogApp, /loadMore\.href = catalogPageUrl\(`/);
+});
+
 test("brand, model, category and condition are accepted from a direct URL", () => {
   for (const name of ["brand", "model", "category"]) {
     assert.ok(catalogApp.includes(`urlFilterValues("${name}")`));
