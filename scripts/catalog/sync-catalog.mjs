@@ -407,14 +407,19 @@ fs.writeFileSync(path.join(reportsDir, "form-submission-audit.json"), `${JSON.st
     confirmation_contract: "The response must contain ok=true and confirmation=saved.",
   },
   confirmed_success_gate: {
-    condition: "Only a valid server JSON confirmation after an HTTP 2xx response may show success and send request_submit_success.",
+    condition: "Only a valid server JSON confirmation after an HTTP 2xx response may show success and send request_submit_success plus the matching form-specific success event.",
     show_success_after_confirmation: true,
     send_request_submit_success_after_confirmation: true,
+    send_form_specific_success_after_confirmation: true,
     invalid_json_or_error_must_not_succeed: true,
   },
   analytics: {
     attempt_event: "request_submit_attempt",
     success_event: "request_submit_success",
+    scenario_success_events: {
+      search: "search_submit_success",
+      catalog: "catalog_submit_success",
+    },
     personal_data_in_events: false,
     online_events: config.analytics?.events || [],
     offline_events: config.analytics?.offlineEvents || [],

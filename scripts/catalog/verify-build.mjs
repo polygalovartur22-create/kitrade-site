@@ -179,11 +179,26 @@ assert.ok(nginxExample.includes("location = /robots.txt") && nginxExample.includ
 assert.ok(nginxExample.includes("catalog-runtime-data|catalog-url-data|site-runtime-config"), "Nginx example lacks mutable catalog-data caching");
 assert.ok(nginxExample.includes("[0-9a-f]{8,}") && nginxExample.includes("immutable"), "Nginx example does not limit immutable caching to versioned assets");
 const formScript = fs.readFileSync(path.join(outputDir, "script.js"), "utf8");
+const catalogFormScript = fs.readFileSync(path.join(outputDir, "catalog-app.js"), "utf8");
 assert.ok(formScript.indexOf('KITRADE_TRACK?.("request_submit_attempt")') < formScript.indexOf("await fetch("), "Submission attempt is not tracked before the request");
 assert.ok(formScript.includes('mode: "cors"'), "CRM form transport must use CORS");
 assert.ok(formScript.includes('confirmation.confirmation !== "saved"'), "CRM save confirmation is not validated");
-assert.ok(formScript.indexOf('KITRADE_TRACK?.("request_submit_success",') > formScript.indexOf("if (!response.ok)"), "Success is tracked before a confirmed server response");
-assert.ok(formScript.indexOf("successView.hidden = false") > formScript.indexOf("if (!response.ok)"), "Error response can reach the success UI");
+const confirmationGate = 'if (!response.ok || !confirmation?.ok || confirmation.confirmation !== "saved")';
+const assertConfirmedSuccessEvents = (source, specificEvent, label) => {
+  const gateIndex = source.indexOf(confirmationGate);
+  const generalIndex = source.indexOf('KITRADE_TRACK?.("request_submit_success",');
+  const specificIndex = source.indexOf(`KITRADE_TRACK?.("${specificEvent}",`);
+  assert.notEqual(gateIndex, -1, `${label} has no complete CRM confirmation gate`);
+  assert.ok(generalIndex > gateIndex, `${label} tracks general success before confirmed persistence`);
+  assert.ok(specificIndex > gateIndex, `${label} tracks ${specificEvent} before confirmed persistence`);
+  assert.equal((source.match(/KITRADE_TRACK\?\.\("request_submit_success",/g) || []).length, 1, `${label} does not track general success exactly once`);
+  assert.equal((source.match(new RegExp(`KITRADE_TRACK\\?\\.\\(\\"${specificEvent}\\",`, "g")) || []).length, 1, `${label} does not track ${specificEvent} exactly once`);
+};
+assertConfirmedSuccessEvents(formScript, "search_submit_success", "Search form");
+assertConfirmedSuccessEvents(catalogFormScript, "catalog_submit_success", "Catalog form");
+assert.equal((formScript.match(/catalog_submit_success/g) || []).length, 0, "Search form contains the catalog success event");
+assert.equal((catalogFormScript.match(/search_submit_success/g) || []).length, 0, "Catalog form contains the search success event");
+assert.ok(formScript.indexOf("successView.hidden = false") > formScript.indexOf(confirmationGate), "Error response can reach the success UI");
 for (const field of ["metrika_client_id", "yclid", "first_landing_url", "order_id", "selected_products", "preliminary_sum"]) {
   assert.ok(formScript.includes(field), `Request payload architecture is missing ${field}`);
 }
@@ -197,8 +212,9 @@ assert.ok(analyticsScript.includes("metrika/tag.js?id=${counterId}"), "Metrika t
 assert.ok(analyticsScript.includes('"getClientID"'), "Metrika ClientID is not captured");
 assert.ok(analyticsScript.includes("localhost|127\\.0\\.0\\.1|0\\.0\\.0\\.0"), "Metrika is not blocked on localhost");
 assert.ok(!analyticsScript.includes("108681044"), "Old Metrika counter remains in analytics.js");
+assert.match(analyticsScript, /try\s*{\s*window\.ym\(counterId, "reachGoal", eventName, params\);\s*}\s*catch\s*{/, "Metrika errors can interrupt the website flow");
 for (const eventName of ["qualified_50000", "quote_sent", "order_confirmed_50000", "order_paid_50000"]) {
-  assert.ok(!formScript.includes(`KITRADE_TRACK?.("${eventName}"`), `Offline event is called by the browser: ${eventName}`);
+  assert.ok(!formScript.includes(`KITRADE_TRACK?.("${eventName}"`) && !catalogFormScript.includes(`KITRADE_TRACK?.("${eventName}"`), `Offline event is called by the browser: ${eventName}`);
 }
 const catalogIndexFiles = [];
 const collectCatalogIndexes = (directory) => {
@@ -231,6 +247,9 @@ for (const row of exportRows) {
 const robots = fs.readFileSync(path.join(outputDir, "robots.txt"), "utf8");
 const runtimeConfig = fs.readFileSync(path.join(outputDir, "site-runtime-config.js"), "utf8");
 assert.ok(runtimeConfig.includes('"counterId":111376296'), "Runtime has the wrong Metrika counter");
+for (const eventName of ["request_submit_success", "catalog_submit_success", "search_submit_success"]) {
+  assert.ok(runtimeConfig.includes(`"${eventName}"`), `Runtime event allowlist is missing ${eventName}`);
+}
 if (isNonProductionBuild) {
   assert.equal(robots, "User-agent: *\nDisallow: /\n", "Preview robots.txt must block all crawling");
   assert.ok(runtimeConfig.includes(`"deploymentMode":"${deploymentMode}"`), "Preview runtime marker is missing");

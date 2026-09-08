@@ -15,7 +15,9 @@ window.KITRADE_SITE_CONFIG = Object.freeze({
       "add_to_request",
       "request_open",
       "request_submit_attempt",
-      "request_submit_success"
+      "request_submit_success",
+      "catalog_submit_success",
+      "search_submit_success"
     ])
   })
 });

@@ -563,6 +563,11 @@ if (requestForm) {
         product_count: products.length,
         preliminary_sum: preliminarySum,
       });
+      window.KITRADE_TRACK?.("search_submit_success", {
+        order_id: order.order_id,
+        product_count: products.length,
+        preliminary_sum: preliminarySum,
+      });
       pendingOrderId = "";
       window.KITRADE_CART?.remove(products.map(item => item.product_id));
       catalogDraft = null;

@@ -57,7 +57,11 @@
   window.KITRADE_TRACK = (eventName, params = {}) => {
     if (analyticsBlocked || readConsentChoice() !== "accepted" || !window.__KITRADE_METRIKA_INITIALIZED__
       || !allowedEvents.has(eventName) || typeof window.ym !== "function") return;
-    window.ym(counterId, "reachGoal", eventName, params);
+    try {
+      window.ym(counterId, "reachGoal", eventName, params);
+    } catch {
+      // Analytics is optional and must never interrupt the website flow.
+    }
   };
 
   window[disableKey] = readConsentChoice() !== "accepted";

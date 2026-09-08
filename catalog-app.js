@@ -864,6 +864,11 @@
         order_id: orderId,
         product_count: products.length,
       });
+      window.KITRADE_TRACK?.("catalog_submit_success", {
+        source: "catalog",
+        order_id: orderId,
+        product_count: products.length,
+      });
     } catch (error) {
       requestContactError.textContent = error?.name === "AbortError"
         ? "Сервер долго не отвечает. Попробуйте отправить ещё раз."

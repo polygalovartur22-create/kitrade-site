@@ -117,7 +117,7 @@ function writeRoute(routePath, html) {
   }
   html = html.replace(/privacy-controls\.css\?v=\d+/g, 'privacy-controls.css?v=5')
     .replace(/privacy-controls\.js\?v=\d+/g, 'privacy-controls.js?v=2')
-    .replace(/analytics\.js\?v=\d+/g, 'analytics.js?v=3')
+    .replace(/analytics\.js\?v=\d+/g, 'analytics.js?v=4')
     .replace(/(catalog-(?:v2|responsive|adaptive-final|redesign|mobile-polish)\.css)\?v=\d+/g, '$1?v=31')
     .replace(/product-page\.css\?v=\d+/g, 'product-page.css?v=3');
   if (html.includes('class="reference-header"')) {
@@ -603,8 +603,8 @@ function productPage(product, item) {
     </nav>
   </footer>
   <script id="product-page-data" type="application/json">${safeJson(productData)}</script>
-  <script src="/site-runtime-config.js?v=1"></script>
-  <script src="/analytics.js?v=2"></script>
+  <script src="/site-runtime-config.js?v=2"></script>
+  <script src="/analytics.js?v=4"></script>
   <script src="/product-page.js?v=5"></script>
   <script src="/privacy-controls.js?v=1"></script>
 </body>
@@ -678,8 +678,8 @@ function vinSelectionPage() {
       <button type="button" data-cookie-settings>Настройки cookie</button>
     </nav>
   </footer>
-  <script src="/site-runtime-config.js?v=1"></script>
-  <script src="/analytics.js?v=2"></script>
+  <script src="/site-runtime-config.js?v=2"></script>
+  <script src="/analytics.js?v=4"></script>
   <script src="/privacy-controls.js?v=1"></script>
 </body>
 </html>`;
