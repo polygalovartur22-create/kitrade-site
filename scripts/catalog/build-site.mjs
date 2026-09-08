@@ -6,6 +6,7 @@ import { getPublicCategory, isVisibleCatalogItem } from "./lib/domain.mjs";
 import { registryIndexes, validateRegistry } from "./lib/registry.mjs";
 import { breadcrumbStructuredData, buildSeoState, organizationStructuredData, productStructuredData } from "./lib/seo.mjs";
 import { formatPartPrice, numericPrice } from "./lib/product-content.mjs";
+import { addBodyAttributes } from "./lib/catalog-page.mjs";
 
 const projectDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const outputDir = path.join(projectDir, "dist");
@@ -259,12 +260,11 @@ function catalogPage({ routePath, titleParts = [], brand = null, model = null, c
     brand && model && category ? { name: category.name, path: categoryPath(brand, model, category) } : null,
   ].filter(Boolean).filter((entry, index, entries) => index === 0 || entry.path !== entries[index - 1].path);
   const schemas = [organizationSchema, breadcrumbStructuredData(breadcrumbItems, config)];
-  let html = catalogTemplate
+  let html = addBodyAttributes(catalogTemplate, bodyAttributes)
     .replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeHtml(pageTitle)}</title>`)
     .replace(/<meta name="description" content="[^"]*" \/>/, `<meta name="description" content="${escapeHtml(pageDescription)}" />`)
     .replace(/<link rel="canonical"[^>]*>/, `<link rel="canonical" href="${canonicalUrl(currentRoutePath)}" />`)
     .replace("</head>", `  <script type="application/ld+json">${safeJson(schemas)}</script>\n  </head>`)
-    .replace("<body>", `<body ${bodyAttributes}>`)
     .replace(
       /<h1 id="catalog-title">[\s\S]*?<\/h1>/,
       routePath === "/catalog/"

@@ -141,6 +141,19 @@ assert.ok(catalogHtml.includes("data-filter-option-link"), "Catalog hierarchy ha
 assert.ok(catalogHtml.includes('id="catalog-results"'), "Direct catalog results anchor is missing");
 assert.ok(catalogHtml.includes("Минимальная сумма заказа — 50 000 ₽"), "Catalog request cart misses the total order rule");
 assert.ok(!/Минимальная сумма заказа\s*—\s*15\s*000|Заказ от 15\s*000/.test(catalogHtml), "Catalog contains the old minimum order rule");
+const catalogRouteCases = [
+  [path.join("voyah", "index.html"), ['class="site-scaled"', 'data-catalog-brand="Voyah"']],
+  [path.join("voyah", "free", "index.html"), ['class="site-scaled"', 'data-catalog-brand="Voyah"', 'data-catalog-model="Free"']],
+  [path.join("voyah", "free", "kuzov", "index.html"), ['class="site-scaled"', 'data-catalog-brand="Voyah"', 'data-catalog-model="Free"', 'data-catalog-category="Кузов"']],
+];
+for (const [relativePath, expectedBodyAttributes] of catalogRouteCases) {
+  const html = fs.readFileSync(path.join(outputDir, "catalog", relativePath), "utf8");
+  const bodyTag = html.match(/<body[^>]*>/)?.[0] || "";
+  for (const attribute of expectedBodyAttributes) {
+    assert.ok(bodyTag.includes(attribute), `Catalog route ${relativePath} misses ${attribute} on <body>`);
+  }
+  assert.ok(html.includes('catalog-app.js?v=38'), `Catalog route ${relativePath} does not use the cache-busted filter script`);
+}
 const homeHtml = fs.readFileSync(path.join(outputDir, "index.html"), "utf8");
 assert.deepEqual(config.organization, {
   schemaType: "AutoPartsStore",
@@ -180,6 +193,13 @@ assert.ok(nginxExample.includes("catalog-runtime-data|catalog-url-data|site-runt
 assert.ok(nginxExample.includes("[0-9a-f]{8,}") && nginxExample.includes("immutable"), "Nginx example does not limit immutable caching to versioned assets");
 const formScript = fs.readFileSync(path.join(outputDir, "script.js"), "utf8");
 const catalogFormScript = fs.readFileSync(path.join(outputDir, "catalog-app.js"), "utf8");
+assert.ok(catalogFormScript.includes('new URLSearchParams(window.location.search)'), "Catalog routing does not read or preserve URL parameters");
+for (const parameter of ["brand", "model", "category", "condition"]) {
+  assert.ok(catalogFormScript.includes(`params.delete("${parameter}")`), `Catalog routing does not synchronize the ${parameter} URL filter`);
+}
+assert.ok(catalogFormScript.includes('params.set("condition", condition)'), "Catalog routing does not write the condition filter to the URL");
+assert.ok(catalogFormScript.includes('history.pushState(nextState') && catalogFormScript.includes('window.addEventListener("popstate"'), "Catalog filter history does not support back/forward navigation");
+assert.ok(catalogFormScript.includes('!hasExplicitInitialFilters && saved?.path'), "Explicit URL filters are not protected from saved-view restoration");
 assert.ok(formScript.indexOf('KITRADE_TRACK?.("request_submit_attempt")') < formScript.indexOf("await fetch("), "Submission attempt is not tracked before the request");
 assert.ok(formScript.includes('mode: "cors"'), "CRM form transport must use CORS");
 assert.ok(formScript.includes('confirmation.confirmation !== "saved"'), "CRM save confirmation is not validated");

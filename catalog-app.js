@@ -53,6 +53,27 @@
     category: document.body.dataset.catalogCategory || "",
   };
   const routePage = Math.max(1, Number(document.body.dataset.catalogPage) || 1);
+  const initialFilterParams = new URLSearchParams(window.location.search);
+  const urlFilterValues = (name) => initialFilterParams.getAll(name)
+    .flatMap((value) => value.split(","))
+    .map((value) => value.trim())
+    .filter(Boolean);
+  const requestedUrlFilters = {
+    brands: urlFilterValues("brand"),
+    models: urlFilterValues("model"),
+    categories: urlFilterValues("category"),
+    condition: initialFilterParams.get("condition") || "",
+  };
+  const hasExplicitInitialFilters = Boolean(
+    routeDefaults.brand
+    || routeDefaults.model
+    || routeDefaults.category
+    || routePage > 1
+    || requestedUrlFilters.brands.length
+    || requestedUrlFilters.models.length
+    || requestedUrlFilters.categories.length
+    || requestedUrlFilters.condition,
+  );
   const PAGE_SIZE = 24;
   const DISPLAY_PAGE_SIZE = 16;
   const compactCardDescription = (value) => {
@@ -183,7 +204,26 @@
     return values.map((value) => String(value || "").trim().replace(/\s+/g, " ").toLocaleLowerCase("ru")).join("|");
   }
 
-  function updateCatalogRoute() {
+  function conditionQueryValue(value) {
+    if (value === "Новое") return "new";
+    if (value === "Б/у") return "used";
+    return "";
+  }
+
+  function catalogHistoryState() {
+    return {
+      brands: checkedValues("#brandFilters"),
+      models: checkedValues("#modelFilters"),
+      categories: checkedValues("#typeFilters"),
+      condition: selectedCondition(),
+      query: state.query,
+      page: state.page,
+      offset: state.offset,
+      visible: state.visible,
+    };
+  }
+
+  function updateCatalogRoute(historyMode = "replace") {
     const brands = checkedValues("#brandFilters");
     const models = checkedValues("#modelFilters");
     const categories = checkedValues("#typeFilters");
@@ -196,7 +236,24 @@
     const basePath = categoryRoute || modelRoute || brandRoute || "/catalog/";
     const path = state.page > 1 ? `${basePath}page/${state.page}/` : basePath;
     const browserPath = sitePath(path);
-    if (window.location.protocol !== "file:" && window.location.pathname !== browserPath) history.replaceState(history.state, "", browserPath + window.location.hash);
+    const params = new URLSearchParams(window.location.search);
+    params.delete("brand");
+    params.delete("model");
+    params.delete("category");
+    params.delete("condition");
+    if (brand && !brandRoute) params.append("brand", brand);
+    if (model && !modelRoute) params.append("model", model);
+    if (categories.length && !categoryRoute) categories.forEach((value) => params.append("category", value));
+    const condition = conditionQueryValue(selectedCondition());
+    if (condition) params.set("condition", condition);
+    const search = params.toString();
+    const browserUrl = `${browserPath}${search ? `?${search}` : ""}${window.location.hash}`;
+    const currentUrl = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+    const nextState = { ...(history.state || {}), kitradeCatalogFilters: catalogHistoryState() };
+    if (window.location.protocol !== "file:" && historyMode !== "none") {
+      if (historyMode === "push" && browserUrl !== currentUrl) history.pushState(nextState, "", browserUrl);
+      else history.replaceState(nextState, "", browserUrl);
+    }
     const canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) canonical.href = new URL(path, catalogData.site_url || window.location.origin).href;
     return basePath;
@@ -291,11 +348,22 @@
     const options = filter.querySelector("[data-filter-options]");
     const selectedBrand = checkedValues("#brandFilters")[0] || routeDefaults.brand;
     const selectedModel = checkedValues("#modelFilters")[0] || routeDefaults.model;
+    const withPreservedParams = (path) => {
+      const params = new URLSearchParams(window.location.search);
+      params.delete("brand");
+      params.delete("model");
+      params.delete("category");
+      params.delete("condition");
+      const condition = conditionQueryValue(selectedCondition());
+      if (condition) params.set("condition", condition);
+      const search = params.toString();
+      return `${sitePath(path)}${search ? `?${search}` : ""}${window.location.hash}`;
+    };
     const hrefFor = (value) => {
-      if (filter.id === "brandFilters") return sitePath(routeMap.brands?.[routeKey(value)] || "/catalog/");
-      if (filter.id === "modelFilters" && selectedBrand) return sitePath(routeMap.models?.[routeKey(selectedBrand, value)] || "/catalog/");
-      if (filter.id === "typeFilters" && selectedBrand && selectedModel) return sitePath(routeMap.categories?.[routeKey(selectedBrand, selectedModel, value)] || "/catalog/");
-      return sitePath("/catalog/");
+      if (filter.id === "brandFilters") return withPreservedParams(routeMap.brands?.[routeKey(value)] || "/catalog/");
+      if (filter.id === "modelFilters" && selectedBrand) return withPreservedParams(routeMap.models?.[routeKey(selectedBrand, value)] || "/catalog/");
+      if (filter.id === "typeFilters" && selectedBrand && selectedModel) return withPreservedParams(routeMap.categories?.[routeKey(selectedBrand, selectedModel, value)] || "/catalog/");
+      return withPreservedParams("/catalog/");
     };
     options.innerHTML = values.map((value) => `
       <label data-filter-value="${escapeHtml(value)}"><input type="checkbox" value="${escapeHtml(value)}" /><a href="${escapeHtml(hrefFor(value))}" data-filter-option-link>${escapeHtml(value)}</a><i aria-hidden="true"></i></label>
@@ -333,6 +401,53 @@
     fieldset.classList.remove("is-disabled");
     trigger.disabled = false;
     renderFilterOptions(fieldset, models);
+  }
+
+  function matchingValues(available, requested) {
+    const byKey = new Map(available.map((value) => [routeKey(value), value]));
+    return [...new Set(requested.map((value) => byKey.get(routeKey(value))).filter(Boolean))];
+  }
+
+  function conditionFromQuery(value) {
+    const normalized = normalizeSearch(value);
+    if (["new", "novoe", "новое", "новая", "новый"].includes(normalized)) return "Новое";
+    if (["used", "bu", "б у", "бу", "подержанное"].includes(normalized)) return "Б/у";
+    return "";
+  }
+
+  function applyCatalogFilterState(filters) {
+    clearFilterControls();
+    const availableBrands = unique(items.map((item) => item.brand));
+    const brands = matchingValues(availableBrands, filters.brands || []).slice(0, 1);
+    document.querySelectorAll("#brandFilters input").forEach((input) => {
+      input.checked = brands.includes(input.value);
+    });
+    renderModelFilter(brands);
+
+    const availableModels = unique(items
+      .filter((item) => brands.includes(item.brand))
+      .map((item) => item.model));
+    const models = matchingValues(availableModels, filters.models || []).slice(0, 1);
+    document.querySelectorAll("#modelFilters input").forEach((input) => {
+      input.checked = models.includes(input.value);
+    });
+
+    const availableCategories = unique(items.map((item) => item.group));
+    const categories = matchingValues(availableCategories, filters.categories || []);
+    document.querySelectorAll("#typeFilters input").forEach((input) => {
+      input.checked = categories.includes(input.value);
+    });
+
+    const condition = filters.condition === "Новое" || filters.condition === "Б/у"
+      ? filters.condition
+      : conditionFromQuery(filters.condition);
+    document.querySelectorAll("#conditionFilters input").forEach((input) => {
+      input.checked = input.value === condition;
+    });
+    if (!condition) document.querySelector('#conditionFilters input[value=""]').checked = true;
+    ["#brandFilters", "#modelFilters", "#typeFilters"].forEach((selector) => {
+      updateFilterSummary(document.querySelector(selector));
+    });
   }
 
   function selectedCondition() {
@@ -413,7 +528,7 @@
       </article>`;
   }
 
-  function render() {
+  function render({ historyMode = "replace" } = {}) {
     const filtered = getFilteredItems();
     const visible = filtered.slice(state.offset, state.offset + state.visible);
     partsGrid.innerHTML = visible.map(cardMarkup).join("");
@@ -426,7 +541,7 @@
     emptyState.hidden = filtered.length > 0;
     loadMore.hidden = state.offset + visible.length >= filtered.length;
     loadMore.style.display = loadMore.hidden ? "none" : "";
-    const basePath = updateCatalogRoute();
+    const basePath = updateCatalogRoute(historyMode);
     if (!loadMore.hidden) {
       const nextPage = state.page + Math.ceil(state.visible / PAGE_SIZE);
       loadMore.href = sitePath(`${basePath}page/${nextPage}/`);
@@ -535,7 +650,7 @@
       }
     }
     resetPaging();
-    render();
+    render({ historyMode: "push" });
   });
 
   document.querySelector(".filter-panel").addEventListener("click", (event) => {
@@ -597,7 +712,7 @@
     if (query) clearFilterControls();
     state.query = query;
     resetPaging();
-    render();
+    render({ historyMode: "push" });
   };
   document.querySelector("#catalogSearch").addEventListener("submit", (event) => {
     event.preventDefault();
@@ -615,7 +730,7 @@
   document.querySelector("#resetFilters").addEventListener("click", () => {
     clearFilterControls();
     resetPaging();
-    render();
+    render({ historyMode: "push" });
   });
 
   partsGrid.addEventListener("click", (event) => {
@@ -915,25 +1030,12 @@
   });
 
   renderAllFilterOptions();
-  if (routeDefaults.brand) {
-    document.querySelectorAll("#brandFilters input").forEach((input) => {
-      input.checked = input.value.toLocaleLowerCase("ru") === routeDefaults.brand.toLocaleLowerCase("ru");
-    });
-    renderModelFilter([routeDefaults.brand]);
-    updateFilterSummary(document.querySelector("#brandFilters"));
-  }
-  if (routeDefaults.model) {
-    document.querySelectorAll("#modelFilters input").forEach((input) => {
-      input.checked = input.value.toLocaleLowerCase("ru") === routeDefaults.model.toLocaleLowerCase("ru");
-    });
-    updateFilterSummary(document.querySelector("#modelFilters"));
-  }
-  if (routeDefaults.category) {
-    document.querySelectorAll("#typeFilters input").forEach((input) => {
-      input.checked = input.value.toLocaleLowerCase("ru") === routeDefaults.category.toLocaleLowerCase("ru");
-    });
-    updateFilterSummary(document.querySelector("#typeFilters"));
-  }
+  applyCatalogFilterState({
+    brands: [routeDefaults.brand || requestedUrlFilters.brands[0]].filter(Boolean),
+    models: [routeDefaults.model || requestedUrlFilters.models[0]].filter(Boolean),
+    categories: routeDefaults.category ? [routeDefaults.category] : requestedUrlFilters.categories,
+    condition: requestedUrlFilters.condition,
+  });
   document.addEventListener("kitrade:add-product", (event) => {
     const id = String(event.detail?.id || "");
     if (!id || state.selected.includes(id)) return;
@@ -1003,7 +1105,7 @@
   let restoreY = null;
   try {
     const saved = JSON.parse(sessionStorage.getItem(viewKey) || 'null');
-    if (saved?.path === location.pathname) {
+    if (!hasExplicitInitialFilters && saved?.path === location.pathname) {
       clearFilterControls();
       const check = (selector, values) => document.querySelectorAll(selector + ' input').forEach(input => { input.checked = values.includes(input.value); });
       check('#brandFilters', saved.brands || []);
@@ -1017,6 +1119,19 @@
       restoreY = saved.y;
     }
   } catch {}
+  window.addEventListener("popstate", (event) => {
+    const saved = event.state?.kitradeCatalogFilters;
+    if (!saved) return;
+    applyCatalogFilterState(saved);
+    Object.assign(state, {
+      query: saved.query || "",
+      visible: saved.visible || DISPLAY_PAGE_SIZE,
+      page: saved.page || 1,
+      offset: saved.offset || 0,
+    });
+    document.querySelector("#catalogQuery").value = state.query;
+    render({ historyMode: "none" });
+  });
   render();
   renderRequest();
   if (restoreY !== null && location.hash !== "#request") requestAnimationFrame(() => window.scrollTo(0, restoreY));
