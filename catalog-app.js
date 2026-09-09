@@ -550,7 +550,7 @@
     loadMore.style.display = loadMore.hidden ? "none" : "";
     const basePath = updateCatalogRoute(historyMode);
     if (!loadMore.hidden) {
-      const nextPage = state.page + Math.ceil(state.visible / PAGE_SIZE);
+      const nextPage = Math.min(totalPages, state.page + Math.ceil(state.visible / PAGE_SIZE));
       loadMore.href = catalogPageUrl(`${basePath}page/${nextPage}/`);
     } else {
       loadMore.removeAttribute("href");

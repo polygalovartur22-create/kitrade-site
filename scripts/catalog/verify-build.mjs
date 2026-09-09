@@ -152,7 +152,7 @@ for (const [relativePath, expectedBodyAttributes] of catalogRouteCases) {
   for (const attribute of expectedBodyAttributes) {
     assert.ok(bodyTag.includes(attribute), `Catalog route ${relativePath} misses ${attribute} on <body>`);
   }
-  assert.ok(html.includes('catalog-app.js?v=40'), `Catalog route ${relativePath} does not use the cache-busted filter script`);
+  assert.ok(html.includes('catalog-app.js?v=41'), `Catalog route ${relativePath} does not use the cache-busted filter script`);
 }
 const homeHtml = fs.readFileSync(path.join(outputDir, "index.html"), "utf8");
 assert.deepEqual(config.organization, {
