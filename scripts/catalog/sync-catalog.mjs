@@ -6,11 +6,16 @@ import { isVisibleCatalogItem } from "./lib/domain.mjs";
 import { createEmptyRegistry, registryIndexes, syncRegistry, validateRegistry } from "./lib/registry.mjs";
 import { buildSeoState, toCsv } from "./lib/seo.mjs";
 import { computeWordstatSummary, deriveWordstatPriorities } from "./lib/wordstat.mjs";
+import { writeYmlFeedArtifacts } from "./lib/yml-feed.mjs";
 
 const projectDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const registryPath = path.join(projectDir, "catalog-url-map.json");
 const publicDir = path.join(projectDir, "public");
 const config = JSON.parse(fs.readFileSync(path.join(projectDir, "site.config.json"), "utf8"));
+const feedOverridesPath = path.join(projectDir, "feed", "offer-overrides.json");
+const offerOverrides = fs.existsSync(feedOverridesPath)
+  ? JSON.parse(fs.readFileSync(feedOverridesPath, "utf8"))
+  : {};
 const rules = JSON.parse(fs.readFileSync(path.join(projectDir, "seo", "seo-rules.json"), "utf8"));
 const overrides = JSON.parse(fs.readFileSync(path.join(projectDir, "seo", "seo-overrides.json"), "utf8"));
 const items = readCatalogData(path.join(projectDir, "kitrade-parts-data.js"));
@@ -571,4 +576,7 @@ fs.writeFileSync(
   `window.KITRADE_CATALOG_DATA = ${JSON.stringify({ site_url: config.siteUrl, items: runtimeItems, routes: browserRoutes })};\n`,
 );
 
+const ymlFeed = writeYmlFeedArtifacts({ projectDir, items, registry, config, seoState, offerOverrides });
+
 console.log(`Catalog registry synchronized: ${registry.entities.products.length} products, ${exportRows.length} public URL records, ${promotedSeoRows.length} indexable SEO pages.`);
+console.log(`YML feed generated: ${ymlFeed.report.counts.exported_offers} offers, ${ymlFeed.report.counts.excluded_source_records} exclusions.`);

@@ -19,8 +19,8 @@ function run(args) {
   if (result.status !== 0) process.exit(result.status || 1);
 }
 
-run(["--test", ...testFiles]);
 run([path.join(projectDir, "scripts", "catalog", "sync-catalog.mjs")]);
+run(["--test", ...testFiles]);
 run([path.join(projectDir, "scripts", "catalog", "build-site.mjs")]);
 run([path.join(projectDir, "scripts", "catalog", "generate-seo-audits.mjs")]);
 run([path.join(projectDir, "scripts", "catalog", "verify-build.mjs")]);

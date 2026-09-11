@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 import { readCatalogData } from "./lib/data.mjs";
 import { productTitleHasMainNoun, productTitleHasVehicle } from "./lib/product-content.mjs";
 import { buildNonCategoryHypotheses, computeWordstatSummary, deriveWordstatPriorities, phraseMatchSet } from "./lib/wordstat.mjs";
+import { assertWellFormedGeneratedXml } from "./lib/yml-feed.mjs";
 
 const projectDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const outputDir = path.join(projectDir, "dist");
@@ -36,6 +37,8 @@ const metadataContentAudit = JSON.parse(fs.readFileSync(path.join(projectDir, "r
 const imageReviewUrls = new Set(imageReport.map((row) => row.raw_url));
 const sourceItems = readCatalogData(path.join(projectDir, "kitrade-parts-data.js"));
 const sourceById = new Map(sourceItems.map((item) => [String(item.id), item]));
+const ymlFeed = fs.readFileSync(path.join(outputDir, "yandex-direct-feed.yml"), "utf8");
+const ymlFeedReport = JSON.parse(fs.readFileSync(path.join(projectDir, "reports", "feed", "yandex-direct-feed-report.json"), "utf8"));
 const deploymentMode = process.env.KITRADE_BUILD_MODE || "production";
 const isNonProductionBuild = ["preview", "github-pages"].includes(deploymentMode);
 
@@ -45,6 +48,14 @@ assert.ok(sourceItems.length > 0, "Source catalog is empty");
 assert.ok(registry.entities.products.length >= sourceItems.length, "Permanent registry lost current products");
 assert.ok(exportRows.length >= registry.entities.products.length, "Public URL export is incomplete");
 assert.ok(seoMap.length > 0, "SEO map is empty");
+assertWellFormedGeneratedXml(ymlFeed);
+const ymlOfferIds = [...ymlFeed.matchAll(/<offer id="(\d+)" available="false">/g)].map((match) => match[1]);
+assert.equal(ymlOfferIds.length, ymlFeedReport.counts.exported_offers, "Built YML offer count differs from its generation report");
+assert.equal(new Set(ymlOfferIds).size, ymlOfferIds.length, "Built YML contains duplicate offer IDs");
+assert.equal(ymlFeedReport.counts.source_records, sourceItems.length, "YML report does not cover the current source catalog");
+assert.equal(ymlFeedReport.counts.exported_offers + ymlFeedReport.counts.excluded_source_records, sourceItems.length, "YML report does not account for every source record");
+assert.ok(ymlFeed.includes(`${config.siteUrl}/catalog/product/`), "Built YML has no absolute product URLs");
+assert.ok(!/(?:localhost|127\.0\.0\.1|onrender\.com|github\.io|netlify\.app|pages\.dev|vercel\.app)/i.test(ymlFeed), "Preview or local URL leaked into built YML");
 assert.equal(internalLinkingAudit.summary.indexable_pages_checked, seoMap.length, "Internal-linking audit does not cover the full SEO map");
 assert.equal(internalLinkingAudit.summary.orphan_pages, 0, "Internal-linking audit contains orphan pages");
 assert.equal(internalLinkingAudit.summary.unreachable_pages, 0, "Internal-linking audit contains pages unreachable from home");

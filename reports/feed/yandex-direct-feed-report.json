@@ -1,0 +1,2828 @@
+{
+  "generated_at": "2026-09-11T14:42:45.081Z",
+  "feed_file": "public/yandex-direct-feed.yml",
+  "proposed_public_url": "https://xn--d1abifc1bn.xn--p1ai/yandex-direct-feed.yml",
+  "status": "created_locally_not_published_not_imported",
+  "counts": {
+    "source_records": 1941,
+    "unique_source_records": 1941,
+    "duplicate_source_id_groups": 0,
+    "registry_products": 1941,
+    "unique_publishable_products": 1916,
+    "exported_offers": 1594,
+    "excluded_source_records": 347,
+    "excluded_publishable_products": 322,
+    "categories": 12,
+    "collections": 115,
+    "warnings": 1
+  },
+  "exclusion_reason_counts": {
+    "not_publishable_status:needs_review": 25,
+    "missing_public_image": 297,
+    "noncanonical_duplicate": 25
+  },
+  "duplicate_source_ids": [],
+  "exclusions": [
+    {
+      "source_id": "7500756023",
+      "product_id": "1001",
+      "title": "Двигатель в сборе Weichai WP12.430E50",
+      "reasons": [
+        "not_publishable_status:needs_review"
+      ]
+    },
+    {
+      "source_id": "7596771238",
+      "product_id": "1002",
+      "title": "Двигатель WD615.47 Евро-2",
+      "reasons": [
+        "not_publishable_status:needs_review"
+      ]
+    },
+    {
+      "source_id": "7500528381",
+      "product_id": "1003",
+      "title": "Двигатель в сборе Eicha аналог Weichai WP12.430E50",
+      "reasons": [
+        "not_publishable_status:needs_review"
+      ]
+    },
+    {
+      "source_id": "7244736542",
+      "product_id": "1061",
+      "title": "Фара правая Geely Atlas",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7788073540",
+      "product_id": "1065",
+      "title": "Фара передняя правая Toyota Camry XV 80",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7980555935",
+      "product_id": "1069",
+      "title": "Фонарь задний левый BYD Tang L",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "4493162893",
+      "product_id": "1087",
+      "title": "Фара дневных ходовых огней правая Haval Jolion",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7244804112",
+      "product_id": "1091",
+      "title": "Дневной ходовой огонь передний Changan Hanter Plus",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7980439927",
+      "product_id": "1115",
+      "title": "Задняя противотуманная фара Hongqi HS5",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7244343682",
+      "product_id": "1133",
+      "title": "Фара левая Geely Atlas",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7948612983",
+      "product_id": "1152",
+      "title": "Правая передняя фара baic X55",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7244363678",
+      "product_id": "1165",
+      "title": "Фонарь задний правый Voyah Free",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "4460983734",
+      "product_id": "1173",
+      "title": "Задний центральный фонарь Geely Monjaro",
+      "reasons": [
+        "noncanonical_duplicate"
+      ]
+    },
+    {
+      "source_id": "7244793047",
+      "product_id": "1214",
+      "title": "Фонарь заднего бампера правый Voyah Free",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7500699171",
+      "product_id": "1232",
+      "title": "Фара правая (модуль освещения) Mercedes G-Class",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8108724475",
+      "product_id": "1242",
+      "title": "Задний левый фонарь Geely galaxy starship 7",
+      "reasons": [
+        "noncanonical_duplicate"
+      ]
+    },
+    {
+      "source_id": "7244727367",
+      "product_id": "1243",
+      "title": "Фонарь задний центральный Changan Hanter Plus",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7244699742",
+      "product_id": "1250",
+      "title": "Фонарь двери багажника Voyah Free",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7436656658",
+      "product_id": "1252",
+      "title": "Фара передняя правая нижняя Zeekr 001",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7244897254",
+      "product_id": "1291",
+      "title": "Фара центральная Geely Atlas",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7948247525",
+      "product_id": "1328",
+      "title": "Левая передняя фара baic X55",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8108643761",
+      "product_id": "1330",
+      "title": "Задний правый фонарь Geely galaxy starship 7",
+      "reasons": [
+        "noncanonical_duplicate"
+      ]
+    },
+    {
+      "source_id": "7564127903",
+      "product_id": "1332",
+      "title": "Фара правая Polar Stone 01",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "4492910706",
+      "product_id": "1335",
+      "title": "Фара передняя правая В сборе Haval Jolion",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7692131494",
+      "product_id": "1340",
+      "title": "Фара правая Geely Monjaro (оригинал)",
+      "reasons": [
+        "not_publishable_status:needs_review"
+      ]
+    },
+    {
+      "source_id": "9044513152",
+      "product_id": "1347",
+      "title": "Фара правая Chevrolet Monza",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513153",
+      "product_id": "1348",
+      "title": "Фара левая Chevrolet Monza",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513154",
+      "product_id": "1349",
+      "title": "Фонарь правый крыло Chevrolet Monza",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513155",
+      "product_id": "1350",
+      "title": "Фонарь левый крыло Chevrolet Monza",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513156",
+      "product_id": "1351",
+      "title": "Фонарь правый крышка багажника Chevrolet Monza",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513157",
+      "product_id": "1352",
+      "title": "Фонарь левый крышка багажника Chevrolet Monza",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7532560071",
+      "product_id": "1356",
+      "title": "Воздухозаборник Haval Jolion",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7500828059",
+      "product_id": "1358",
+      "title": "Шланг системы охлаждения Mercedes-Benz G-Class",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7500476377",
+      "product_id": "1359",
+      "title": "Шланг системы охлаждения верх Mercedes-Benz G-Clas",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8108743157",
+      "product_id": "1365",
+      "title": "Радиатор BYD Seal 06 GT",
+      "reasons": [
+        "not_publishable_status:needs_review"
+      ]
+    },
+    {
+      "source_id": "8108577162",
+      "product_id": "1368",
+      "title": "Радиатор двигателя aito M8",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7500612704",
+      "product_id": "1375",
+      "title": "Воздуховодный сегмент Mercedes-Benz G-Class",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8108280589",
+      "product_id": "1378",
+      "title": "Бачок стеклоочистителя BAW BJ 212",
+      "reasons": [
+        "not_publishable_status:needs_review"
+      ]
+    },
+    {
+      "source_id": "7500329962",
+      "product_id": "1381",
+      "title": "Радиатор системы охлаждения двс Mercedes-Benz G-Cl",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7532241345",
+      "product_id": "1386",
+      "title": "Радиатор кондиционера Haval Jolion",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7532434577",
+      "product_id": "1389",
+      "title": "Теплообменник АКПП Haval Jolion",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7500487980",
+      "product_id": "1391",
+      "title": "Шланг системы охлаждения Mercedes-Benz G-Class",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8107907720",
+      "product_id": "1393",
+      "title": "Радиатор кондиционера Volkswagen Tavendor",
+      "reasons": [
+        "not_publishable_status:needs_review"
+      ]
+    },
+    {
+      "source_id": "7788733671",
+      "product_id": "1399",
+      "title": "Бачок омывающей жидкости Toyota Camry XV 80",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7500623279",
+      "product_id": "1400",
+      "title": "Шланг системы охлаждения Mercedes-Benz G-Class",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8108309778",
+      "product_id": "1402",
+      "title": "Радиатор кондиционера BAW BJ 212",
+      "reasons": [
+        "not_publishable_status:needs_review"
+      ]
+    },
+    {
+      "source_id": "8107944966",
+      "product_id": "1410",
+      "title": "Вентилятор радиатора Volkswagen Tavendor",
+      "reasons": [
+        "not_publishable_status:needs_review"
+      ]
+    },
+    {
+      "source_id": "8108455785",
+      "product_id": "1416",
+      "title": "Интеркулер Volkswagen Tavendor",
+      "reasons": [
+        "not_publishable_status:needs_review"
+      ]
+    },
+    {
+      "source_id": "8108171589",
+      "product_id": "1425",
+      "title": "Радиатор двигателя Volkswagen Tavendor",
+      "reasons": [
+        "not_publishable_status:needs_review"
+      ]
+    },
+    {
+      "source_id": "8108639207",
+      "product_id": "1426",
+      "title": "Вентилятор радиатора Voyah Passion",
+      "reasons": [
+        "not_publishable_status:needs_review"
+      ]
+    },
+    {
+      "source_id": "8107990819",
+      "product_id": "1428",
+      "title": "Бачок стеклоомывателя Geely galaxy starship 7",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8108482199",
+      "product_id": "1429",
+      "title": "Радиатор низких температур Voyah Passion",
+      "reasons": [
+        "not_publishable_status:needs_review"
+      ]
+    },
+    {
+      "source_id": "4493099336",
+      "product_id": "1435",
+      "title": "Радиатор кондиционера Haval Jolion",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7500256586",
+      "product_id": "1438",
+      "title": "Радиатор дополнительный Mercedes-Benz G-Class",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7532470657",
+      "product_id": "1439",
+      "title": "Вентилятор охлаждения в сборе с корпусом Haval Jol",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7532405536",
+      "product_id": "1441",
+      "title": "Гофра воздухозаборника Haval Jolion",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8108331741",
+      "product_id": "1451",
+      "title": "Охладитель батареи Voyah Passion",
+      "reasons": [
+        "not_publishable_status:needs_review"
+      ]
+    },
+    {
+      "source_id": "8044246739",
+      "product_id": "1457",
+      "title": "Радиатор двигателя BYD Seal 06 GT",
+      "reasons": [
+        "not_publishable_status:needs_review"
+      ]
+    },
+    {
+      "source_id": "8108794040",
+      "product_id": "1458",
+      "title": "Компрессор кондиционера Volkswagen Tavendor",
+      "reasons": [
+        "not_publishable_status:needs_review"
+      ]
+    },
+    {
+      "source_id": "8108650655",
+      "product_id": "1460",
+      "title": "Радиатор кондиционера aito M8",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7532083702",
+      "product_id": "1461",
+      "title": "Корпус воздушного фильтра Haval Jolion",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8108846144",
+      "product_id": "1462",
+      "title": "Вентилятор радиатора aito M8",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8108497628",
+      "product_id": "1464",
+      "title": "Радиатор двигателя BAW BJ 212",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8108195488",
+      "product_id": "1472",
+      "title": "Бачок стеклоомывателя Volkswagen Tavendor",
+      "reasons": [
+        "not_publishable_status:needs_review"
+      ]
+    },
+    {
+      "source_id": "7532350621",
+      "product_id": "1479",
+      "title": "Интеркуллер Haval Jolion",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7500298766",
+      "product_id": "1481",
+      "title": "Держатель радиатора в арке пр-й Mercedes G-class",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513158",
+      "product_id": "1482",
+      "title": "Компрессор кондиционера Changan OSHAN Z6",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513159",
+      "product_id": "1483",
+      "title": "Радиатор кондиционера Changan OSHAN Z6",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513160",
+      "product_id": "1484",
+      "title": "Бачок стеклоомывателя Chevrolet Monza",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513161",
+      "product_id": "1485",
+      "title": "Компрессор кондиционера Chevrolet Monza",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513162",
+      "product_id": "1486",
+      "title": "Радиатор кондиционера Chevrolet Monza",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513163",
+      "product_id": "1487",
+      "title": "Радиатор двигателя Chevrolet Monza",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513164",
+      "product_id": "1488",
+      "title": "Вентилятор радиатора Chevrolet Monza",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7852416978",
+      "product_id": "1490",
+      "title": "Колодки тормозные передние BYD Leopard 5",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7532488389",
+      "product_id": "1492",
+      "title": "Диск тормозной передний Geely X6 Pro",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7852077388",
+      "product_id": "1494",
+      "title": "Диск тормозной передний BYD FangChengBao Leopard 5",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7820549995",
+      "product_id": "1497",
+      "title": "Диск тормозной передний Baojun RS-5",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7564229096",
+      "product_id": "1498",
+      "title": "Диск тормозной задний Geely X6 Pro",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7820624259",
+      "product_id": "1501",
+      "title": "Диск тормозной задний Baojun RS-5",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7532376787",
+      "product_id": "1502",
+      "title": "Колодки тормозные передние Geely X6 Pro",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7532601570",
+      "product_id": "1503",
+      "title": "Колодки тормозные задние Geely X6 Pro",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7564515862",
+      "product_id": "1508",
+      "title": "Камера переднего бампера Polar Stone 01",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7244269327",
+      "product_id": "1517",
+      "title": "Антенна Changan Hanter Plus",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7244994173",
+      "product_id": "1519",
+      "title": "Датчик слепых зон задний правый Voyah Free",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7852589769",
+      "product_id": "1523",
+      "title": "Блок управления Airbag BYD FangChengBao Leopard 5",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8076824709",
+      "product_id": "1525",
+      "title": "Панель приборов Kia Seltos",
+      "reasons": [
+        "noncanonical_duplicate"
+      ]
+    },
+    {
+      "source_id": "7852888671",
+      "product_id": "1526",
+      "title": "Подушка безопасности водителя BYD Leopard 5",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "4493410005",
+      "product_id": "1529",
+      "title": "Эбу подушки безопасности Haval Jolion",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7852007192",
+      "product_id": "1532",
+      "title": "Подушка безопасности пассажира BYD Leopard 5",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7788273658",
+      "product_id": "1533",
+      "title": "Блок управления AirBag Toyota Camry XV 80",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7500244509",
+      "product_id": "1535",
+      "title": "Электропроводка (жгут проводов) Mercedes-Benz G-Cl",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7948116462",
+      "product_id": "1536",
+      "title": "Бачок стеклоомывателя baik X55",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7820011259",
+      "product_id": "1538",
+      "title": "Рулевой телескопический вал Baojun RS-5",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7564111832",
+      "product_id": "1540",
+      "title": "Глушитель в сборе Geely Monjaro (новый, оригинал)",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7532458221",
+      "product_id": "1541",
+      "title": "Дроссельная заслонка Haval Jolion",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7596529849",
+      "product_id": "1553",
+      "title": "Левое переднее стекло Trumpchi M8",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7468988576",
+      "product_id": "1570",
+      "title": "Стекло лобовое Lexus RX 450H",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7436186022",
+      "product_id": "1592",
+      "title": "Стекло крышки багажника Baojun RC-5",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7723970765",
+      "product_id": "1594",
+      "title": "Стекло BMW X5Li арт. 51375A44964",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7724794585",
+      "product_id": "1612",
+      "title": "Стекло BMW X5Li арт. 51359854340",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "4045057765",
+      "product_id": "1613",
+      "title": "Стекло лобовое Voyah Free (рест, оригинал)",
+      "reasons": [
+        "noncanonical_duplicate"
+      ]
+    },
+    {
+      "source_id": "7724183100",
+      "product_id": "1642",
+      "title": "Стекло BMW X5Li арт. 51359854428",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "4045440751",
+      "product_id": "1659",
+      "title": "Стекло лобовое Changan Uni-K (оригинал)",
+      "reasons": [
+        "noncanonical_duplicate"
+      ]
+    },
+    {
+      "source_id": "4045232099",
+      "product_id": "1665",
+      "title": "Стекло заднее Changan Uni-K (оригинал)",
+      "reasons": [
+        "noncanonical_duplicate"
+      ]
+    },
+    {
+      "source_id": "8108043434",
+      "product_id": "1672",
+      "title": "Катафот заднего бампера левый Nissan Pathfinder",
+      "reasons": [
+        "noncanonical_duplicate"
+      ]
+    },
+    {
+      "source_id": "9044513165",
+      "product_id": "1680",
+      "title": "Стекло заднее Changan OSHAN Z6",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513166",
+      "product_id": "1681",
+      "title": "Лобовое стекло Chevrolet Monza",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513167",
+      "product_id": "1682",
+      "title": "Заднее стекло Chevrolet Monza",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7692137660",
+      "product_id": "1683",
+      "title": "АКПП в сборе Changan Uni-K",
+      "reasons": [
+        "not_publishable_status:needs_review"
+      ]
+    },
+    {
+      "source_id": "7980763124",
+      "product_id": "1687",
+      "title": "Маховик Chery Tiggo 7Pro Max",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7980243591",
+      "product_id": "1689",
+      "title": "Задний редуктор Zeekr 9X",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7692473690",
+      "product_id": "1694",
+      "title": "АКПП в сборе Changan Uni-K",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7852639515",
+      "product_id": "1696",
+      "title": "Привод передний левый в сборе BYD Leopard 5",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7596312489",
+      "product_id": "1698",
+      "title": "Кпп Great Wall для двигателя GW4D20",
+      "reasons": [
+        "not_publishable_status:needs_review"
+      ]
+    },
+    {
+      "source_id": "7564483551",
+      "product_id": "1699",
+      "title": "АКПП в сборе Haval F7 новая оригинал",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7724323849",
+      "product_id": "1709",
+      "title": "Двигатель в сборе Geely Coolray JLH3G15TD",
+      "reasons": [
+        "noncanonical_duplicate"
+      ]
+    },
+    {
+      "source_id": "7532077193",
+      "product_id": "1713",
+      "title": "Впускной коллектор Haval Jolion",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7980810583",
+      "product_id": "1717",
+      "title": "Двигатель в сборе Changan deepal S7",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "4364844018",
+      "product_id": "1722",
+      "title": "Комплект колёс на багги - квадроцикл",
+      "reasons": [
+        "not_publishable_status:needs_review"
+      ]
+    },
+    {
+      "source_id": "7916301756",
+      "product_id": "1723",
+      "title": "Передняя левая ступица Livan X3 Pro",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7788239479",
+      "product_id": "1724",
+      "title": "Левый удлинитель подрамника Toyota Camry XV 80",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7788593058",
+      "product_id": "1725",
+      "title": "Правый удлинитель подрамника Toyota Camry XV 80",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7851951923",
+      "product_id": "1727",
+      "title": "Рычаг левый верхний передний BYD Leopard 5",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7852891089",
+      "product_id": "1738",
+      "title": "Ступица левого переднего колеса BYD Leopard 5",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7852303873",
+      "product_id": "1739",
+      "title": "Поворотный кулак левый BYD Leopard 5",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7788548593",
+      "product_id": "1744",
+      "title": "Подрамник Toyota Camry XV 80",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7788817731",
+      "product_id": "1748",
+      "title": "Торпедо Toyota Camry XV 80",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7788117104",
+      "product_id": "1749",
+      "title": "Подушка безопасности шторка левая Toyota Camry XV",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7244610161",
+      "product_id": "1750",
+      "title": "Обивка сиденья переднего левого Changan Hanter Plu",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7788360640",
+      "product_id": "1751",
+      "title": "Подушка безопасности ног водителя Toyota Camry XV",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7788335914",
+      "product_id": "1752",
+      "title": "Ремень безопасности передний правый Toyota Camry X",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "4493203645",
+      "product_id": "1753",
+      "title": "Шторка безопасности правая Haval Jolion",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "4492982220",
+      "product_id": "1755",
+      "title": "Подушка безопасности переднего пассажира Haval Jol",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7788050329",
+      "product_id": "1758",
+      "title": "Подушка безопасности шторка правая Toyota Camry XV",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7788010615",
+      "product_id": "1759",
+      "title": "Подушка безопасности пассажира Toyota Camry XV 80",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7564662992",
+      "product_id": "1761",
+      "title": "Потолок (обшивка потолка) Geely Monjaro (чёрный)",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7788611244",
+      "product_id": "1762",
+      "title": "Ремень безопасности передний левый Toyota Camry XV",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7244410602",
+      "product_id": "1763",
+      "title": "Обивка двери багажника Voyah Free",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7852600545",
+      "product_id": "1764",
+      "title": "Подушка безопасности для ног водителя Leopard 5",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7244273948",
+      "product_id": "1768",
+      "title": "Водосток багажника правый Voyah Free",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7788721155",
+      "product_id": "1770",
+      "title": "Нижняя накладка панели приборов Toyota Camry XV 80",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7852912047",
+      "product_id": "1771",
+      "title": "Подушка безопасности правая(шторка) BYD Leopard 5",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7788569314",
+      "product_id": "1773",
+      "title": "Подушка безопасности руля Toyota Camry XV 80",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7852402000",
+      "product_id": "1774",
+      "title": "Подушка безопасности левая(шторка) BYD Leopard 5",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513168",
+      "product_id": "1775",
+      "title": "Торпедо Changan OSHAN Z6",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8108486790",
+      "product_id": "1779",
+      "title": "Зеркало левое BAW BJ 212",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7980858251",
+      "product_id": "1785",
+      "title": "Левая панель переднего бампера WEY 80",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7244542616",
+      "product_id": "1788",
+      "title": "Накладка арки задней правой Voyah Free",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7245022168",
+      "product_id": "1803",
+      "title": "Накладка переднего бампера нижняя Geely Atlas",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8012151533",
+      "product_id": "1810",
+      "title": "Рамка радиатора BYD FangChengBao Titanium 7",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8012039062",
+      "product_id": "1817",
+      "title": "Усилитель переднего бампера BYD Titanium 7",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7532272987",
+      "product_id": "1824",
+      "title": "Боковина левая Exeed VX",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8108858033",
+      "product_id": "1831",
+      "title": "Зеркало левое BYD Seal 06 GT",
+      "reasons": [
+        "noncanonical_duplicate"
+      ]
+    },
+    {
+      "source_id": "7660704761",
+      "product_id": "1834",
+      "title": "Бампер передний Geely Coolray 2025",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7564536269",
+      "product_id": "1851",
+      "title": "Рамка радиатора (телевизор) Polar Stone 01",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7948108455",
+      "product_id": "1855",
+      "title": "Накладка порога левая Volkswagen Tayron",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7980693308",
+      "product_id": "1865",
+      "title": "Абсорбер заднего бампера Toyota Camry XV80",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8108876119",
+      "product_id": "1874",
+      "title": "Подкрылок передний левый BAW BJ 212",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7468175693",
+      "product_id": "1875",
+      "title": "Дверь передняя правая Tank 500 (оригинал)",
+      "reasons": [
+        "noncanonical_duplicate"
+      ]
+    },
+    {
+      "source_id": "8108189281",
+      "product_id": "1883",
+      "title": "Крыло переднее правое BYD Seal 06 GT",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7948498077",
+      "product_id": "1891",
+      "title": "Правое зеркало Baic BJ40",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7500807504",
+      "product_id": "1898",
+      "title": "Решётка переднего бампера правая Mercedes-Benz G-C",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7372248797",
+      "product_id": "1904",
+      "title": "Дверь передняя левая Li 7 оригинал",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7948119785",
+      "product_id": "1915",
+      "title": "Молдинг крыши правый baic U5 Plus",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7436593027",
+      "product_id": "1932",
+      "title": "Крышка багажника Omoda C5",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8107999441",
+      "product_id": "1938",
+      "title": "Подкрылок задний, правый BAW BJ 212",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7948044844",
+      "product_id": "1942",
+      "title": "Рейлинг левый baic X7",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7948716911",
+      "product_id": "1947",
+      "title": "Диффузор заднего бампера Volkswagen Tayron",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7244300020",
+      "product_id": "1956",
+      "title": "Накладка передней панели Geely Atlas",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7948159060",
+      "product_id": "1959",
+      "title": "Накладка на задний бампер верхняя Baic BJ40",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7500293420",
+      "product_id": "1966",
+      "title": "Накладка крыла переднего правого Mercedes G-Class",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7980114528",
+      "product_id": "1970",
+      "title": "Усилитель заднего бампера WEY 80",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7820262713",
+      "product_id": "1971",
+      "title": "Боковая правая часть Great Wall Poer",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8108490311",
+      "product_id": "1977",
+      "title": "Левая накладка порога Voyah Passion",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7916771861",
+      "product_id": "1979",
+      "title": "Бампер передний Geely Vision X6 Pro",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7980240533",
+      "product_id": "1992",
+      "title": "Усилитель заднего бампера Toyota Camry XV80",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7948800212",
+      "product_id": "1998",
+      "title": "Рейлинг правый baic X7",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7980165399",
+      "product_id": "2004",
+      "title": "Правая панель переднего бампера WEY 80",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7628676454",
+      "product_id": "2005",
+      "title": "Бампер передний Lexus RX",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7980672437",
+      "product_id": "2007",
+      "title": "Зеркало левое BYD Tang L",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8107940348",
+      "product_id": "2017",
+      "title": "Подкрылок левый задний aito M8",
+      "reasons": [
+        "not_publishable_status:needs_review"
+      ]
+    },
+    {
+      "source_id": "4493108488",
+      "product_id": "2032",
+      "title": "Решетка радиатора Haval Jolion",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8108309849",
+      "product_id": "2033",
+      "title": "Подкрылок передний правый BAW BJ 212",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7500262984",
+      "product_id": "2057",
+      "title": "Накладка переднего бампера Mercedes-Benz G-Class",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7244300595",
+      "product_id": "2065",
+      "title": "Клапан вентиляции задний правый Voyah Free",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7532412541",
+      "product_id": "2072",
+      "title": "Дверь задняя левая Exeed VX",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7372486482",
+      "product_id": "2078",
+      "title": "Дверь передняя правая Li 9 оригинал",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7564215304",
+      "product_id": "2085",
+      "title": "Усилитель переднего бампера нижний Polar Stone 01",
+      "reasons": [
+        "noncanonical_duplicate"
+      ]
+    },
+    {
+      "source_id": "8108161807",
+      "product_id": "2089",
+      "title": "Накладка на правую переднюю дверь Voyah Passion",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8108048093",
+      "product_id": "2090",
+      "title": "Правая накладка порога Voyah Passion",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7244224921",
+      "product_id": "2101",
+      "title": "Накладка крыла заднего правого треугольник Voyah F",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7948866748",
+      "product_id": "2111",
+      "title": "Петля крышки багажника baic X7",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7244678677",
+      "product_id": "2124",
+      "title": "Накладка арки колеса передняя правая Ghangan Hante",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8108247530",
+      "product_id": "2131",
+      "title": "Подкрылок левый передний aito M8",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7244449040",
+      "product_id": "2144",
+      "title": "Бампер передний Geely Atlas",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "4045053754",
+      "product_id": "2145",
+      "title": "Зеркало заднего вида правое Voyah Free (оригинал)",
+      "reasons": [
+        "not_publishable_status:needs_review"
+      ]
+    },
+    {
+      "source_id": "7244563394",
+      "product_id": "2151",
+      "title": "Cпойлер двери багажника верх Voyah Free",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7980384768",
+      "product_id": "2154",
+      "title": "Рамка радиатора BYD Tang L",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7788923329",
+      "product_id": "2158",
+      "title": "Капот Toyota Camry XV 80",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8076347767",
+      "product_id": "2165",
+      "title": "Зеркало правое BYD Seal 06 GT",
+      "reasons": [
+        "noncanonical_duplicate"
+      ]
+    },
+    {
+      "source_id": "7980453356",
+      "product_id": "2171",
+      "title": "Рамка радиатора Zeekr 9X",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "4045277680",
+      "product_id": "2177",
+      "title": "Бампер передний Voyah Free в сборе (оригинал)",
+      "reasons": [
+        "not_publishable_status:needs_review"
+      ]
+    },
+    {
+      "source_id": "7500239424",
+      "product_id": "2179",
+      "title": "Дверь правая задняя Voyah Dream",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7244909127",
+      "product_id": "2187",
+      "title": "Уплотнитель дверного проёма Voyah Free",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7244212308",
+      "product_id": "2188",
+      "title": "Правое крепление заднего бампера Voyah Free",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7244466192",
+      "product_id": "2189",
+      "title": "Кронштейн заднего бампера центральный Voyah Free",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8108415662",
+      "product_id": "2193",
+      "title": "Нижняя защита двигателя задняя aito M8",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "4493456048",
+      "product_id": "2197",
+      "title": "Кронштейн датчика сближения левый внешний Haval Jo",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8108539067",
+      "product_id": "2210",
+      "title": "Накладка на правое крыло Voyah Passion",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7436086852",
+      "product_id": "2218",
+      "title": "Капот Lixiang Li7",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "4045258697",
+      "product_id": "2219",
+      "title": "Бампер передний в сборе (ноускат) Voyah Free",
+      "reasons": [
+        "noncanonical_duplicate"
+      ]
+    },
+    {
+      "source_id": "7948461531",
+      "product_id": "2228",
+      "title": "Молдинг крыши левый Kia K3",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7724881629",
+      "product_id": "2229",
+      "title": "Капот на Geely Atlas Pro",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7948611852",
+      "product_id": "2283",
+      "title": "Молдинг крыши правый Kia K3",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7820653683",
+      "product_id": "2289",
+      "title": "Ноускат Haval H3",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8107897592",
+      "product_id": "2293",
+      "title": "Нижняя защита двигателя передняя aito M8",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7500149254",
+      "product_id": "2305",
+      "title": "Накладка переднего бампера Mercedes-Benz G-Class",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7980166939",
+      "product_id": "2307",
+      "title": "Левая накладка переднего бампера WEY 80",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7948784191",
+      "product_id": "2310",
+      "title": "Нижняя накладка заднего бампера Baic BJ40",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7436639774",
+      "product_id": "2315",
+      "title": "Накладка переднего бампера Lixiang Li7",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7820416181",
+      "product_id": "2320",
+      "title": "Правое заднее крыло Nissan X-Trail T33",
+      "reasons": [
+        "noncanonical_duplicate"
+      ]
+    },
+    {
+      "source_id": "7532931889",
+      "product_id": "2324",
+      "title": "Решётка переднего бампера Haval Jolion",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8108267598",
+      "product_id": "2325",
+      "title": "Дверь задняя левая BAW BJ 212",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7500128344",
+      "product_id": "2334",
+      "title": "Крыло заднее правое Voyah Dream",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7244701241",
+      "product_id": "2341",
+      "title": "Молдинг заднего бампера Voyah Free",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7436074643",
+      "product_id": "2343",
+      "title": "Крышка багажника lixiang l6",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7564578340",
+      "product_id": "2346",
+      "title": "Усилитель переднего бампера нижний Polar Stone 01",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7244666178",
+      "product_id": "2350",
+      "title": "Спойлер заднего бампера Voyah Free",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7820612362",
+      "product_id": "2360",
+      "title": "Капот Haval H3",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7532617718",
+      "product_id": "2364",
+      "title": "Дверь передняя левая Exeed VX",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "4493244212",
+      "product_id": "2377",
+      "title": "Капот Haval Jolion",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8108642519",
+      "product_id": "2382",
+      "title": "Усилитель заднего бампера Voyah Passion",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8108632561",
+      "product_id": "2396",
+      "title": "Подкрылок правый задний aito M8",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7372947781",
+      "product_id": "2400",
+      "title": "Дверь задняя левая Li 7 оригинал",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7436996223",
+      "product_id": "2401",
+      "title": "Жалюзи решётки переднего бампера Lixiang Li7",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8108125771",
+      "product_id": "2404",
+      "title": "Накладка на левое крыло Voyah Passion",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7244880368",
+      "product_id": "2417",
+      "title": "Рейлинг крыши правый Changan Hanter Plus",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7819964015",
+      "product_id": "2428",
+      "title": "Накладка заднего правого крыла Nissan X-Trail T33",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7500550521",
+      "product_id": "2437",
+      "title": "Колесная арка Mercedes-Benz G-Class",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7788398331",
+      "product_id": "2465",
+      "title": "Рамка радиатора (телевизор) Toyota Camry XV 80",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8108700172",
+      "product_id": "2466",
+      "title": "Накладка на левую переднюю дверь Voyah Passion",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8076614804",
+      "product_id": "2470",
+      "title": "Накладка заднего правого крыла Nissan X-Trail T33",
+      "reasons": [
+        "noncanonical_duplicate"
+      ]
+    },
+    {
+      "source_id": "7372297801",
+      "product_id": "2491",
+      "title": "Дверь задняя правая Li 7 оригинал",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8108799805",
+      "product_id": "2498",
+      "title": "Усилитель переднего бампера BYD Seal 06 GT",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8076003799",
+      "product_id": "2504",
+      "title": "Бампер передний низ Changan Hanter Plus",
+      "reasons": [
+        "noncanonical_duplicate"
+      ]
+    },
+    {
+      "source_id": "7244229451",
+      "product_id": "2508",
+      "title": "Кронштейн задний правый под фонарём Voyah Free",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7628595689",
+      "product_id": "2509",
+      "title": "Защита двигателя Lexus RX",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7245025484",
+      "product_id": "2516",
+      "title": "Юбка заднего бампера voyah free",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8108059165",
+      "product_id": "2518",
+      "title": "Подкрылок задний, левый BAW BJ 212",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7980451032",
+      "product_id": "2523",
+      "title": "Усилитель переднего бампера WEY 80",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7244884067",
+      "product_id": "2526",
+      "title": "Рейлинг крыши левый Changan Hanter Plus",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7980591936",
+      "product_id": "2527",
+      "title": "Накладка переднего бампера правая WEY 80",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7244502590",
+      "product_id": "2540",
+      "title": "Усилитель заднего бампера Voyah Free",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7372230756",
+      "product_id": "2547",
+      "title": "Дверь передняя правая Li 7 оригинал",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7980602103",
+      "product_id": "2551",
+      "title": "Рамка радиатора Xiaomi SU7",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "4301353398",
+      "product_id": "2552",
+      "title": "Бампер задний Lixiang L7 рестайлинг 2024г. (ориг.)",
+      "reasons": [
+        "noncanonical_duplicate"
+      ]
+    },
+    {
+      "source_id": "7244531508",
+      "product_id": "2554",
+      "title": "Внешняя панель с правой стороны Voyah Free",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7788584605",
+      "product_id": "2556",
+      "title": "Накладка капота (утеплитель) Toyota Camry XV 80",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7980460973",
+      "product_id": "2557",
+      "title": "Усилитель переднего бампера Xiaomi SU7",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7244594731",
+      "product_id": "2560",
+      "title": "Дверь задняя правая Voyah Free",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "4493294388",
+      "product_id": "2573",
+      "title": "Усилитель переднего бампера Haval Jolion",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7500172244",
+      "product_id": "2579",
+      "title": "Крыло переднее Mercedes-Benz G-Class",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7980341521",
+      "product_id": "2581",
+      "title": "Панель заднего бампера WEY 80",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7948476112",
+      "product_id": "2584",
+      "title": "Диффузор заднего бампера нижний Volkswagen Tayron",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8076839321",
+      "product_id": "2591",
+      "title": "Усилитель переднего бампера BYD Seal 06 GT",
+      "reasons": [
+        "noncanonical_duplicate"
+      ]
+    },
+    {
+      "source_id": "8108365624",
+      "product_id": "2592",
+      "title": "Зеркало правое BAW BJ 212",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7564454719",
+      "product_id": "2593",
+      "title": "Крыло переднее правое Polar Stone 01",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7244549752",
+      "product_id": "2607",
+      "title": "Абсорбер переднего бампера Geely Atlas",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7372990810",
+      "product_id": "2616",
+      "title": "Дверь задняя правая Li 9 оригинал",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7244239426",
+      "product_id": "2623",
+      "title": "Бампер передний (нижняя часть) Geely Atlas",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8075924178",
+      "product_id": "2627",
+      "title": "Кронштейн подсветки номера Nissan Pathfinder",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7948472047",
+      "product_id": "2629",
+      "title": "Молдинг крыши левый baic U5 Plus",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7244431349",
+      "product_id": "2634",
+      "title": "Капот Geely Atlas",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7436643660",
+      "product_id": "2642",
+      "title": "Накладка задней правой двери Lixiang Li7",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7500532823",
+      "product_id": "2650",
+      "title": "Кронштейн переднего бампера нижний Mercedes-Benz G",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7980188335",
+      "product_id": "2659",
+      "title": "Дверь задняя правая BYD Tang L",
+      "reasons": [
+        "noncanonical_duplicate"
+      ]
+    },
+    {
+      "source_id": "4364971187",
+      "product_id": "2665",
+      "title": "Крышка багажника Changan Uni-K (оригинал)",
+      "reasons": [
+        "not_publishable_status:needs_review"
+      ]
+    },
+    {
+      "source_id": "7500058797",
+      "product_id": "2674",
+      "title": "Бампер передний Mercedes-Benz G-Class",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7372759812",
+      "product_id": "2678",
+      "title": "Рамка радиаторов Hongqi HS5",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7244216335",
+      "product_id": "2679",
+      "title": "Крышка багажника Voyah Free",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7820012832",
+      "product_id": "2689",
+      "title": "Передний люк панорамной крыши Baojun RS-5",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8012343350",
+      "product_id": "2692",
+      "title": "Рамка радиатора Geely Galaxy M9",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7244355273",
+      "product_id": "2693",
+      "title": "Привод двери багажника Voyah Free",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7244837107",
+      "product_id": "2696",
+      "title": "Решётка радиатора Geely Atlas",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8108674642",
+      "product_id": "2697",
+      "title": "Вертикальная накладка левой передней двери Exeed Exlantix ES (E3)",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7500054255",
+      "product_id": "2700",
+      "title": "Уплотнение крыла Mercedes-Benz G-Class",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7788743898",
+      "product_id": "2709",
+      "title": "Накладка порога правая нижняя хром(молдинг) Toyota",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "4172870450",
+      "product_id": "2733",
+      "title": "Крышка багажника Lixiang L7 (оригинал)",
+      "reasons": [
+        "noncanonical_duplicate"
+      ]
+    },
+    {
+      "source_id": "4493473457",
+      "product_id": "2739",
+      "title": "Крыло переднее правое Geely Monjaro (оригинал)",
+      "reasons": [
+        "noncanonical_duplicate"
+      ]
+    },
+    {
+      "source_id": "7500645203",
+      "product_id": "2741",
+      "title": "Подкрылок передний правый Mercedes-Benz G-Class",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7436851694",
+      "product_id": "2746",
+      "title": "Задний бампер Lixiang l6",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7980469523",
+      "product_id": "2751",
+      "title": "Рамка радиатора WEY 80",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7564958586",
+      "product_id": "2771",
+      "title": "Дверь задняя правая Polar Stone 01",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7724263160",
+      "product_id": "2775",
+      "title": "Ноускат Geely Atlas Pro",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7660667523",
+      "product_id": "2784",
+      "title": "Нижняя часть переднего бампера Geely Coolray",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7244531016",
+      "product_id": "2793",
+      "title": "Панель кузова задняя Voyah Free",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8107934301",
+      "product_id": "2803",
+      "title": "Нижняя защита задняя aito M8",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7980749629",
+      "product_id": "2804",
+      "title": "Усилитель переднего бампера BYD Tang L",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8076143658",
+      "product_id": "2807",
+      "title": "Ноускат Toyota Rav4 XA50 рестайлинг",
+      "reasons": [
+        "not_publishable_status:needs_review"
+      ]
+    },
+    {
+      "source_id": "7436936099",
+      "product_id": "2810",
+      "title": "Капот Foton Tunland G7",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7532244876",
+      "product_id": "2813",
+      "title": "Усилитель переднего бампера Haval Jolion",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7532635950",
+      "product_id": "2819",
+      "title": "Дверь передняя правая Exeed VX",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8076724466",
+      "product_id": "2829",
+      "title": "Крыло переднее правое BYD Seal 06 GT",
+      "reasons": [
+        "noncanonical_duplicate"
+      ]
+    },
+    {
+      "source_id": "4332537031",
+      "product_id": "2832",
+      "title": "Дверь задняя правая Voyah Free (оригинал)",
+      "reasons": [
+        "noncanonical_duplicate"
+      ]
+    },
+    {
+      "source_id": "7244760703",
+      "product_id": "2837",
+      "title": "Облицовка бампера переднего нижняя Changan Hanter",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8108508559",
+      "product_id": "2844",
+      "title": "Крыло переднее левое BYD Seal 06 GT",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7948862005",
+      "product_id": "2845",
+      "title": "Накладка порога правая Volkswagen Tayron",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7532400665",
+      "product_id": "2851",
+      "title": "Дверь задняя правая Exeed VX",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8108289244",
+      "product_id": "2864",
+      "title": "Вертикальная накладка правой передней двери Exeed Exlantix ES (E3)",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8108241615",
+      "product_id": "2868",
+      "title": "Подкрылок правый передний aito M8",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "8076505811",
+      "product_id": "2888",
+      "title": "Крыло переднее левое BYD Seal 06 GT",
+      "reasons": [
+        "noncanonical_duplicate"
+      ]
+    },
+    {
+      "source_id": "7788174513",
+      "product_id": "2891",
+      "title": "Подкрылок передний правый Toyota Camry XV 80",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7628618213",
+      "product_id": "2904",
+      "title": "Решётка радиатора Lexus RX",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "7500854999",
+      "product_id": "2906",
+      "title": "Накладка переднего крыла правая Mercedes G-Class",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513169",
+      "product_id": "2909",
+      "title": "Передняя левая дверь Changan OSHAN Z6",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513170",
+      "product_id": "2910",
+      "title": "Передняя правая дверь Changan OSHAN Z6",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513171",
+      "product_id": "2911",
+      "title": "Задняя левая дверь Changan OSHAN Z6",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513172",
+      "product_id": "2912",
+      "title": "Задняя правая дверь Changan OSHAN Z6",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513173",
+      "product_id": "2913",
+      "title": "Боковая панель левая Changan OSHAN Z6",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513174",
+      "product_id": "2914",
+      "title": "Боковая панель правая Changan OSHAN Z6",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513175",
+      "product_id": "2915",
+      "title": "Левое зеркало Changan OSHAN Z6",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513176",
+      "product_id": "2916",
+      "title": "Передний бампер Changan OSHAN Z6",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513177",
+      "product_id": "2917",
+      "title": "Решетка переднего бампера Changan OSHAN Z6",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513178",
+      "product_id": "2918",
+      "title": "Задний бампер Changan OSHAN Z6",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513179",
+      "product_id": "2919",
+      "title": "Нижняя часть заднего бампера Changan OSHAN Z6",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513180",
+      "product_id": "2920",
+      "title": "Нижняя накладка заднего бампера Changan OSHAN Z6",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513181",
+      "product_id": "2921",
+      "title": "Дверь передняя левая Chevrolet Monza",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513182",
+      "product_id": "2922",
+      "title": "Дверь передняя правая Chevrolet Monza",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513183",
+      "product_id": "2923",
+      "title": "Дверь задняя правая Chevrolet Monza",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513184",
+      "product_id": "2924",
+      "title": "Дверь задняя левая Chevrolet Monza",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513185",
+      "product_id": "2925",
+      "title": "Крышка багажника Chevrolet Monza",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513186",
+      "product_id": "2926",
+      "title": "Передний бампер Chevrolet Monza",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513187",
+      "product_id": "2927",
+      "title": "Нижняя накладка переднего бампера Chevrolet Monza",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513188",
+      "product_id": "2928",
+      "title": "Усилитель заднего бампера Chevrolet Monza",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513189",
+      "product_id": "2929",
+      "title": "Задний бампер Chevrolet Monza",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513190",
+      "product_id": "2930",
+      "title": "Накладка заднего бампера Chevrolet Monza",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513191",
+      "product_id": "2931",
+      "title": "Решетка радиатора Chevrolet Monza",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513192",
+      "product_id": "2932",
+      "title": "Решетка переднего бампера Chevrolet Monza",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513193",
+      "product_id": "2933",
+      "title": "Накладка на противотуманную фару правая Chevrolet Monza",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513194",
+      "product_id": "2934",
+      "title": "Накладка на противотуманную фару левая Chevrolet Monza",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513195",
+      "product_id": "2935",
+      "title": "Накладка переднего бампера правая Chevrolet Monza",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513196",
+      "product_id": "2936",
+      "title": "Накладка переднего бампера левая Chevrolet Monza",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513197",
+      "product_id": "2937",
+      "title": "Капот Chevrolet Monza",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513198",
+      "product_id": "2938",
+      "title": "Крыло переднее правое Chevrolet Monza",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513199",
+      "product_id": "2939",
+      "title": "Крыло переднее левое Chevrolet Monza",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513200",
+      "product_id": "2940",
+      "title": "Подкрылок передний правый Chevrolet Monza",
+      "reasons": [
+        "missing_public_image"
+      ]
+    },
+    {
+      "source_id": "9044513201",
+      "product_id": "2941",
+      "title": "Подкрылок передний левый Chevrolet Monza",
+      "reasons": [
+        "missing_public_image"
+      ]
+    }
+  ],
+  "warnings": [
+    {
+      "source_id": "7692877743",
+      "product_id": "1703",
+      "type": "compatibility_without_catalog_route",
+      "values": [
+        "Nissan Rogue, III, 2020–2026"
+      ]
+    }
+  ],
+  "feed_policy": {
+    "offer_id": "Stable numeric product_id from catalog-url-map.json",
+    "availability": "available=false: catalog items are supplied from China by order and are not represented as local stock",
+    "price": "Current non-zero source price is exported in RUB; the sales note states that the manager may clarify it",
+    "vendor": "Omitted because the compatible vehicle brand is not evidence of the part manufacturer",
+    "filters": {
+      "custom_label_0": "Condition",
+      "custom_label_1": "Part category",
+      "custom_label_2": "All confirmed compatible vehicle brands",
+      "custom_label_3": "All confirmed compatible brand/model pairs",
+      "custom_label_4": "Supply mode: by order from China",
+      "categoryId": "Stable part-category ID",
+      "collectionId": "Stable brand/model catalog IDs; an offer may reference multiple collections"
+    }
+  }
+}

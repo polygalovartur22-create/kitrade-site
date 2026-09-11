@@ -386,7 +386,7 @@ if (isNonProductionBuild) {
   fs.writeFileSync(headersPath, `${headers}\n\n/*\n  X-Robots-Tag: noindex, nofollow, noarchive\n`);
 }
 fs.copyFileSync(path.join(projectDir, "public", "catalog-urls.json"), path.join(outputDir, "catalog-urls.json"));
-for (const filename of ["seo-map.json", "seo-map.csv", "search-target-map.json"]) {
+for (const filename of ["seo-map.json", "seo-map.csv", "search-target-map.json", "yandex-direct-feed.yml"]) {
   const source = path.join(projectDir, "public", filename);
   if (fs.existsSync(source)) fs.copyFileSync(source, path.join(outputDir, filename));
 }
