@@ -75,8 +75,10 @@ test("YML exports only complete publishable products and preserves filter data",
   assert.equal(offer.labels.custom_label_3, "Geely Coolray; Geely Binyue");
   assert.deepEqual(offer.compatibility, ["Geely Coolray, I, 2020–2024", "Geely Binyue, I, 2020–2024"]);
   assert.deepEqual(new Set(offer.collectionIds), new Set(["brandb1001", "modelm1001", "modelm1002"]));
-  assert.match(result.xml, /<name>Бампер A &amp; B &lt;тест&gt;<\/name>/);
+  assert.match(result.xml, /<name>Бампер A &amp; B &lt;тест&gt; A&amp;B<\/name>/);
   assert.match(result.xml, /<vendorCode>A&amp;B<\/vendorCode>/);
+  assert.match(result.xml, /Артикул: A&amp;B\./);
+  assert.doesNotMatch(result.xml, /\bOEM\s*:/i);
   assert.doesNotMatch(result.xml, /localhost|127\.0\.0\.1/);
   assertWellFormedGeneratedXml(result.xml);
 });
@@ -108,6 +110,13 @@ test("a feed-only override can improve one offer without changing catalog conten
   assert.match(result.xml, /<picture>https:\/\/example\.test\/assets\/feed-preview\/bumper-1001\.png<\/picture>/);
 });
 
+test("an existing article in the offer name is not appended twice", () => {
+  const input = fixture();
+  input.seoState.productState.get(1001).content.h1 = "Бампер Geely Coolray A&B";
+  const result = buildYmlFeed({ ...input, generatedAt: new Date("2026-09-10T10:15:00+07:00") });
+  assert.equal(result.model.offers[0].name, "Бампер Geely Coolray A&B");
+});
+
 test("a noncanonical duplicate is not exported as a second offer", () => {
   const input = fixture();
   input.seoState.productState.set(1002, {
@@ -131,6 +140,16 @@ test("generated current-catalog YML is well formed, unique, absolute and fully a
   assert.equal(report.counts.source_records, sourceItems.length);
   assert.equal(report.counts.exported_offers + report.counts.excluded_source_records, report.counts.source_records);
   assert.ok(report.counts.exported_offers > 1000, "Current catalog feed is unexpectedly small");
+  assert.equal(report.counts.advertising_filter_preview, 486);
+  assert.equal(report.counts.advertising_filter_with_article, 446);
+  assert.equal(report.counts.advertising_filter_without_article, 40);
+  assert.equal(report.counts.advertising_filter_name_contains_article, 446);
+  assert.equal(report.counts.advertising_filter_priority_prefix, 486);
+  assert.equal(report.counts.descriptions_with_oem_prefix, 0);
+  assert.ok(offerIds.slice(0, 486).every((id) => {
+    const offerXml = xml.match(new RegExp(`<offer id="${id}" available="false">[\\s\\S]*?<\\/offer>`))?.[0] || "";
+    return offerXml.includes("<custom_label_0>Новое</custom_label_0>") && Number(offerXml.match(/<price>([^<]+)<\/price>/)?.[1]) > 50000;
+  }));
   assert.ok(report.exclusions.some((entry) => entry.source_id === "7244736542" && entry.reasons.includes("missing_public_image")));
   assert.ok(xml.includes("https://xn--d1abifc1bn.xn--p1ai/catalog/product/"));
   assert.ok(fs.existsSync(path.join(projectDir, "assets", "feed-preview", "geely-galaxy-l7-headlight-1184-v2.png")));

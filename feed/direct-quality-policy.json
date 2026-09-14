@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-13",
+  "scope": "Stage 2 editorial and product-intent corrections; draft ads only",
+  "editorialCorrections": {
+    "1067": {
+      "before": "Фары передняя правая",
+      "after": "Фара передняя правая"
+    },
+    "1521": {
+      "before": "Аккп T33",
+      "after": "АКПП T33"
+    },
+    "1980": {
+      "before": " Coolrey",
+      "after": ""
+    },
+    "2013": {
+      "before": "нижня часть",
+      "after": "нижняя часть"
+    },
+    "2028": {
+      "before": " Coolrey",
+      "after": ""
+    },
+    "2625": {
+      "before": " Coolrey",
+      "after": ""
+    },
+    "2882": {
+      "before": " Coolrey -",
+      "after": ""
+    }
+  },
+  "orderedNegativePhrasesByType": {
+    "дверь": [
+      "[стекло двери]"
+    ],
+    "крышка багажника": [
+      "[фонарь крышки багажника]",
+      "[стекло крышки багажника]"
+    ],
+    "бампер": [
+      "[юбка бампера]",
+      "[амортизатор бампера]"
+    ]
+  },
+  "keywordOverrides": {
+    "1056": [
+      "фонарь x0341330013 рестайлинг 2024",
+      "фонарь li auto l7 x0341330013",
+      "фонарь лисян л7 x0341330013"
+    ],
+    "1208": [
+      "7051053800",
+      "фара правая geely okavango 7051053800",
+      "фара правая джили окаванго 7051053800"
+    ],
+    "1646": [
+      "5022060300",
+      "стекло лобовое geely monjaro 5022060300",
+      "стекло лобовое джили монжаро 5022060300"
+    ],
+    "1703": [
+      "двигатель kr15 ddt nissan rogue",
+      "двигатель nissan rogue 2020 2026"
+    ],
+    "1949": [
+      "бампер задний voyah free 2021",
+      "бампер voyah free 2021 2026",
+      "бампер задний воя фри 2021",
+      "бампер воя фри 2021 2026"
+    ]
+  },
+  "otherArticleNegatives": {
+    "1056": [
+      "x03 41330022"
+    ],
+    "1146": [
+      "x0341330013"
+    ],
+    "1208": [
+      "7051032100"
+    ],
+    "1274": [
+      "7051053800"
+    ],
+    "1605": [
+      "5022060300"
+    ],
+    "1646": [
+      "5022064600"
+    ]
+  },
+  "decisions": {
+    "1703": "Use separately confirmed Nissan Rogue compatibility. Common X-Trail manual intent remains in 1707; no invented difference between new engines.",
+    "1949": "Use the confirmed 2021 year for this offer; the other retained offer has restyling compatibility beginning in 2022.",
+    "orderedNegatives": "Exclude component-first queries without banning a complete door with glass or bumper with skirt when the whole part is named first. Do not minus the opposite side.",
+    "similarParts": "Keep separate offers and all five autotargeting categories. Unspecified part variants may still share demand; exact article filters and exclusions protect explicit article queries.",
+    "withinGroupOverlaps": "Generic and detailed keys selecting the same single product are intentional. Do not apply cross-minuses that exclude the same product from its own group.",
+    "articleNormalization": "Direct represents the hyphenated article X03-41330022 as two tokens in a negative phrase. Preserve the normalized live spelling x03 41330022."
+  }
+}

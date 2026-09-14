@@ -14,6 +14,17 @@ const normalizeKey = (value) => String(value || "")
 
 const unique = (values) => [...new Set(values.filter(Boolean))];
 
+function buildOfferName(baseName, article) {
+  const name = String(baseName || "").trim().replace(/\s+/g, " ");
+  const vendorCode = String(article || "").trim().replace(/\s+/g, " ");
+  if (!vendorCode || normalizeKey(name).includes(normalizeKey(vendorCode))) return name;
+  return `${name} ${vendorCode}`.trim();
+}
+
+function isAdvertisingOffer(offer) {
+  return normalizeKey(offer?.labels?.custom_label_0) === normalizeKey("Новое") && Number(offer?.price) > 50000;
+}
+
 export function escapeXml(value) {
   return String(value ?? "")
     .replaceAll("&", "&amp;")
@@ -135,7 +146,8 @@ function offerCandidate({ product, item, brand, model, category, content, config
   const siteUrl = String(config.siteUrl || "").replace(/\/$/, "");
   const siteOrigin = (() => { try { return new URL(siteUrl).origin; } catch { return ""; } })();
   const id = String(product.product_id || "");
-  const name = String(override.name || content?.h1 || product.name || item?.title || "").trim();
+  const baseName = String(content?.h1 || product.name || item?.title || "").trim();
+  const name = buildOfferName(override.name || baseName, content?.article);
   const price = formatPrice(item?.price);
   const categoryId = entityNumericId(category?.id);
   const url = absoluteUrl(siteUrl, product.canonical_path);
@@ -149,7 +161,7 @@ function offerCandidate({ product, item, brand, model, category, content, config
   const compatibility = compatibilityRows(item, brand, model);
 
   if (!/^\d{1,100}$/.test(id)) reasons.push("invalid_offer_id");
-  if (!name) reasons.push("missing_name");
+  if (!baseName) reasons.push("missing_name");
   if (!price) reasons.push("invalid_or_missing_price");
   if (!categoryId || !/^\d{1,18}$/.test(categoryId) || Number(categoryId) <= 0) reasons.push("invalid_or_missing_category");
   if (!validPublicUrl(url, { siteOrigin, sameOrigin: true })) reasons.push("invalid_product_url");
@@ -189,8 +201,8 @@ function offerCandidate({ product, item, brand, model, category, content, config
   }
 
   const descriptionParts = [
-    name,
-    content?.article ? `OEM: ${content.article}.` : "",
+    baseName,
+    content?.article ? `Артикул: ${content.article}.` : "",
     content?.condition ? `Состояние: ${content.condition}.` : "",
     content?.origin ? `Происхождение: ${content.origin}.` : "",
     compatibility.length ? `Совместимость: ${compatibility.map(compatibilityText).join("; ")}.` : "",
@@ -215,6 +227,7 @@ function offerCandidate({ product, item, brand, model, category, content, config
 export function validateFeedModel(model) {
   const errors = [];
   const offerIds = new Set();
+  const offerUrls = new Set();
   const categoryIds = new Set(model.categories.map((entry) => String(entry.id)));
   const collectionIds = new Set(model.collections.map((entry) => String(entry.id)));
   let siteOrigin = "";
@@ -224,12 +237,16 @@ export function validateFeedModel(model) {
     offerIds.add(offer.id);
     if (!offer.name) errors.push(`Missing name: ${offer.id}`);
     if (!validPublicUrl(offer.url, { siteOrigin, sameOrigin: true }) || /\s/.test(offer.url)) errors.push(`Invalid product URL: ${offer.id}`);
+    if (offerUrls.has(offer.url)) errors.push(`Duplicate product URL: ${offer.id}`);
+    offerUrls.add(offer.url);
     if (!offer.pictures.length || offer.pictures.some((picture) => !validPublicUrl(picture) || /\s/.test(picture))) errors.push(`Invalid picture URL: ${offer.id}`);
     if (!categoryIds.has(String(offer.categoryId))) errors.push(`Unknown category: ${offer.id}`);
     if (!(Number(offer.price) > 0) || offer.currencyId !== "RUB") errors.push(`Invalid price/currency: ${offer.id}`);
     if (offer.available !== false) errors.push(`Availability must describe preorder, not local stock: ${offer.id}`);
     if (offer.collectionIds.some((id) => !collectionIds.has(String(id)))) errors.push(`Unknown collection: ${offer.id}`);
     if (offer.compatibility.length > 10) errors.push(`Too many compatibility properties: ${offer.id}`);
+    if (offer.vendorCode && !normalizeKey(offer.name).includes(normalizeKey(offer.vendorCode))) errors.push(`Article missing from name: ${offer.id}`);
+    if (/\bOEM\s*:/iu.test(offer.description)) errors.push(`Unconfirmed OEM wording in description: ${offer.id}`);
   }
   if (errors.length) throw new Error(`YML feed validation failed:\n${errors.join("\n")}`);
   return true;
@@ -350,7 +367,7 @@ export function buildYmlFeed({ items, registry, config, seoState, offerOverrides
     .filter((category) => usedCategoryIds.has(String(category.id)))
     .sort((a, b) => Number(a.id) - Number(b.id));
   const feedCollections = [...collections.values()].sort((a, b) => a.id.localeCompare(b.id, "ru"));
-  offers.sort((a, b) => Number(a.id) - Number(b.id));
+  offers.sort((a, b) => Number(isAdvertisingOffer(b)) - Number(isAdvertisingOffer(a)) || Number(a.id) - Number(b.id));
 
   const model = {
     siteUrl: String(config.siteUrl || "").replace(/\/$/, ""),
@@ -364,11 +381,19 @@ export function buildYmlFeed({ items, registry, config, seoState, offerOverrides
   const reasonCounts = {};
   for (const exclusion of exclusions) for (const reason of exclusion.reasons) reasonCounts[reason] = (reasonCounts[reason] || 0) + 1;
   const publishableUniqueProducts = registry.entities.products.filter((product) => product.status === "active" && sourceById.has(String(product.source_id))).length;
+  const advertisingOffers = offers.filter(isAdvertisingOffer);
+  const names = new Map();
+  for (const offer of offers) {
+    const key = normalizeKey(offer.name);
+    if (!names.has(key)) names.set(key, []);
+    names.get(key).push(offer.id);
+  }
+  const duplicateNameGroups = [...names.values()].filter((ids) => ids.length > 1);
   const report = {
     generated_at: new Date(generatedAt).toISOString(),
     feed_file: `public/${YML_FEED_FILENAME}`,
     proposed_public_url: absoluteUrl(config.siteUrl, YML_FEED_PUBLIC_PATH),
-    status: "created_locally_not_published_not_imported",
+    status: "built_locally_import_status_is_external",
     counts: {
       source_records: sourceRows.length,
       unique_source_records: sourceById.size,
@@ -381,13 +406,23 @@ export function buildYmlFeed({ items, registry, config, seoState, offerOverrides
       categories: feedCategories.length,
       collections: feedCollections.length,
       warnings: warnings.length,
+      duplicate_offer_name_groups: duplicateNameGroups.length,
+      advertising_filter_preview: advertisingOffers.length,
+      advertising_filter_with_article: advertisingOffers.filter((offer) => offer.vendorCode).length,
+      advertising_filter_without_article: advertisingOffers.filter((offer) => !offer.vendorCode).length,
+      advertising_filter_name_contains_article: advertisingOffers.filter((offer) => offer.vendorCode && normalizeKey(offer.name).includes(normalizeKey(offer.vendorCode))).length,
+      advertising_filter_priority_prefix: offers.findIndex((offer) => !isAdvertisingOffer(offer)),
+      descriptions_with_oem_prefix: offers.filter((offer) => /\bOEM\s*:/iu.test(offer.description)).length,
     },
     exclusion_reason_counts: reasonCounts,
     duplicate_source_ids: [...duplicateSourceIds].sort(),
     exclusions,
     warnings,
+    duplicate_offer_name_groups: duplicateNameGroups,
     feed_policy: {
       offer_id: "Stable numeric product_id from catalog-url-map.json",
+      offer_name: "Part plus compatible brand/model plus confirmed article when one is available; an article is never invented",
+      offer_order: "Advertising candidates (condition New and price above 50,000 RUB) come first, then all other offers; IDs remain stable and each segment is sorted by numeric ID",
       availability: "available=false: catalog items are supplied from China by order and are not represented as local stock",
       price: "Current non-zero source price is exported in RUB; the sales note states that the manager may clarify it",
       vendor: "Omitted because the compatible vehicle brand is not evidence of the part manufacturer",

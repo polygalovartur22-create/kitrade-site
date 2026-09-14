@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-09-11T14:42:45.081Z",
+  "generated_at": "2026-09-13T12:36:02.255Z",
   "feed_file": "public/yandex-direct-feed.yml",
   "proposed_public_url": "https://xn--d1abifc1bn.xn--p1ai/yandex-direct-feed.yml",
-  "status": "created_locally_not_published_not_imported",
+  "status": "built_locally_import_status_is_external",
   "counts": {
     "source_records": 1941,
     "unique_source_records": 1941,
@@ -14,7 +14,14 @@
     "excluded_publishable_products": 322,
     "categories": 12,
     "collections": 115,
-    "warnings": 1
+    "warnings": 1,
+    "duplicate_offer_name_groups": 0,
+    "advertising_filter_preview": 486,
+    "advertising_filter_with_article": 446,
+    "advertising_filter_without_article": 40,
+    "advertising_filter_name_contains_article": 446,
+    "advertising_filter_priority_prefix": 486,
+    "descriptions_with_oem_prefix": 0
   },
   "exclusion_reason_counts": {
     "not_publishable_status:needs_review": 25,
@@ -2810,8 +2817,11 @@
       ]
     }
   ],
+  "duplicate_offer_name_groups": [],
   "feed_policy": {
     "offer_id": "Stable numeric product_id from catalog-url-map.json",
+    "offer_name": "Part plus compatible brand/model plus confirmed article when one is available; an article is never invented",
+    "offer_order": "Advertising candidates (condition New and price above 50,000 RUB) come first, then all other offers; IDs remain stable and each segment is sorted by numeric ID",
     "availability": "available=false: catalog items are supplied from China by order and are not represented as local stock",
     "price": "Current non-zero source price is exported in RUB; the sales note states that the manager may clarify it",
     "vendor": "Omitted because the compatible vehicle brand is not evidence of the part manufacturer",
